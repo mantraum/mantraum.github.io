@@ -1,5 +1,6 @@
 // 태스트용 원그리기
 function draw00() {
+
   var canvas = document.getElementById('canvas01');
 
   
@@ -36,6 +37,7 @@ function draw00() {
 반지금 260
 */
 function draw01() {
+
   var canvas = document.getElementById('canvas01');
 
   
