@@ -31,11 +31,8 @@ function draw00() {
   }
 }
 
-/* 원그리기
-600 바이 600 캔버스
-중심 300,300
-반지금 260
-*/
+// 원그리기
+
 function draw01() {
 
   var canvas = document.getElementById('canvas01');
