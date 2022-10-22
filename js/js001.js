@@ -99,42 +99,52 @@ function draw02() {
 	ctx.stroke();
 
 	// 원점
+	ctx.beginPath();
 	ctx.arc(300, 300, 1, 0, Math.PI*2, true);
 	ctx.stroke();
 
 	// 머큐리
+	ctx.beginPath();
 	ctx.arc(300, 300, 100, 0, Math.PI*2, true);
 	ctx.stroke();
 
 	// 비너스
+	ctx.beginPath();
 	ctx.arc(300, 300, 120, 0, Math.PI*2, true);
 	ctx.stroke();
 
 	// 어쓰
+	ctx.beginPath();
 	ctx.arc(300, 300, 140, 0, Math.PI*2, true);
 	ctx.stroke();
 
 	// 마르스
+	ctx.beginPath();
 	ctx.arc(300, 300, 160, 0, Math.PI*2, true);
 	ctx.stroke();
 
 	// 쥬피터
+	ctx.beginPath();
 	ctx.arc(300, 300, 200, 0, Math.PI*2, true);
 	ctx.stroke();
 	
-	// 쥬피터
+	// 새턴
+	ctx.beginPath();
 	ctx.arc(300, 300, 220, 0, Math.PI*2, true);
 	ctx.stroke();
 
 	// 우라누스
+	ctx.beginPath();
 	ctx.arc(300, 300, 250, 0, Math.PI*2, true);
 	ctx.stroke();
 
 	// 냅튠
+	ctx.beginPath();
 	ctx.arc(300, 300, 270, 0, Math.PI*2, true);
 	ctx.stroke();
 
 	// 플루토
+	ctx.beginPath();
 	ctx.arc(300, 300, 290, 0, Math.PI*2, true);
 	ctx.stroke();
   }
