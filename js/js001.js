@@ -99,7 +99,7 @@ function draw02() {
 	ctx.stroke();
 
 	ctx.arc(300, 300, 1, 0, Math.PI*2, true);
-	ctx.fill();
+	ctx.stroke();
   }
 
 
