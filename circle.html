@@ -17,10 +17,12 @@
 	var canvas = document.getElementById('c000');
 
 	if (canvas.getContext){
+
 	  var ctx = canvas.getContext('2d');
+
 	  // drawing code here
 	  for (var i = 0; i < 4; i++) {
-		  for (var j = 0; < 3; j++) {
+		  for (var j = 0; j < 3; j++) {
 			ctx.beginPath();
 			var x = 25 + j * 50; // x coordinate
 			var y = 25 + i * 50; // y coordinate
