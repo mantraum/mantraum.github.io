@@ -87,16 +87,16 @@ function draw02() {
 
     var ctx = canvas.getContext('2d');
 
-	ctx.beginPath();
-
-	var x = 300; // x coordinate
-	var y = 300; // y coordinate
-	var radius = 260; // Arc radius
-	var startAngle = 0; // Starting point on circle
-	var endAngle = Math.PI*2;
-	ctx.arc(x, y, radius, startAngle, endAngle, true);
-
-	ctx.stroke();
+//	ctx.beginPath();
+//
+//	var x = 300; // x coordinate
+//	var y = 300; // y coordinate
+//	var radius = 260; // Arc radius
+//	var startAngle = 0; // Starting point on circle
+//	var endAngle = Math.PI*2;
+//	ctx.arc(x, y, radius, startAngle, endAngle, true);
+//
+//	ctx.stroke();
 
 	// ¿øÁ¡
 	ctx.beginPath();
