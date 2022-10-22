@@ -3,6 +3,8 @@
 
 	if (canvas.getContext){
 
+		alert("drawing code here");
+
 	  var ctx = canvas.getContext('2d');
 
 	  // drawing code here
