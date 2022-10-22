@@ -22,7 +22,7 @@ function draw00() {
   var canvas = document.getElementById('canvas01');
 
   
-  if (canvas.getContext()) {
+  if (canvas.getContext) {
 
     var ctx = canvas.getContext('2d');
 
@@ -56,7 +56,7 @@ function draw01() {
   var canvas = document.getElementById('canvas01');
 
   
-  if (canvas.getContext()) {
+  if (canvas.getContext) {
 
     var ctx = canvas.getContext('2d');
 
