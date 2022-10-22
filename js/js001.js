@@ -102,7 +102,6 @@ function draw02() {
 // 마지막 그린 점이 되는 점에서,
 // 다음 원을 그리기 시작하려는 점까지,
 // 직선을 그리게 된다.
-// moveTo()로 직선을 그리지 못하게 건너뛸 수도 있다.
 
 	// 원점
 	ctx.beginPath();
@@ -150,7 +149,7 @@ function draw02() {
 	ctx.stroke();
 
 	// 플루토
-	ctx.moveTo(300, 300);
+	ctx.beginPath();
 	ctx.arc(300, 300, 290, 0, Math.PI*2, true);
 	ctx.stroke();
   }
