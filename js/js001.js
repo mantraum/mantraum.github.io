@@ -52,5 +52,7 @@ function draw01() {
 	var endAngle = Math.PI;
 	ctx.arc(x, y, radius, startAngle, endAngle, true);
 
+	ctx.stroke();
+
 
 }
