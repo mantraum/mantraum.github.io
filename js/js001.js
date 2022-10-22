@@ -1,7 +1,12 @@
 function draw() {
   var canvas = document.getElementById('canvas01');
-  if (canvas.getContext) {
+
+  
+  if (canvas.getContext()) {
+
     var ctx = canvas.getContext('2d');
+
+	alert(ctx);
 
     for (var i = 0; i < 4; i++) {
       for (var j = 0; j < 3; j++) {
