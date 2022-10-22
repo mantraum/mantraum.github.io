@@ -8,49 +8,12 @@
   <meta name="Description" content="">
   <title>Document</title>
 
-  <style type="text/css">
-	canvas { border: 1px solid black; }
-  </style>
+  <link href="./css/css001.css" rel="stylesheet" type="text/css">
 
-  <script type="text/javascript">
-  <!--
-	var canvas = document.getElementById('c000');
+  <script type="text/javascript" src="./js/js001.js"></script>
+  
 
-	if (canvas.getContext){
 
-	  var ctx = canvas.getContext('2d');
-
-	  // drawing code here
-	  for (var i = 0; i < 4; i++) {
-		  for (var j = 0; j < 3; j++) {
-
-			ctx.beginPath();
-
-			var x = 25 + j * 50; // x coordinate
-			var y = 25 + i * 50; // y coordinate
-			var radius = 20; // Arc radius
-			var startAngle = 0; // Starting point on circle
-			var endAngle = Math.PI + (Math.PI * j) / 2; // End point on circle
-			var anticlockwise = i % 2 == 0 ? false : true; // clockwise or anticlockwise
-
-			ctx.arc(x, y, radius, startAngle, endAngle, anticlockwise);
-
-			if (i > 1) {
-
-			  ctx.fill();
-
-			} else {
-
-			  ctx.stroke();
-			}
-		  }
-		}
-	} else {
-	  // canvas-unsupported code here
-	  alert("canvas-unsupported!!!");
-	}
-  //-->
-  </script>
  </head>
 
 
