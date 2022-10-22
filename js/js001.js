@@ -52,6 +52,7 @@ function draw01() {
 	ctx.arc(x, y, radius, startAngle, endAngle, true);
 
 	ctx.stroke();
+  }
 
 
 }
