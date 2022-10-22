@@ -76,7 +76,7 @@ function draw01() {
 }
 
 
-// 원그리기, 원점
+// 원그리기, 원점, 행성 별 원궤도
 
 function draw02() {
 
@@ -152,6 +152,81 @@ function draw02() {
 	ctx.beginPath();
 	ctx.arc(300, 300, 290, 0, Math.PI*2, true);
 	ctx.stroke();
+  }
+
+
+}
+
+
+// 원그리기, 원점, 행성 별 원궤도, 천궁도
+
+function draw03() {
+
+  var canvas = document.getElementById('canvas01');
+
+  
+  if (canvas.getContext) {
+
+    var ctx = canvas.getContext('2d');
+
+
+	// 원점
+	ctx.beginPath();
+	ctx.arc(300, 300, 3, 0, Math.PI*2, true);
+	ctx.stroke();
+
+	// 머큐리
+	ctx.beginPath();
+	ctx.arc(300, 300, 100, 0, Math.PI*2, true);
+	ctx.stroke();
+
+	// 비너스
+	ctx.beginPath();
+	ctx.arc(300, 300, 120, 0, Math.PI*2, true);
+	ctx.stroke();
+
+	// 어쓰
+	ctx.beginPath();
+	ctx.arc(300, 300, 140, 0, Math.PI*2, true);
+	ctx.stroke();
+
+	// 마르스
+	ctx.beginPath();
+	ctx.arc(300, 300, 160, 0, Math.PI*2, true);
+	ctx.stroke();
+
+	// 쥬피터
+	ctx.beginPath();
+	ctx.arc(300, 300, 200, 0, Math.PI*2, true);
+	ctx.stroke();
+	
+	// 새턴
+	ctx.beginPath();
+	ctx.arc(300, 300, 220, 0, Math.PI*2, true);
+	ctx.stroke();
+
+	// 우라누스
+	ctx.beginPath();
+	ctx.arc(300, 300, 250, 0, Math.PI*2, true);
+	ctx.stroke();
+
+	// 냅튠
+	ctx.beginPath();
+	ctx.arc(300, 300, 270, 0, Math.PI*2, true);
+	ctx.stroke();
+
+	// 플루토
+	ctx.beginPath();
+	ctx.arc(300, 300, 280, 0, Math.PI*2, true);
+	ctx.stroke();
+
+	// 외곽선
+	ctx.beginPath();
+	ctx.arc(300, 300, 290, 0, Math.PI*2, true);
+	ctx.stroke();
+
+	// 천궁도 표시하기
+
   }
 
 
