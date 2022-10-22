@@ -1,4 +1,5 @@
-function draw() {
+// 태스트용 원그리기
+function draw00() {
   var canvas = document.getElementById('canvas01');
 
   
@@ -6,7 +7,6 @@ function draw() {
 
     var ctx = canvas.getContext('2d');
 
-	alert(ctx);
 
     for (var i = 0; i < 4; i++) {
       for (var j = 0; j < 3; j++) {
@@ -28,4 +28,29 @@ function draw() {
       }
     }
   }
+}
+
+/* 원그리기
+600 바이 600 캔버스
+중심 300,300
+반지금 260
+*/
+function draw01() {
+  var canvas = document.getElementById('canvas01');
+
+  
+  if (canvas.getContext()) {
+
+    var ctx = canvas.getContext('2d');
+
+	ctx.beginPath();
+
+	var x = 300; // x coordinate
+	var y = 300; // y coordinate
+	var radius = 260; // Arc radius
+	var startAngle = 0; // Starting point on circle
+	var endAngle = Math.PI;
+	ctx.arc(x, y, radius, startAngle, endAngle, true);
+
+
 }
