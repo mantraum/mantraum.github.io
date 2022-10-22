@@ -74,3 +74,33 @@ function draw01() {
 
 
 }
+
+
+// 원그리기, 원점
+
+function draw02() {
+
+  var canvas = document.getElementById('canvas01');
+
+  
+  if (canvas.getContext) {
+
+    var ctx = canvas.getContext('2d');
+
+	ctx.beginPath();
+
+	var x = 300; // x coordinate
+	var y = 300; // y coordinate
+	var radius = 260; // Arc radius
+	var startAngle = 0; // Starting point on circle
+	var endAngle = Math.PI*2;
+	ctx.arc(x, y, radius, startAngle, endAngle, true);
+
+	ctx.stroke();
+
+	ctx.arc(300, 300, 1, 0, Math.PI*2, true);
+	ctx.fill();
+  }
+
+
+}
