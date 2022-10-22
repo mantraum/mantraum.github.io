@@ -227,8 +227,8 @@ function draw03() {
 
 	// 천궁도 표시하기
 	ctx.beginPath();
-	ctx.moveTo(300,300);
-	ctx.lineTo(400,120);
+	ctx.moveTo(300, 300);
+	ctx.lineTo(400, 120);
 	ctx.stroke();
 
 
