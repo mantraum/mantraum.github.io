@@ -158,7 +158,7 @@ function draw02() {
 }
 
 
-// 원그리기, 원점, 행성 별 원궤도, 천궁도
+// 원그리기, 원점, 행성 별 원궤도, 현재월일 직선으로 표시하기
 
 function draw03() {
 
@@ -229,15 +229,6 @@ function draw03() {
 	drawLineFrmCurrMonthNDate();
 
 
-	// 천궁도 표시하기
-//	ctx.beginPath();
-//	ctx.moveTo(300, 300);
-//	ctx.lineTo(400, 120);
-//	ctx.stroke();
-
-
-
-
   }
 
 
@@ -256,6 +247,10 @@ function drawLineFrmCurrMonthNDate() {
 	let e_date = new Date(2022,11, 31); // 올해 마지막 일자
 	let to_date = new Date(); // 오늘 일자
 
+	console.log("s_date: " + s_date);
+	console.log("e_date: " + e_date);
+	console.log("to_date: " + to_date);
+
 	var milli_to_date = Date.now();//유타코 1970.1.1부터의 오늘까지의 밀리초계산
 	var milli_s_date = Date.parse(s_date);//유타코 1970.1.1부터의 올해첫일까지의 밀리초계산
 	var milli_e_date = Date.parse(e_date);//유타코 1970.1.1부터의 올해막일까지의 밀리초계산
@@ -263,12 +258,12 @@ function drawLineFrmCurrMonthNDate() {
 	//오늘이 경과한 일수가 일년에 대해 가지는 비율값
 	var ratio = (milli_to_date-milli_s_date)/(milli_e_date-milli_s_date);
 
-	console.log("유타코 1970.1.1부터의 오늘까지의 밀리초계산: " + milli_to_date);
-	console.log("유타코 1970.1.1부터의 올해첫일까지의 밀리초계산: " + milli_s_date);
-	console.log("유타코 1970.1.1부터의 올해막일까지의 밀리초계산: " + milli_e_date);
+	console.log("milli_to_date: " + milli_to_date);
+	console.log("milli_s_date: " + milli_s_date);
+	console.log("milli_e_date: " + milli_e_date);
 
-	console.log("오늘이 경과한 일수가 일년에 대해 가지는 비율값: " + ratio);
-	console.log("오늘이 경과한 일수가 일년에 대해 가지는 비율값: " + Math.PI*ratio);
+	console.log("ratio: " + ratio);
+	console.log("Math.PI*ratio: " + Math.PI*ratio);
 
 
 
@@ -287,15 +282,15 @@ function drawLineFrmCurrMonthNDate() {
 		x_r = 290*Math.cos(Math.PI*0.3);
 		y_r = 290*Math.sin(Math.PI*0.3);
 
-		console.log("외곽선 반지름 290 : "+x_r);
-		console.log("외곽선 반지름 290 : "+y_r);
+		console.log("x_r : "+x_r);
+		console.log("y_r : "+y_r);
 
 		ctx.beginPath();
 		ctx.moveTo(300, 300);
 		ctx.lineTo(300+x_r, 300+y_r);
 
 		ctx.lineWidth ="3";//선굵기
-		ctx.strokeStyle = 'rgba(255, 255, 0, 1)';//선색깔과 투명도, 래드
+		ctx.strokeStyle = 'rgba(255, 255, 0, 1)';//선색깔과 투명도, 노랑
 		ctx.lineCap = "round"; //선끝모양
 		
 		ctx.stroke();
@@ -304,15 +299,15 @@ function drawLineFrmCurrMonthNDate() {
 		x_r = 290*Math.cos(Math.PI*0.6);
 		y_r = 290*Math.sin(Math.PI*0.6);
 
-		console.log("외곽선 반지름 290 : "+x_r);
-		console.log("외곽선 반지름 290 : "+y_r);
+		console.log("x_r : "+x_r);
+		console.log("y_r : "+y_r);
 
 		ctx.beginPath();
 		ctx.moveTo(300, 300);
 		ctx.lineTo(300+x_r, 300+y_r);
 
 		ctx.lineWidth ="3";//선굵기
-		ctx.strokeStyle = 'rgba(0, 255, 255, 1)';//선색깔과 투명도, 래드
+		ctx.strokeStyle = 'rgba(0, 255, 255, 1)';//선색깔과 투명도, 하늘
 		ctx.lineCap = "round"; //선끝모양
 		
 		ctx.stroke();
@@ -322,8 +317,8 @@ function drawLineFrmCurrMonthNDate() {
 		x_r = 290*Math.cos(Math.PI);
 		y_r = 290*Math.sin(Math.PI);
 
-		console.log("외곽선 반지름 290 : "+x_r);
-		console.log("외곽선 반지름 290 : "+y_r);
+		console.log("x_r : "+x_r);
+		console.log("y_r : "+y_r);
 
 		ctx.beginPath();
 		ctx.moveTo(300, 300);
@@ -339,8 +334,8 @@ function drawLineFrmCurrMonthNDate() {
 		x_r = 140*Math.cos(Math.PI*ratio);
 		y_r = 140*Math.sin(Math.PI*ratio);
 
-		console.log("지구별 현재선 반지름 140 : "+x_r);
-		console.log("지구별 현재선 반지름 140 : "+y_r);
+		console.log("x_r : "+x_r);
+		console.log("y_r : "+y_r);
 
 		ctx.beginPath();
 		ctx.moveTo(300, 300);
@@ -355,8 +350,8 @@ function drawLineFrmCurrMonthNDate() {
 		x_r = 140*Math.cos(Math.PI*0.5 + Math.PI*ratio);
 		y_r = 140*Math.sin(Math.PI*0.5 + Math.PI*ratio);
 
-		console.log("지구별 현재선 반지름 140 : "+x_r);
-		console.log("지구별 현재선 반지름 140 : "+y_r);
+		console.log("x_r : "+x_r);
+		console.log("y_r : "+y_r);
 
 		ctx.beginPath();
 		ctx.moveTo(300, 300);
@@ -372,8 +367,9 @@ function drawLineFrmCurrMonthNDate() {
 		x_r = 140*Math.cos(Math.PI + Math.PI*ratio);
 		y_r = 140*Math.sin(Math.PI + Math.PI*ratio);
 
-		console.log("지구별 현재선 반지름 140 : "+x_r);
-		console.log("지구별 현재선 반지름 140 : "+y_r);
+		console.log("x_r : "+x_r);
+		console.log("y_r : "+y_r);
+
 
 		ctx.beginPath();
 		ctx.moveTo(300, 300);
@@ -390,8 +386,8 @@ function drawLineFrmCurrMonthNDate() {
 		x_r = 140*Math.cos(Math.PI*1.25 + Math.PI*ratio);
 		y_r = 140*Math.sin(Math.PI*1.25 + Math.PI*ratio);
 
-		console.log("지구별 현재선 반지름 140 : "+x_r);
-		console.log("지구별 현재선 반지름 140 : "+y_r);
+		console.log("x_r : "+x_r);
+		console.log("y_r : "+y_r);
 
 		ctx.beginPath();
 		ctx.moveTo(300, 300);
@@ -408,15 +404,101 @@ function drawLineFrmCurrMonthNDate() {
 }
 
 
-//양자리 3월 21일 ~ 4월 19일
-//황소자리 4월 20일 ~ 5월 20일
-//쌍둥이자리 5월 21일 ~ 6월 21일
-//게자리 6월 22일 ~ 7월 22일
-//사자자리 7월 23일 ~ 8월 22일
-//처녀자리 8월 23일 ~ 9월 22일
-//천칭자리 9월 23일 ~ 10월 22일
-//전갈자리 10월 23일 ~ 11월 22일
-//궁수자리 11월 23일 ~ 12월 24일
-//염소자리 12월 25일 ~ 1월 19일
-//물병자리 1월 20일 ~ 2월 18일
-//물고기자리 2월 19일 ~ 3월 20일
+// 원그리기, 원점, 행성 별 원궤도, 현재월일 직선으로 표시하기
+
+function draw04() {
+
+  var canvas = document.getElementById('canvas01');
+
+  
+  if (canvas.getContext) {
+
+    var ctx = canvas.getContext('2d');
+
+
+	// 원점
+	ctx.beginPath();
+	ctx.arc(300, 300, 3, 0, Math.PI*2, true);
+	ctx.stroke();
+
+	// 행성별 원궤도 그리기
+
+	// 머큐리
+	ctx.beginPath();
+	ctx.arc(300, 300, 100, 0, Math.PI*2, true);
+	ctx.stroke();
+
+	// 비너스
+	ctx.beginPath();
+	ctx.arc(300, 300, 120, 0, Math.PI*2, true);
+	ctx.stroke();
+
+	// 어쓰
+	ctx.beginPath();
+	ctx.arc(300, 300, 140, 0, Math.PI*2, true);
+	ctx.stroke();
+
+	// 마르스
+	ctx.beginPath();
+	ctx.arc(300, 300, 160, 0, Math.PI*2, true);
+	ctx.stroke();
+
+	// 쥬피터
+	ctx.beginPath();
+	ctx.arc(300, 300, 200, 0, Math.PI*2, true);
+	ctx.stroke();
+	
+	// 새턴
+	ctx.beginPath();
+	ctx.arc(300, 300, 220, 0, Math.PI*2, true);
+	ctx.stroke();
+
+	// 우라누스
+	ctx.beginPath();
+	ctx.arc(300, 300, 250, 0, Math.PI*2, true);
+	ctx.stroke();
+
+	// 냅튠
+	ctx.beginPath();
+	ctx.arc(300, 300, 270, 0, Math.PI*2, true);
+	ctx.stroke();
+
+	// 플루토
+	ctx.beginPath();
+	ctx.arc(300, 300, 280, 0, Math.PI*2, true);
+	ctx.stroke();
+
+	// 천궁도 영역 표시하기
+	//양자리 3월 21일 ~ 4월 19일
+	//황소자리 4월 20일 ~ 5월 20일
+	//쌍둥이자리 5월 21일 ~ 6월 21일
+	//게자리 6월 22일 ~ 7월 22일
+	//사자자리 7월 23일 ~ 8월 22일
+	//처녀자리 8월 23일 ~ 9월 22일
+	//천칭자리 9월 23일 ~ 10월 22일
+	//전갈자리 10월 23일 ~ 11월 22일
+	//궁수자리 11월 23일 ~ 12월 24일
+	//염소자리 12월 25일 ~ 1월 19일
+	//물병자리 1월 20일 ~ 2월 18일
+	//물고기자리 2월 19일 ~ 3월 20일
+
+	// 외곽선
+	ctx.beginPath();
+	ctx.arc(300, 300, 290, 0, Math.PI*2, true);
+	ctx.stroke();
+
+	//외곽선에 맞는 오늘날짜 표시하기 
+	drawLineFrmCurrMonthNDate();
+
+
+	
+
+
+
+
+  }
+
+
+}
+
+
