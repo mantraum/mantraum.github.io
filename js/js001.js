@@ -472,17 +472,14 @@ function draw04() {
 
 	var dd = new Date();
 
-	let tell_s = genRtofrmMonthDay(new Date(2022,2,21).toString());
-	let tell_e = genRtofrmMonthDay(new Date(2022,3,19).toString());
-
 	//양자리 3월 21일 ~ 4월 19일
 	dd.setMonth(2);
 	dd.setMonth(21);
-	tell_s = genRtofrmMonthDay(dd.toString());
+	let tell_s = genRtofrmMonthDay(dd.toString());
 
 	dd.setMonth(3);
 	dd.setMonth(19);
-	tell_e = genRtofrmMonthDay(dd.toString());
+	let tell_e = genRtofrmMonthDay(dd.toString());
 
 	ctx.beginPath();
 	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
