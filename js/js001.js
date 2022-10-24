@@ -671,7 +671,7 @@ function draw04() {
 		var milli_e_date = Date.parse(e_date);//유타코 1970.1.1부터의 올해막일까지의 밀리초계산 
 
 		//오늘이 경과한 일수가 일년에 대해 가지는 비율값
-		var ratio = (Date.parse(to_date)-milli_s_date)/(milli_e_date-milli_s_date);
+		var ratio = Math.round((Date.parse(to_date)-milli_s_date)/(milli_e_date-milli_s_date));
 
 		console.log("milli_to_date: " + Date.parse(to_date));
 		console.log("milli_s_date: " + milli_s_date);
