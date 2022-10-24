@@ -230,10 +230,10 @@ function draw03() {
 
 
 	// 천궁도 표시하기
-	ctx.beginPath();
-	ctx.moveTo(300, 300);
-	ctx.lineTo(400, 120);
-	ctx.stroke();
+//	ctx.beginPath();
+//	ctx.moveTo(300, 300);
+//	ctx.lineTo(400, 120);
+//	ctx.stroke();
 
 
 
@@ -268,6 +268,7 @@ function drawLineFrmCurrMonthNDate() {
 	console.log("유타코 1970.1.1부터의 올해막일까지의 밀리초계산: " + milli_e_date);
 
 	console.log("오늘이 경과한 일수가 일년에 대해 가지는 비율값: " + ratio);
+	console.log("오늘이 경과한 일수가 일년에 대해 가지는 비율값: " + Math.PI*2*ratio);
 
 
 
@@ -293,7 +294,11 @@ function drawLineFrmCurrMonthNDate() {
 		ctx.beginPath();
 		ctx.moveTo(300, 300);
 		ctx.lineTo(300+x_r, 300+y_r);
-		ctx.strokeStyle = 'rgba(255, 0, 0, 0.5)';
+
+		ctx.lineWidth ="3";//선굵기
+		ctx.strokeStyle = 'rgba(255, 0, 0, 1)';//선색깔과 투명도
+		ctx.lineCap = "round"; //선끝모양
+		
 		ctx.stroke();
 
 
