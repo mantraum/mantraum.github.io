@@ -524,8 +524,8 @@ function draw04() {
 
 	function genRtofrmMonthDay(da_te) {
 
-			let s_date = new Date(da_te.getFullYear(),0, 1); //올해 첫번째 일자, 월은 0에서 11까지.
-			let e_date = new Date(da_te.getFullYear(),11, 31); // 올해 마지막 일자
+			let s_date = new Date(new Date(da_te).getFullYear(),0, 1); //올해 첫번째 일자, 월은 0에서 11까지.
+			let e_date = new Date(new Date(da_te).getFullYear(),11, 31); // 올해 마지막 일자
 			let to_date = new Date(da_te);
 
 			var milli_s_date = Date.parse(s_date);//유타코 1970.1.1부터의 올해첫일까지의 밀리초계산
