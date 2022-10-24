@@ -603,6 +603,7 @@ function draw04() {
 	tell_e = genRtofrmMonthDay(dd.toString());
 
 	ctx.beginPath();
+	ctx.moveTo(300, 300);
 	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
 	ctx.fillStyle = "rgba(0, 255, 255, 0.32)";
 	ctx.closePath();
