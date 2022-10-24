@@ -470,8 +470,8 @@ function draw04() {
 
 	// 천궁도 영역 표시하기
 
-	let tell_s = genRtofrmMonthDay(new Date(2022,2,21));
-	let tell_e = genRtofrmMonthDay(new Date(2022,3,19));
+	let tell_s = genRtofrmMonthDay(new Date(2022,2,21).toString());
+	let tell_e = genRtofrmMonthDay(new Date(2022,3,19).toString());
 
 	//양자리 3월 21일 ~ 4월 19일
 	ctx.beginPath();
@@ -483,8 +483,8 @@ function draw04() {
 
 
 	//황소자리 4월 20일 ~ 5월 20일
-	tell_s = genRtofrmMonthDay(new Date(2022,3,20));
-	tell_e = genRtofrmMonthDay(new Date(2022,4,20));
+	tell_s = genRtofrmMonthDay(new Date(2022,3,20).toString());
+	tell_e = genRtofrmMonthDay(new Date(2022,4,20).toString());
 
 	ctx.beginPath();
 	ctx.arc(300, 300, 290, Math.PI*tell_s, Math.PI*tell_e, true);
@@ -522,18 +522,19 @@ function draw04() {
   // 해당 년도의 몇월 몇일이 한 해의 몇 퍼센트에 해당하는지 반환한다
   // 예: 3월 21일은 한 해의 몇 퍼센트가 지난 것이다.
 
-	function genRtofrmMonthDay(Date da_te) {
+	function genRtofrmMonthDay(da_te) {
 
 			let s_date = new Date(da_te.getFullYear(),0, 1); //올해 첫번째 일자, 월은 0에서 11까지.
 			let e_date = new Date(da_te.getFullYear(),11, 31); // 올해 마지막 일자
+			let to_date = new Date(da_te);
 
 			var milli_s_date = Date.parse(s_date);//유타코 1970.1.1부터의 올해첫일까지의 밀리초계산
 			var milli_e_date = Date.parse(e_date);//유타코 1970.1.1부터의 올해막일까지의 밀리초계산 
 
 			//오늘이 경과한 일수가 일년에 대해 가지는 비율값
-			var ratio = (Date.parse(da_te)-milli_s_date)/(milli_e_date-milli_s_date);
+			var ratio = (Date.parse(to_date)-milli_s_date)/(milli_e_date-milli_s_date);
 
-			console.log("milli_da_te: " + Date.parse(da_te));
+			console.log("milli_to_date: " + Date.parse(to_date));
 			console.log("milli_s_date: " + milli_s_date);
 			console.log("milli_e_date: " + milli_e_date);
 
