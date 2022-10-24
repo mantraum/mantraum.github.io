@@ -658,27 +658,29 @@ function draw04() {
 
 	function genRtofrmMonthDay(da_te) {
 
-		console.log("genRtofrmMonthDay: " + da_te);
+		
 
-			let s_date = new Date(new Date(da_te).getFullYear(),0, 1); //올해 첫번째 일자, 월은 0에서 11까지.
-			let e_date = new Date(new Date(da_te).getFullYear(),11, 31); // 올해 마지막 일자
-			let to_date = new Date(da_te);
+		let to_date = new Date(da_te);
+		console.log("genRtofrmMonthDay: " + to_date.toString());
 
-			var milli_s_date = Date.parse(s_date);//유타코 1970.1.1부터의 올해첫일까지의 밀리초계산
-			var milli_e_date = Date.parse(e_date);//유타코 1970.1.1부터의 올해막일까지의 밀리초계산 
+		let s_date = new Date(new Date(da_te).getFullYear(),0, 1); //올해 첫번째 일자, 월은 0에서 11까지.
+		let e_date = new Date(new Date(da_te).getFullYear(),11, 31); // 올해 마지막 일자
+		
 
-			//오늘이 경과한 일수가 일년에 대해 가지는 비율값
-			var ratio = Math.round((Date.parse(to_date)-milli_s_date)/(milli_e_date-milli_s_date));
+		var milli_s_date = Date.parse(s_date);//유타코 1970.1.1부터의 올해첫일까지의 밀리초계산
+		var milli_e_date = Date.parse(e_date);//유타코 1970.1.1부터의 올해막일까지의 밀리초계산 
 
-			console.log("milli_to_date: " + Date.parse(to_date));
-			console.log("milli_s_date: " + milli_s_date);
-			console.log("milli_e_date: " + milli_e_date);
+		//오늘이 경과한 일수가 일년에 대해 가지는 비율값
+		var ratio = (Date.parse(to_date)-milli_s_date)/(milli_e_date-milli_s_date);
 
-			console.log("ratio: " + ratio);
-			console.log("Math.PI*2*ratio: " + Math.PI*2*ratio);
+		console.log("milli_to_date: " + Date.parse(to_date));
+		console.log("milli_s_date: " + milli_s_date);
+		console.log("milli_e_date: " + milli_e_date);
 
-			return ratio;
+		console.log("ratio: " + ratio);
+		console.log("Math.PI*2*ratio: " + Math.PI*2*ratio);
 
+		return ratio;
 
 
 	}
