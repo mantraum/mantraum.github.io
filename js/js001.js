@@ -492,6 +492,7 @@ function draw04() {
 	ctx.stroke();
 
 	ctx.fill();
+
 	//쌍둥이자리 5월 21일 ~ 6월 21일
 	//게자리 6월 22일 ~ 7월 22일
 	//사자자리 7월 23일 ~ 8월 22일
@@ -527,11 +528,12 @@ function draw04() {
 			let e_date = new Date(da_te.getFullYear(),11, 31); // 올해 마지막 일자
 
 			var milli_s_date = Date.parse(s_date);//유타코 1970.1.1부터의 올해첫일까지의 밀리초계산
-			var milli_e_date = Date.parse(e_date);//유타코 1970.1.1부터의 올해막일까지의 밀리초계산
+			var milli_e_date = Date.parse(e_date);//유타코 1970.1.1부터의 올해막일까지의 밀리초계산 
 
 			//오늘이 경과한 일수가 일년에 대해 가지는 비율값
-			var ratio = (da_te-milli_s_date)/(milli_e_date-milli_s_date);
+			var ratio = (Date.parse(da_te)-milli_s_date)/(milli_e_date-milli_s_date);
 
+			console.log("milli_da_te: " + Date.parse(da_te));
 			console.log("milli_s_date: " + milli_s_date);
 			console.log("milli_e_date: " + milli_e_date);
 
