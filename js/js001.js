@@ -485,10 +485,10 @@ function draw04() {
 	ctx.beginPath();
 	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
 	ctx.fillStyle = "rgba(0, 255, 255, 0.3)";
-	ctx.closePath();
+	//ctx.closePath();
 	ctx.stroke();
 
-	//ctx.fill();
+	ctx.fill();
 
 
 	//炔家磊府 4岿 20老 ~ 5岿 20老
