@@ -585,7 +585,7 @@ function draw04() {
 	ctx.moveTo(300, 300);
 	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
 	
-	ctx.fillStyle = "rgba(250, 235, 215, 0.1)";
+	ctx.fillStyle = "rgba(250, 235, 215, 0.5)";
 	ctx.fill();
 	ctx.strokeStyle = "rgba(210, 105, 30, 1)";
 	ctx.stroke();
@@ -608,7 +608,7 @@ function draw04() {
 	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
 
 	ctx.fillStyle = "rgba(250, 235, 215, 0.34)";
-	ctx.fill();
+	//ctx.fill();
 	ctx.strokeStyle = "rgba(210, 105, 30, 1)";
 	ctx.stroke();
 	ctx.closePath();
@@ -630,7 +630,7 @@ function draw04() {
 	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
 
 	ctx.fillStyle = "rgba(250, 235, 215, 0.4)";
-	ctx.fill();
+	//ctx.fill();
 	ctx.strokeStyle = "rgba(210, 105, 30, 1)";
 	ctx.stroke();
 	ctx.closePath();
@@ -652,7 +652,7 @@ function draw04() {
 	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
 
 	ctx.fillStyle = "rgba(250, 235, 215, 0.44)";
-	ctx.fill();
+	//ctx.fill();
 	ctx.strokeStyle = "rgba(210, 105, 30, 1)";
 	ctx.stroke();
 	ctx.closePath();
@@ -673,7 +673,7 @@ function draw04() {
 	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
 
 	ctx.fillStyle = "rgba(250, 235, 215, 0.4)";
-	ctx.fill();
+	//ctx.fill();
 	ctx.strokeStyle = "rgba(210, 105, 30, 1)";
 	ctx.stroke();
 	ctx.closePath();
@@ -696,7 +696,7 @@ function draw04() {
 	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
 
 	ctx.fillStyle = "rgba(250, 235, 215, 0.46)";
-	ctx.fill();
+	//ctx.fill();
 	ctx.strokeStyle = "rgba(210, 105, 30, 1)";
 	ctx.stroke();
 	ctx.closePath();
@@ -719,7 +719,7 @@ function draw04() {
 	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
 
 	ctx.fillStyle = "rgba(250, 235, 215, 0.52)";
-	ctx.fill();
+	//ctx.fill();
 	ctx.strokeStyle = "rgba(210, 105, 30, 1)";
 	ctx.stroke();
 	ctx.closePath();
@@ -742,7 +742,7 @@ function draw04() {
 	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
 
 	ctx.fillStyle = "rgba(250, 235, 215, 0.60)";
-	ctx.fill();
+	//ctx.fill();
 	ctx.strokeStyle = "rgba(210, 105, 30, 1)";
 	ctx.stroke();
 	ctx.closePath();
@@ -765,7 +765,7 @@ function draw04() {
 	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
 
 	ctx.fillStyle = "rgba(250, 235, 215, 0.68)";
-	ctx.fill();
+	//ctx.fill();
 	ctx.strokeStyle = "rgba(210, 105, 30, 1)";
 	ctx.stroke();
 	ctx.closePath();
@@ -788,7 +788,7 @@ function draw04() {
 	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
 
 	ctx.fillStyle = "rgba(250, 235, 215, 0.75)";
-	ctx.fill();
+	//ctx.fill();
 	ctx.strokeStyle = "rgba(210, 105, 30, 1)";
 	ctx.stroke();
 	ctx.closePath();
@@ -811,7 +811,7 @@ function draw04() {
 	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
 
 	ctx.fillStyle = "rgba(250, 235, 215, 0.83)";
-	ctx.fill();
+	//ctx.fill();
 	ctx.strokeStyle = "rgba(210, 105, 30, 1)";
 	ctx.stroke();
 	ctx.closePath();
@@ -834,7 +834,7 @@ function draw04() {
 	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
 
 	ctx.fillStyle = "rgba(250, 235, 215, 0.9)";
-	ctx.fill();
+	//ctx.fill();
 	ctx.strokeStyle = "rgba(210, 105, 30, 1)";
 	ctx.stroke();
 	ctx.closePath();
