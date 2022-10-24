@@ -452,40 +452,7 @@ function drawLineFrmCurrMonthNDate2() {
 	if (canvas.getContext) {
 		var ctx = canvas.getContext('2d');
 
-		//기준선 외곽선 반지름 290
-		x_r = 290*Math.cos(Math.PI*0.3);
-		y_r = 290*Math.sin(Math.PI*0.3);
-
-		console.log("x_r : "+x_r);
-		console.log("y_r : "+y_r);
-
-		ctx.beginPath();
-		ctx.moveTo(300, 300);
-		ctx.lineTo(300+x_r, 300+y_r);
-
-		ctx.lineWidth ="3";//선굵기
-		ctx.strokeStyle = 'rgba(255, 255, 0, 1)';//선색깔과 투명도, 노랑
-		ctx.lineCap = "round"; //선끝모양
 		
-		ctx.stroke();
-
-		//기준선 외곽선 반지름 290
-		x_r = 290*Math.cos(Math.PI*0.6);
-		y_r = 290*Math.sin(Math.PI*0.6);
-
-		console.log("x_r : "+x_r);
-		console.log("y_r : "+y_r);
-
-		ctx.beginPath();
-		ctx.moveTo(300, 300);
-		ctx.lineTo(300+x_r, 300+y_r);
-
-		ctx.lineWidth ="3";//선굵기
-		ctx.strokeStyle = 'rgba(0, 255, 255, 1)';//선색깔과 투명도, 하늘
-		ctx.lineCap = "round"; //선끝모양
-		
-		ctx.stroke();
-
 
 		//기준선 외곽선 반지름 290
 		x_r = 290*Math.cos(Math.PI);
@@ -505,22 +472,7 @@ function drawLineFrmCurrMonthNDate2() {
 		ctx.stroke();
 
 		//지구별 현재선 반지름 140
-		x_r = 140*Math.cos(Math.PI*ratio);
-		y_r = 140*Math.sin(Math.PI*ratio);
-
-		console.log("x_r : "+x_r);
-		console.log("y_r : "+y_r);
-
-		ctx.beginPath();
-		ctx.moveTo(300, 300);
-		ctx.lineTo(300+x_r, 300+y_r);
-
-		ctx.lineWidth ="3";//선굵기
-		ctx.strokeStyle = 'rgba(255, 0, 255, 1)';//선색깔과 투명도, 자주
-		ctx.lineCap = "round"; //선끝모양
-		ctx.stroke();
-
-		//지구별 현재선 반지름 140
+		
 		x_r = 140*Math.cos(Math.PI*0.5 + Math.PI*ratio);
 		y_r = 140*Math.sin(Math.PI*0.5 + Math.PI*ratio);
 
@@ -536,41 +488,6 @@ function drawLineFrmCurrMonthNDate2() {
 		ctx.lineCap = "round"; //선끝모양
 		ctx.stroke();
 
-
-		//지구별 현재선 반지름 140
-		x_r = 140*Math.cos(Math.PI + Math.PI*ratio);
-		y_r = 140*Math.sin(Math.PI + Math.PI*ratio);
-
-		console.log("x_r : "+x_r);
-		console.log("y_r : "+y_r);
-
-
-		ctx.beginPath();
-		ctx.moveTo(300, 300);
-		ctx.lineTo(300+x_r, 300+y_r);
-
-		ctx.lineWidth ="3";//선굵기
-		ctx.strokeStyle = 'rgba(0, 255, 0, 1)';//선색깔과 투명도, 그린
-		ctx.lineCap = "round"; //선끝모양
-		ctx.stroke();
-
-		
-
-		//지구별 현재선 반지름 140
-		x_r = 140*Math.cos(Math.PI*1.25 + Math.PI*ratio);
-		y_r = 140*Math.sin(Math.PI*1.25 + Math.PI*ratio);
-
-		console.log("x_r : "+x_r);
-		console.log("y_r : "+y_r);
-
-		ctx.beginPath();
-		ctx.moveTo(300, 300);
-		ctx.lineTo(300+x_r, 300+y_r);
-
-		ctx.lineWidth ="3";//선굵기
-		ctx.strokeStyle = 'rgba(0, 0, 255, 1)';//선색깔과 투명도, 블루
-		ctx.lineCap = "round"; //선끝모양
-		ctx.stroke();
 	}
 
 
@@ -660,9 +577,9 @@ function draw04() {
 	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
 	ctx.fillStyle = "rgba(0, 255, 255, 0.3)";
 	//ctx.closePath();
-	ctx.stroke();
 
 	ctx.fill();
+	ctx.stroke();
 
 
 	//황소자리 4월 20일 ~ 5월 20일
