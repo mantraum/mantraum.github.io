@@ -585,7 +585,7 @@ function draw04() {
 	ctx.moveTo(300, 300);
 	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
 	
-	ctx.fillStyle = "rgba(250, 235, 215, 0.3)";
+	ctx.fillStyle = "rgba(250, 235, 215, 0.1)";
 	ctx.fill();
 	ctx.strokeStyle = "rgba(210, 105, 30, 1)";
 	ctx.stroke();
