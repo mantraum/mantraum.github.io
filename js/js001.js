@@ -655,10 +655,66 @@ function draw04() {
 
 
 	//염소자리 12월 25일 ~ 1월 19일
+	dd = new Date();
+	dd.setMonth(11);
+	dd.setDate(25);
+	tell_s = genRtofrmMonthDay(dd.toString());
+
+	dd = new Date();
+
+	dd.setMonth(0);
+	dd.setDate(19);
+	tell_e = genRtofrmMonthDay(dd.toString());
+
+	ctx.beginPath();
+	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
+	ctx.fillStyle = "rgba(0, 255, 255, 0.46)";
+	ctx.closePath();
+	ctx.stroke();
+
+	//ctx.fill();
 
 
 	//물병자리 1월 20일 ~ 2월 18일
+	dd = new Date();
+	dd.setMonth(0);
+	dd.setDate(20);
+	tell_s = genRtofrmMonthDay(dd.toString());
+
+	dd = new Date();
+
+	dd.setMonth(1);
+	dd.setDate(18);
+	tell_e = genRtofrmMonthDay(dd.toString());
+
+	ctx.beginPath();
+	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
+	ctx.fillStyle = "rgba(0, 255, 255, 0.48)";
+	ctx.closePath();
+	ctx.stroke();
+
+	//ctx.fill();
+
+
 	//물고기자리 2월 19일 ~ 3월 20일
+	dd = new Date();
+	dd.setMonth(1);
+	dd.setDate(19);
+	tell_s = genRtofrmMonthDay(dd.toString());
+
+	dd = new Date();
+
+	dd.setMonth(2);
+	dd.setDate(20);
+	tell_e = genRtofrmMonthDay(dd.toString());
+
+	ctx.beginPath();
+	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
+	ctx.fillStyle = "rgba(0, 255, 255, 0.50)";
+	ctx.closePath();
+	ctx.stroke();
+
+	//ctx.fill();
 
 
 	 
