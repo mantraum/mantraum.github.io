@@ -303,8 +303,8 @@ function drawLineFrmCurrMonthNDate() {
 
 
 		//지구별 현재선 반지름 140
-		x_r = 140*Math.cos(Math.PI + Math.PI*2*ratio);
-		y_r = 140*Math.sin(Math.PI + Math.PI*2*ratio);
+		x_r = 140*Math.cos(Math.PI + Math.PI*ratio);
+		y_r = 140*Math.sin(Math.PI + Math.PI*ratio);
 
 		console.log("지구별 현재선 반지름 140 : "+x_r);
 		console.log("지구별 현재선 반지름 140 : "+y_r);
@@ -312,6 +312,10 @@ function drawLineFrmCurrMonthNDate() {
 		ctx.beginPath();
 		ctx.moveTo(300, 300);
 		ctx.lineTo(300+x_r, 300+y_r);
+
+		ctx.lineWidth ="3";//선굵기
+		ctx.strokeStyle = 'rgba(0, 255, 0, 1)';//선색깔과 투명도
+		ctx.lineCap = "round"; //선끝모양
 		ctx.stroke();
 	}
 
