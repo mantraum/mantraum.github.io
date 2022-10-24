@@ -584,12 +584,12 @@ function draw04() {
 	ctx.beginPath();
 	ctx.moveTo(300, 300);
 	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
+	
 	ctx.fillStyle = "rgba(0, 255, 255, 0.3)";
-	//ctx.closePath();
-
-	ctx.fill();
-	ctx.strokeStyle = "rgba(255, 0, 255, 0.3)";
+	//ctx.fill();
+	ctx.strokeStyle = "rgba(255, 0, 255, 1)";
 	ctx.stroke();
+	ctx.closePath();
 
 
 	//황소자리 4월 20일 ~ 5월 20일
@@ -606,11 +606,12 @@ function draw04() {
 	ctx.beginPath();
 	ctx.moveTo(300, 300);
 	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
-	ctx.fillStyle = "rgba(0, 255, 255, 0.32)";
-	ctx.closePath();
-	ctx.stroke();
 
+	ctx.fillStyle = "rgba(0, 255, 255, 0.3)";
 	//ctx.fill();
+	ctx.strokeStyle = "rgba(255, 0, 255, 1)";
+	ctx.stroke();
+	ctx.closePath();
 
 	//쌍둥이자리 5월 21일 ~ 6월 21일
 	dd = new Date();
@@ -627,11 +628,12 @@ function draw04() {
 	ctx.beginPath();
 	ctx.moveTo(300, 300);
 	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
-	ctx.fillStyle = "rgba(0, 255, 255, 0.34)";
-	ctx.closePath();
-	ctx.stroke();
 
+	ctx.fillStyle = "rgba(0, 255, 255, 0.3)";
 	//ctx.fill();
+	ctx.strokeStyle = "rgba(255, 0, 255, 1)";
+	ctx.stroke();
+	ctx.closePath();
 
 	//게자리 6월 22일 ~ 7월 22일
 	dd = new Date();
@@ -648,11 +650,12 @@ function draw04() {
 	ctx.beginPath();
 	ctx.moveTo(300, 300);
 	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
-	ctx.fillStyle = "rgba(0, 255, 255, 0.36)";
-	ctx.closePath();
-	ctx.stroke();
 
+	ctx.fillStyle = "rgba(0, 255, 255, 0.3)";
 	//ctx.fill();
+	ctx.strokeStyle = "rgba(255, 0, 255, 1)";
+	ctx.stroke();
+	ctx.closePath();
 
 	//사자자리 7월 23일 ~ 8월 22일
 	dd = new Date();
@@ -668,11 +671,12 @@ function draw04() {
 	ctx.beginPath();
 	ctx.moveTo(300, 300);
 	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
-	ctx.fillStyle = "rgba(0, 255, 255, 0.38)";
-	ctx.closePath();
-	ctx.stroke();
 
+	ctx.fillStyle = "rgba(0, 255, 255, 0.3)";
 	//ctx.fill();
+	ctx.strokeStyle = "rgba(255, 0, 255, 1)";
+	ctx.stroke();
+	ctx.closePath();
 
 
 	//처녀자리 8월 23일 ~ 9월 22일
@@ -690,11 +694,12 @@ function draw04() {
 	ctx.beginPath();
 	ctx.moveTo(300, 300);
 	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
-	ctx.fillStyle = "rgba(0, 255, 255, 0.40)";
-	ctx.closePath();
-	ctx.stroke();
 
+	ctx.fillStyle = "rgba(0, 255, 255, 0.3)";
 	//ctx.fill();
+	ctx.strokeStyle = "rgba(255, 0, 255, 1)";
+	ctx.stroke();
+	ctx.closePath();
 
 
 	//천칭자리 9월 23일 ~ 10월 22일
@@ -712,11 +717,12 @@ function draw04() {
 	ctx.beginPath();
 	ctx.moveTo(300, 300);
 	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
-	ctx.fillStyle = "rgba(0, 255, 255, 0.42)";
-	ctx.closePath();
-	ctx.stroke();
 
+	ctx.fillStyle = "rgba(0, 255, 255, 0.3)";
 	//ctx.fill();
+	ctx.strokeStyle = "rgba(255, 0, 255, 1)";
+	ctx.stroke();
+	ctx.closePath();
 
 
 	//전갈자리 10월 23일 ~ 11월 22일
@@ -734,11 +740,12 @@ function draw04() {
 	ctx.beginPath();
 	ctx.moveTo(300, 300);
 	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
-	ctx.fillStyle = "rgba(0, 255, 255, 0.44)";
-	ctx.closePath();
-	ctx.stroke();
 
+	ctx.fillStyle = "rgba(0, 255, 255, 0.3)";
 	//ctx.fill();
+	ctx.strokeStyle = "rgba(255, 0, 255, 1)";
+	ctx.stroke();
+	ctx.closePath();
 
 
 	//궁수자리 11월 23일 ~ 12월 24일
@@ -756,11 +763,12 @@ function draw04() {
 	ctx.beginPath();
 	ctx.moveTo(300, 300);
 	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
-	ctx.fillStyle = "rgba(0, 255, 255, 0.44)";
-	ctx.closePath();
-	ctx.stroke();
 
+	ctx.fillStyle = "rgba(0, 255, 255, 0.3)";
 	//ctx.fill();
+	ctx.strokeStyle = "rgba(255, 0, 255, 1)";
+	ctx.stroke();
+	ctx.closePath();
 
 
 	//염소자리 12월 25일 ~ 1월 19일
@@ -778,11 +786,12 @@ function draw04() {
 	ctx.beginPath();
 	ctx.moveTo(300, 300);
 	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
-	ctx.fillStyle = "rgba(0, 255, 255, 0.46)";
-	ctx.closePath();
-	ctx.stroke();
 
+	ctx.fillStyle = "rgba(0, 255, 255, 0.3)";
 	//ctx.fill();
+	ctx.strokeStyle = "rgba(255, 0, 255, 1)";
+	ctx.stroke();
+	ctx.closePath();
 
 
 	//물병자리 1월 20일 ~ 2월 18일
@@ -800,11 +809,12 @@ function draw04() {
 	ctx.beginPath();
 	ctx.moveTo(300, 300);
 	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
-	ctx.fillStyle = "rgba(0, 255, 255, 0.48)";
-	ctx.closePath();
-	ctx.stroke();
 
+	ctx.fillStyle = "rgba(0, 255, 255, 0.3)";
 	//ctx.fill();
+	ctx.strokeStyle = "rgba(255, 0, 255, 1)";
+	ctx.stroke();
+	ctx.closePath();
 
 
 	//물고기자리 2월 19일 ~ 3월 20일
@@ -822,11 +832,12 @@ function draw04() {
 	ctx.beginPath();
 	ctx.moveTo(300, 300);
 	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
-	ctx.fillStyle = "rgba(0, 255, 255, 0.50)";
-	ctx.closePath();
-	ctx.stroke();
 
+	ctx.fillStyle = "rgba(255, 0, 255, 0.3)";
 	//ctx.fill();
+	ctx.strokeStyle = "rgba(255, 0, 255, 1)";
+	ctx.stroke();
+	ctx.closePath();
 
 
 	 
