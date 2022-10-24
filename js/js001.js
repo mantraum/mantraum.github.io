@@ -634,7 +634,29 @@ function draw04() {
 
 
 	//궁수자리 11월 23일 ~ 12월 24일
+	dd = new Date();
+	dd.setMonth(10);
+	dd.setDate(23);
+	tell_s = genRtofrmMonthDay(dd.toString());
+
+	dd = new Date();
+
+	dd.setMonth(11);
+	dd.setDate(24);
+	tell_e = genRtofrmMonthDay(dd.toString());
+
+	ctx.beginPath();
+	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
+	ctx.fillStyle = "rgba(0, 255, 255, 0.44)";
+	ctx.closePath();
+	ctx.stroke();
+
+	//ctx.fill();
+
+
 	//염소자리 12월 25일 ~ 1월 19일
+
+
 	//물병자리 1월 20일 ~ 2월 18일
 	//물고기자리 2월 19일 ~ 3월 20일
 
@@ -671,7 +693,7 @@ function draw04() {
 		var milli_e_date = Date.parse(e_date);//유타코 1970.1.1부터의 올해막일까지의 밀리초계산 
 
 		//오늘이 경과한 일수가 일년에 대해 가지는 비율값
-		var ratio = Math.round((Date.parse(to_date)-milli_s_date)/(milli_e_date-milli_s_date));
+		var ratio = (Date.parse(to_date)-milli_s_date)/(milli_e_date-milli_s_date);
 
 		console.log("milli_to_date: " + Date.parse(to_date));
 		console.log("milli_s_date: " + milli_s_date);
