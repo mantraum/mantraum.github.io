@@ -587,7 +587,7 @@ function draw04() {
 	
 	ctx.fillStyle = "rgba(0, 255, 255, 0.3)";
 	//ctx.fill();
-	ctx.strokeStyle = "rgba(255, 0, 255, 1)";
+	ctx.strokeStyle = "rgba(210, 105, 30, 1)";
 	ctx.stroke();
 	ctx.closePath();
 
@@ -609,7 +609,7 @@ function draw04() {
 
 	ctx.fillStyle = "rgba(0, 255, 255, 0.3)";
 	//ctx.fill();
-	ctx.strokeStyle = "rgba(255, 0, 255, 1)";
+	ctx.strokeStyle = "rgba(210, 105, 30, 1)";
 	ctx.stroke();
 	ctx.closePath();
 
@@ -631,7 +631,7 @@ function draw04() {
 
 	ctx.fillStyle = "rgba(0, 255, 255, 0.3)";
 	//ctx.fill();
-	ctx.strokeStyle = "rgba(255, 0, 255, 1)";
+	ctx.strokeStyle = "rgba(210, 105, 30, 1)";
 	ctx.stroke();
 	ctx.closePath();
 
@@ -653,7 +653,7 @@ function draw04() {
 
 	ctx.fillStyle = "rgba(0, 255, 255, 0.3)";
 	//ctx.fill();
-	ctx.strokeStyle = "rgba(255, 0, 255, 1)";
+	ctx.strokeStyle = "rgba(210, 105, 30, 1)";
 	ctx.stroke();
 	ctx.closePath();
 
@@ -674,7 +674,7 @@ function draw04() {
 
 	ctx.fillStyle = "rgba(0, 255, 255, 0.3)";
 	//ctx.fill();
-	ctx.strokeStyle = "rgba(255, 0, 255, 1)";
+	ctx.strokeStyle = "rgba(210, 105, 30, 1)";
 	ctx.stroke();
 	ctx.closePath();
 
@@ -697,7 +697,7 @@ function draw04() {
 
 	ctx.fillStyle = "rgba(0, 255, 255, 0.3)";
 	//ctx.fill();
-	ctx.strokeStyle = "rgba(255, 0, 255, 1)";
+	ctx.strokeStyle = "rgba(210, 105, 30, 1)";
 	ctx.stroke();
 	ctx.closePath();
 
@@ -720,7 +720,7 @@ function draw04() {
 
 	ctx.fillStyle = "rgba(0, 255, 255, 0.3)";
 	//ctx.fill();
-	ctx.strokeStyle = "rgba(255, 0, 255, 1)";
+	ctx.strokeStyle = "rgba(210, 105, 30, 1)";
 	ctx.stroke();
 	ctx.closePath();
 
@@ -743,7 +743,7 @@ function draw04() {
 
 	ctx.fillStyle = "rgba(0, 255, 255, 0.3)";
 	//ctx.fill();
-	ctx.strokeStyle = "rgba(255, 0, 255, 1)";
+	ctx.strokeStyle = "rgba(210, 105, 30, 1)";
 	ctx.stroke();
 	ctx.closePath();
 
@@ -766,7 +766,7 @@ function draw04() {
 
 	ctx.fillStyle = "rgba(0, 255, 255, 0.3)";
 	//ctx.fill();
-	ctx.strokeStyle = "rgba(255, 0, 255, 1)";
+	ctx.strokeStyle = "rgba(210, 105, 30, 1)";
 	ctx.stroke();
 	ctx.closePath();
 
@@ -789,7 +789,7 @@ function draw04() {
 
 	ctx.fillStyle = "rgba(0, 255, 255, 0.3)";
 	//ctx.fill();
-	ctx.strokeStyle = "rgba(255, 0, 255, 1)";
+	ctx.strokeStyle = "rgba(210, 105, 30, 1)";
 	ctx.stroke();
 	ctx.closePath();
 
@@ -812,7 +812,7 @@ function draw04() {
 
 	ctx.fillStyle = "rgba(0, 255, 255, 0.3)";
 	//ctx.fill();
-	ctx.strokeStyle = "rgba(255, 0, 255, 1)";
+	ctx.strokeStyle = "rgba(210, 105, 30, 1)";
 	ctx.stroke();
 	ctx.closePath();
 
@@ -835,7 +835,7 @@ function draw04() {
 
 	ctx.fillStyle = "rgba(255, 0, 255, 0.3)";
 	//ctx.fill();
-	ctx.strokeStyle = "rgba(255, 0, 255, 1)";
+	ctx.strokeStyle = "rgba(210, 105, 30, 1)";
 	ctx.stroke();
 	ctx.closePath();
 
