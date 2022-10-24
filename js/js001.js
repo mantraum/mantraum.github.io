@@ -494,8 +494,13 @@ function draw04() {
 
 
 	//황소자리 4월 20일 ~ 5월 20일
-	tell_s = genRtofrmMonthDay(new Date(2022,3,20).toString());
-	tell_e = genRtofrmMonthDay(new Date(2022,4,20).toString());
+	dd.setMonth(3);
+	dd.setMonth(20);
+	tell_s = genRtofrmMonthDay(dd.toString());
+
+	dd.setMonth(4);
+	dd.setMonth(20);
+	tell_e = genRtofrmMonthDay(dd.toString());
 
 	ctx.beginPath();
 	ctx.arc(300, 300, 290, Math.PI*tell_s, Math.PI*tell_e, true);
@@ -506,8 +511,13 @@ function draw04() {
 	//ctx.fill();
 
 	//쌍둥이자리 5월 21일 ~ 6월 21일
-	tell_s = genRtofrmMonthDay(new Date(2022,4,21).toString());
-	tell_e = genRtofrmMonthDay(new Date(2022,5,21).toString());
+	dd.setMonth(4);
+	dd.setMonth(21);
+	tell_s = genRtofrmMonthDay(dd.toString());
+
+	dd.setMonth(5);
+	dd.setMonth(21);
+	tell_e = genRtofrmMonthDay(dd.toString());
 
 	ctx.beginPath();
 	ctx.arc(300, 300, 290, Math.PI*tell_s, Math.PI*tell_e, true);
@@ -518,8 +528,13 @@ function draw04() {
 	//ctx.fill();
 
 	//게자리 6월 22일 ~ 7월 22일
-	tell_s = genRtofrmMonthDay(new Date(2022,5,22).toString());
-	tell_e = genRtofrmMonthDay(new Date(2022,6,22).toString());
+	dd.setMonth(5);
+	dd.setMonth(22);
+	tell_s = genRtofrmMonthDay(dd.toString());
+
+	dd.setMonth(6);
+	dd.setMonth(22);
+	tell_e = genRtofrmMonthDay(dd.toString());
 
 	ctx.beginPath();
 	ctx.arc(300, 300, 290, Math.PI*tell_s, Math.PI*tell_e, true);
@@ -547,7 +562,7 @@ function draw04() {
 	ctx.stroke();
 
 	//외곽선에 맞는 오늘날짜 표시하기 
-	drawLineFrmCurrMonthNDate();
+	//drawLineFrmCurrMonthNDate();
 
 
 
