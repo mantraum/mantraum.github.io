@@ -268,11 +268,25 @@ function drawLineFrmCurrMonthNDate() {
 	//사인값, y좌표값 보정치
 	var y_r = Math.sin(Math.PI*2*ratio+Math.PI/2);
 
-	// 직선그리기, 중심좌표(300,300), 외곽선 반지름 290 가정
+	// 직선그리기, 중심좌표(300,300), 외곽선 반지름 290, 지구 반지름 140 가정
 	var canvas = document.getElementById('canvas01');
 
 	if (canvas.getContext) {
 		var ctx = canvas.getContext('2d');
+
+		//기준선 외곽선 반지름 290
+		x_r = 290*Math.cos(Math.PI/2);
+		y_r = 290*Math.sin(Math.PI/2);
+
+		ctx.beginPath();
+		ctx.moveTo(300, 300);
+		ctx.lineTo(300+x_r, 300+y_r);
+		ctx.stroke();
+
+
+		//지구별 현재선 반지름 140
+		x_r = 140*Math.cos(Math.PI*2*ratio+Math.PI/2);
+		y_r = 140*Math.sin(Math.PI*2*ratio+Math.PI/2);
 
 		ctx.beginPath();
 		ctx.moveTo(300, 300);
