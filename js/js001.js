@@ -268,7 +268,7 @@ function drawLineFrmCurrMonthNDate() {
 	console.log("유타코 1970.1.1부터의 올해막일까지의 밀리초계산: " + milli_e_date);
 
 	console.log("오늘이 경과한 일수가 일년에 대해 가지는 비율값: " + ratio);
-	console.log("오늘이 경과한 일수가 일년에 대해 가지는 비율값: " + Math.PI*2*ratio);
+	console.log("오늘이 경과한 일수가 일년에 대해 가지는 비율값: " + Math.PI*ratio);
 
 
 
@@ -303,8 +303,8 @@ function drawLineFrmCurrMonthNDate() {
 
 
 		//지구별 현재선 반지름 140
-		x_r = 140*Math.cos(Math.PI + Math.PI*ratio);
-		y_r = 140*Math.sin(Math.PI + Math.PI*ratio);
+		x_r = 140*Math.cos(Math.PI + Math.round(Math.PI*ratio));
+		y_r = 140*Math.sin(Math.PI + Math.round(Math.PI*ratio));
 
 		console.log("지구별 현재선 반지름 140 : "+x_r);
 		console.log("지구별 현재선 반지름 140 : "+y_r);
