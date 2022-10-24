@@ -579,6 +579,7 @@ function draw04() {
 	//ctx.closePath();
 
 	ctx.fill();
+	ctx.strokeStyle = "rgba(255, 0, 255, 0.3)";
 	ctx.stroke();
 
 
