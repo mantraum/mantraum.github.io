@@ -225,6 +225,10 @@ function draw03() {
 	ctx.arc(300, 300, 290, 0, Math.PI*2, true);
 	ctx.stroke();
 
+	//외곽선에 맞는 오늘날짜 표시하기 
+	drawLineFrmCurrMonthNDate();
+
+
 	// 천궁도 표시하기
 	ctx.beginPath();
 	ctx.moveTo(300, 300);
@@ -246,6 +250,40 @@ function draw03() {
 // 현재 설정한 중심점(300,300)에서, 설정한 반지름290으로 나오는 시작점(300-290, 300)까지 직선을 가정한다. 라.
 // 라에서 가정한 직선을 다에서 구한 각도만큼 반시계 방향으로 돌렸을 때 부채꼴이 만들어 내는 최외곽점을 계산해 낸다. 마.
 // 중심점(300, 300)으로 이동해서, 마까지 직선을 그린다.
+function drawLineFrmCurrMonthNDate() {
+
+	let s_date = new Date(Date.prototype.getFullYear(),0, 1); //올해 첫번째 일자, 월은 0에서 11까지.
+	let e_date = new Date(Date.prototype.getFullYear(),11, 31); // 올해 마지막 일자
+	let to_date = new Date(); // 오늘 일자
+
+	var milli_to_date = Date.now();//유타코 1970.1.1부터의 오늘까지의 밀리초계산
+	var milli_s_date = Date.parse(s_date);//유타코 1970.1.1부터의 올해첫일까지의 밀리초계산
+	var milli_e_date = Date.parse(e_date);//유타코 1970.1.1부터의 올해막일까지의 밀리초계산
+
+	//오늘이 경과한 일수가 일년에 대해 가지는 비율값
+	var ratio = (milli_to_date-milli_s_date)/(milli_e_date-milli_s_date);
+
+	//코사인값, x좌표값 보정치
+	var x_r = Math.cos(Math.PI*2*ratio+Math.PI/2);
+	//사인값, y좌표값 보정치
+	var y_r = Math.sin(Math.PI*2*ratio+Math.PI/2);
+
+	// 직선그리기, 중심좌표(300,300), 외곽선 반지름 290 가정
+	var canvas = document.getElementById('canvas01');
+
+	if (canvas.getContext) {
+		var ctx = canvas.getContext('2d');
+
+		ctx.beginPath();
+		ctx.moveTo(300, 300);
+		ctx.lineTo(300+x_r, 300+y_r);
+		ctx.stroke();
+	}
+
+
+	
+}
+
 
 //양자리 3월 21일 ~ 4월 19일
 //황소자리 4월 20일 ~ 5월 20일
