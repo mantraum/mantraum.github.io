@@ -474,12 +474,12 @@ function draw04() {
 
 	//양자리 3월 21일 ~ 4월 19일
 	dd.setMonth(2);
-	dd.setMonth(21);
+	dd.setDate(21);
 	let tell_s = genRtofrmMonthDay(dd.toString());
 
 	dd = new Date();
 	dd.setMonth(3);
-	dd.setMonth(19);
+	dd.setDate(19);
 	let tell_e = genRtofrmMonthDay(dd.toString());
 
 	ctx.beginPath();
@@ -494,12 +494,12 @@ function draw04() {
 	//황소자리 4월 20일 ~ 5월 20일
 	dd = new Date();
 	dd.setMonth(3);
-	dd.setMonth(20);
+	dd.setDate(20);
 	tell_s = genRtofrmMonthDay(dd.toString());
 
 	dd = new Date();
 	dd.setMonth(4);
-	dd.setMonth(20);
+	dd.setDate(20);
 	tell_e = genRtofrmMonthDay(dd.toString());
 
 	ctx.beginPath();
@@ -513,13 +513,13 @@ function draw04() {
 	//쌍둥이자리 5월 21일 ~ 6월 21일
 	dd = new Date();
 	dd.setMonth(4);
-	dd.setMonth(21);
+	dd.setDate(21);
 	tell_s = genRtofrmMonthDay(dd.toString());
 
 	dd = new Date();
 
 	dd.setMonth(5);
-	dd.setMonth(21);
+	dd.setDate(21);
 	tell_e = genRtofrmMonthDay(dd.toString());
 
 	ctx.beginPath();
@@ -533,13 +533,13 @@ function draw04() {
 	//게자리 6월 22일 ~ 7월 22일
 	dd = new Date();
 	dd.setMonth(5);
-	dd.setMonth(22);
+	dd.setDate(22);
 	tell_s = genRtofrmMonthDay(dd.toString());
 
 	dd = new Date();
 
 	dd.setMonth(6);
-	dd.setMonth(22);
+	dd.setDate(22);
 	tell_e = genRtofrmMonthDay(dd.toString());
 
 	ctx.beginPath();
@@ -553,12 +553,12 @@ function draw04() {
 	//사자자리 7월 23일 ~ 8월 22일
 	dd = new Date();
 	dd.setMonth(6);
-	dd.setMonth(23);
+	dd.setDate(23);
 	tell_s = genRtofrmMonthDay(dd.toString());
 
 	dd = new Date();
 	dd.setMonth(7);
-	dd.setMonth(22);
+	dd.setDate(22);
 	tell_e = genRtofrmMonthDay(dd.toString());
 
 	ctx.beginPath();
@@ -573,13 +573,13 @@ function draw04() {
 	//처녀자리 8월 23일 ~ 9월 22일
 	dd = new Date();
 	dd.setMonth(7);
-	dd.setMonth(23);
+	dd.setDate(23);
 	tell_s = genRtofrmMonthDay(dd.toString());
 
 	dd = new Date();
 
 	dd.setMonth(8);
-	dd.setMonth(22);
+	dd.setDate(22);
 	tell_e = genRtofrmMonthDay(dd.toString());
 
 	ctx.beginPath();
@@ -594,13 +594,13 @@ function draw04() {
 	//천칭자리 9월 23일 ~ 10월 22일
 	dd = new Date();
 	dd.setMonth(8);
-	dd.setMonth(23);
+	dd.setDate(23);
 	tell_s = genRtofrmMonthDay(dd.toString());
 
 	dd = new Date();
 
 	dd.setMonth(9);
-	dd.setMonth(22);
+	dd.setDate(22);
 	tell_e = genRtofrmMonthDay(dd.toString());
 
 	ctx.beginPath();
@@ -615,13 +615,13 @@ function draw04() {
 	//전갈자리 10월 23일 ~ 11월 22일
 	dd = new Date();
 	dd.setMonth(9);
-	dd.setMonth(23);
+	dd.setDate(23);
 	tell_s = genRtofrmMonthDay(dd.toString());
 
 	dd = new Date();
 
 	dd.setMonth(10);
-	dd.setMonth(22);
+	dd.setDate(22);
 	tell_e = genRtofrmMonthDay(dd.toString());
 
 	ctx.beginPath();
