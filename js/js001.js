@@ -252,8 +252,8 @@ function draw03() {
 // 중심점(300, 300)으로 이동해서, 마까지 직선을 그린다.
 function drawLineFrmCurrMonthNDate() {
 
-	let s_date = new Date(Date.getFullYear(),0, 1); //올해 첫번째 일자, 월은 0에서 11까지.
-	let e_date = new Date(Date.getFullYear(),11, 31); // 올해 마지막 일자
+	let s_date = new Date(2022,0, 1); //올해 첫번째 일자, 월은 0에서 11까지.
+	let e_date = new Date(2022,11, 31); // 올해 마지막 일자
 	let to_date = new Date(); // 오늘 일자
 
 	var milli_to_date = Date.now();//유타코 1970.1.1부터의 오늘까지의 밀리초계산
