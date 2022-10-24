@@ -476,10 +476,11 @@ function draw04() {
 	//양자리 3월 21일 ~ 4월 19일
 	ctx.beginPath();
 	ctx.arc(300, 300, 290, Math.PI*tell_s, Math.PI*tell_e, true);
-	ctx.fillStyle = "rgba(0, 255, 255, 0.3)"; 
+	ctx.fillStyle = "rgba(0, 255, 255, 0.3)";
+	ctx.closePath();
 	ctx.stroke();
 
-	ctx.fill();
+	//ctx.fill();
 
 
 	//황소자리 4월 20일 ~ 5월 20일
@@ -492,7 +493,7 @@ function draw04() {
 	ctx.closePath();
 	ctx.stroke();
 
-	ctx.fill();
+	//ctx.fill();
 
 	//쌍둥이자리 5월 21일 ~ 6월 21일
 	tell_s = genRtofrmMonthDay(new Date(2022,4,21).toString());
@@ -504,7 +505,7 @@ function draw04() {
 	ctx.closePath();
 	ctx.stroke();
 
-	ctx.fill();
+	//ctx.fill();
 
 	//게자리 6월 22일 ~ 7월 22일
 	tell_s = genRtofrmMonthDay(new Date(2022,5,22).toString());
@@ -516,7 +517,7 @@ function draw04() {
 	ctx.closePath();
 	ctx.stroke();
 
-	ctx.fill();
+	//ctx.fill();
 
 	//사자자리 7월 23일 ~ 8월 22일
 	//처녀자리 8월 23일 ~ 9월 22일
