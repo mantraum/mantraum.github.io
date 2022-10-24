@@ -545,9 +545,77 @@ function draw04() {
 	//ctx.fill();
 
 	//사자자리 7월 23일 ~ 8월 22일
+	dd.setMonth(6);
+	dd.setMonth(23);
+	tell_s = genRtofrmMonthDay(dd.toString());
+
+	dd.setMonth(7);
+	dd.setMonth(22);
+	tell_e = genRtofrmMonthDay(dd.toString());
+
+	ctx.beginPath();
+	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
+	ctx.fillStyle = "rgba(0, 255, 255, 0.38)";
+	ctx.closePath();
+	ctx.stroke();
+
+	//ctx.fill();
+
+
 	//처녀자리 8월 23일 ~ 9월 22일
+	dd.setMonth(7);
+	dd.setMonth(23);
+	tell_s = genRtofrmMonthDay(dd.toString());
+
+	dd.setMonth(8);
+	dd.setMonth(22);
+	tell_e = genRtofrmMonthDay(dd.toString());
+
+	ctx.beginPath();
+	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
+	ctx.fillStyle = "rgba(0, 255, 255, 0.40)";
+	ctx.closePath();
+	ctx.stroke();
+
+	//ctx.fill();
+
+
 	//천칭자리 9월 23일 ~ 10월 22일
+	dd.setMonth(8);
+	dd.setMonth(23);
+	tell_s = genRtofrmMonthDay(dd.toString());
+
+	dd.setMonth(9);
+	dd.setMonth(22);
+	tell_e = genRtofrmMonthDay(dd.toString());
+
+	ctx.beginPath();
+	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
+	ctx.fillStyle = "rgba(0, 255, 255, 0.42)";
+	ctx.closePath();
+	ctx.stroke();
+
+	//ctx.fill();
+
+
 	//전갈자리 10월 23일 ~ 11월 22일
+	dd.setMonth(9);
+	dd.setMonth(23);
+	tell_s = genRtofrmMonthDay(dd.toString());
+
+	dd.setMonth(10);
+	dd.setMonth(22);
+	tell_e = genRtofrmMonthDay(dd.toString());
+
+	ctx.beginPath();
+	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
+	ctx.fillStyle = "rgba(0, 255, 255, 0.44)";
+	ctx.closePath();
+	ctx.stroke();
+
+	//ctx.fill();
+
+
 	//궁수자리 11월 23일 ~ 12월 24일
 	//염소자리 12월 25일 ~ 1월 19일
 	//물병자리 1월 20일 ~ 2월 18일
