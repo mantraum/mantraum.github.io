@@ -469,7 +469,22 @@ function draw04() {
 	ctx.stroke();
 
 	// 천궁도 영역 표시하기
+
+	let tell_s = genRtofrmMonthDay(new Date(2022,3,21));
+	let tell_e = genRtofrmMonthDay(new Date(2022,4,19));
+
 	//양자리 3월 21일 ~ 4월 19일
+	ctx.beginPath();
+	ctx.arc(300, 300, 290, Math.PI*tell_s, Math.PI*tell_e, true);
+	ctx.fillStyle = "rgba(0, 255, 255, 0.1)"; 
+	ctx.stroke();
+
+	ctx.fill();
+
+
+
+
+
 	//황소자리 4월 20일 ~ 5월 20일
 	//쌍둥이자리 5월 21일 ~ 6월 21일
 	//게자리 6월 22일 ~ 7월 22일
@@ -482,6 +497,9 @@ function draw04() {
 	//물병자리 1월 20일 ~ 2월 18일
 	//물고기자리 2월 19일 ~ 3월 20일
 
+
+	 
+
 	// 외곽선
 	ctx.beginPath();
 	ctx.arc(300, 300, 290, 0, Math.PI*2, true);
@@ -491,12 +509,34 @@ function draw04() {
 	drawLineFrmCurrMonthNDate();
 
 
-	
-
-
-
 
   }
+
+  // 해당 년도의 몇월 몇일이 한 해의 몇 퍼센트에 해당하는지 반환한다
+  // 예: 3월 21일은 한 해의 몇 퍼센트가 지난 것이다.
+
+	function genRtofrmMonthDay(Date da_te) {
+
+			let s_date = new Date(da_te.getFullYear(),0, 1); //올해 첫번째 일자, 월은 0에서 11까지.
+			let e_date = new Date(da_te.getFullYear(),11, 31); // 올해 마지막 일자
+
+			var milli_s_date = Date.parse(s_date);//유타코 1970.1.1부터의 올해첫일까지의 밀리초계산
+			var milli_e_date = Date.parse(e_date);//유타코 1970.1.1부터의 올해막일까지의 밀리초계산
+
+			//오늘이 경과한 일수가 일년에 대해 가지는 비율값
+			var ratio = (da_te-milli_s_date)/(milli_e_date-milli_s_date);
+
+			console.log("milli_s_date: " + milli_s_date);
+			console.log("milli_e_date: " + milli_e_date);
+
+			console.log("ratio: " + ratio);
+			console.log("Math.PI*ratio: " + Math.PI*ratio);
+
+			return ratio;
+
+
+
+	}
 
 
 }
