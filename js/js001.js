@@ -283,6 +283,40 @@ function drawLineFrmCurrMonthNDate() {
 	if (canvas.getContext) {
 		var ctx = canvas.getContext('2d');
 
+		//기준선 외곽선 반지름 290
+		x_r = 290*Math.cos(Math.PI*0.3);
+		y_r = 290*Math.sin(Math.PI*0.3);
+
+		console.log("외곽선 반지름 290 : "+x_r);
+		console.log("외곽선 반지름 290 : "+y_r);
+
+		ctx.beginPath();
+		ctx.moveTo(300, 300);
+		ctx.lineTo(300+x_r, 300+y_r);
+
+		ctx.lineWidth ="3";//선굵기
+		ctx.strokeStyle = 'rgba(255, 255, 0, 1)';//선색깔과 투명도, 래드
+		ctx.lineCap = "round"; //선끝모양
+		
+		ctx.stroke();
+
+		//기준선 외곽선 반지름 290
+		x_r = 290*Math.cos(Math.PI*0.6);
+		y_r = 290*Math.sin(Math.PI*0.6);
+
+		console.log("외곽선 반지름 290 : "+x_r);
+		console.log("외곽선 반지름 290 : "+y_r);
+
+		ctx.beginPath();
+		ctx.moveTo(300, 300);
+		ctx.lineTo(300+x_r, 300+y_r);
+
+		ctx.lineWidth ="3";//선굵기
+		ctx.strokeStyle = 'rgba(0, 255, 255, 1)';//선색깔과 투명도, 래드
+		ctx.lineCap = "round"; //선끝모양
+		
+		ctx.stroke();
+
 
 		//기준선 외곽선 반지름 290
 		x_r = 290*Math.cos(Math.PI);
@@ -313,7 +347,7 @@ function drawLineFrmCurrMonthNDate() {
 		ctx.lineTo(300+x_r, 300+y_r);
 
 		ctx.lineWidth ="3";//선굵기
-		ctx.strokeStyle = 'rgba(255, 0, 255, 1)';//선색깔과 투명도, 
+		ctx.strokeStyle = 'rgba(255, 0, 255, 1)';//선색깔과 투명도, 자주
 		ctx.lineCap = "round"; //선끝모양
 		ctx.stroke();
 
@@ -329,7 +363,7 @@ function drawLineFrmCurrMonthNDate() {
 		ctx.lineTo(300+x_r, 300+y_r);
 
 		ctx.lineWidth ="3";//선굵기
-		ctx.strokeStyle = 'rgba(0, 255, 255, 1)';//선색깔과 투명도, 
+		ctx.strokeStyle = 'rgba(0, 255, 255, 1)';//선색깔과 투명도, 하늘
 		ctx.lineCap = "round"; //선끝모양
 		ctx.stroke();
 
@@ -364,7 +398,7 @@ function drawLineFrmCurrMonthNDate() {
 		ctx.lineTo(300+x_r, 300+y_r);
 
 		ctx.lineWidth ="3";//선굵기
-		ctx.strokeStyle = 'rgba(0, 0, 255, 1)';//선색깔과 투명도
+		ctx.strokeStyle = 'rgba(0, 0, 255, 1)';//선색깔과 투명도, 블루
 		ctx.lineCap = "round"; //선끝모양
 		ctx.stroke();
 	}
