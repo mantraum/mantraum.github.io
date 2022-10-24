@@ -286,6 +286,18 @@ function drawLineFrmCurrMonthNDate() {
 		ctx.lineTo(300+x_r, 300+y_r);
 		ctx.stroke();
 
+		//기준선 외곽선 반지름 290
+		x_r = 290*Math.cos(Math.PI);
+		y_r = 290*Math.sin(Math.PI);
+
+		console.log("외곽선 반지름 290 : "+x_r);
+		console.log("외곽선 반지름 290 : "+y_r);
+
+		ctx.beginPath();
+		ctx.moveTo(300, 300);
+		ctx.lineTo(300+x_r, 300+y_r);
+		ctx.stroke();
+
 
 		//지구별 현재선 반지름 140
 		x_r = 140*Math.cos(Math.PI*2*ratio+Math.PI/2);
