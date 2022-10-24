@@ -488,7 +488,8 @@ function draw04() {
 
 	ctx.beginPath();
 	ctx.arc(300, 300, 290, Math.PI*tell_s, Math.PI*tell_e, true);
-	ctx.fillStyle = "rgba(0, 255, 255, 0.32)"; 
+	ctx.fillStyle = "rgba(0, 255, 255, 0.32)";
+	ctx.closePath();
 	ctx.stroke();
 
 	ctx.fill();
@@ -499,7 +500,8 @@ function draw04() {
 
 	ctx.beginPath();
 	ctx.arc(300, 300, 290, Math.PI*tell_s, Math.PI*tell_e, true);
-	ctx.fillStyle = "rgba(0, 255, 255, 0.34)"; 
+	ctx.fillStyle = "rgba(0, 255, 255, 0.34)";
+	ctx.closePath();
 	ctx.stroke();
 
 	ctx.fill();
@@ -510,7 +512,8 @@ function draw04() {
 
 	ctx.beginPath();
 	ctx.arc(300, 300, 290, Math.PI*tell_s, Math.PI*tell_e, true);
-	ctx.fillStyle = "rgba(0, 255, 255, 0.36)"; 
+	ctx.fillStyle = "rgba(0, 255, 255, 0.36)";
+	ctx.closePath();
 	ctx.stroke();
 
 	ctx.fill();
