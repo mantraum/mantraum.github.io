@@ -470,7 +470,7 @@ function draw04() {
 
 	// 천궁도 영역 표시하기
 
-	Date dd = new Date();
+	var dd = new Date();
 
 	let tell_s = genRtofrmMonthDay(new Date(2022,2,21).toString());
 	let tell_e = genRtofrmMonthDay(new Date(2022,3,19).toString());
@@ -485,7 +485,7 @@ function draw04() {
 	tell_e = genRtofrmMonthDay(dd.toString());
 
 	ctx.beginPath();
-	ctx.arc(300, 300, 290, Math.PI*tell_s, Math.PI*tell_e, true);
+	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
 	ctx.fillStyle = "rgba(0, 255, 255, 0.3)";
 	ctx.closePath();
 	ctx.stroke();
@@ -503,7 +503,7 @@ function draw04() {
 	tell_e = genRtofrmMonthDay(dd.toString());
 
 	ctx.beginPath();
-	ctx.arc(300, 300, 290, Math.PI*tell_s, Math.PI*tell_e, true);
+	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
 	ctx.fillStyle = "rgba(0, 255, 255, 0.32)";
 	ctx.closePath();
 	ctx.stroke();
@@ -520,7 +520,7 @@ function draw04() {
 	tell_e = genRtofrmMonthDay(dd.toString());
 
 	ctx.beginPath();
-	ctx.arc(300, 300, 290, Math.PI*tell_s, Math.PI*tell_e, true);
+	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
 	ctx.fillStyle = "rgba(0, 255, 255, 0.34)";
 	ctx.closePath();
 	ctx.stroke();
@@ -537,7 +537,7 @@ function draw04() {
 	tell_e = genRtofrmMonthDay(dd.toString());
 
 	ctx.beginPath();
-	ctx.arc(300, 300, 290, Math.PI*tell_s, Math.PI*tell_e, true);
+	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
 	ctx.fillStyle = "rgba(0, 255, 255, 0.36)";
 	ctx.closePath();
 	ctx.stroke();
