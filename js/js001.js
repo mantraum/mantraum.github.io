@@ -414,11 +414,19 @@ function drawLineFrmCurrMonthNDate() {
 function drawLineFrmCurrMonthNDate2() {
 
 	let to_date = new Date(); // 오늘 일자
-	let s_date = to_date.setMonth(0); //올해 첫번째 일자, 월은 0에서 11까지.
-	s_date = s_date.setDate(1);
+	to_date.setMonth(0); //올해 첫번째 일자, 월은 0에서 11까지.
+	to_date.setDate(1);
 
-	let e_date = to_date.setMonth(11); // 올해 마지막 일자
-	e_date = e_date.setDate(31);
+	let s_date = to_date.toString();
+
+	to_date = new Date();
+
+	to_date.setMonth(11); // 올해 마지막 일자
+	to_date.setDate(31);
+
+	let e_date = to_date.toString();
+
+	to_date = new Date();
 	
 
 	console.log("to_date: " + to_date);
