@@ -301,10 +301,42 @@ function drawLineFrmCurrMonthNDate() {
 		
 		ctx.stroke();
 
+		//지구별 현재선 반지름 140
+		x_r = 140*Math.cos(Math.PI*ratio);
+		y_r = 140*Math.sin(Math.PI*ratio);
+
+		console.log("지구별 현재선 반지름 140 : "+x_r);
+		console.log("지구별 현재선 반지름 140 : "+y_r);
+
+		ctx.beginPath();
+		ctx.moveTo(300, 300);
+		ctx.lineTo(300+x_r, 300+y_r);
+
+		ctx.lineWidth ="3";//선굵기
+		ctx.strokeStyle = 'rgba(255, 0, 255, 1)';//선색깔과 투명도, 
+		ctx.lineCap = "round"; //선끝모양
+		ctx.stroke();
 
 		//지구별 현재선 반지름 140
-		x_r = 140*Math.cos(Math.round(Math.PI + Math.PI*ratio));
-		y_r = 140*Math.sin(Math.round(Math.PI + Math.PI*ratio));
+		x_r = 140*Math.cos(Math.PI*0.5 + Math.PI*ratio);
+		y_r = 140*Math.sin(Math.PI*0.5 + Math.PI*ratio);
+
+		console.log("지구별 현재선 반지름 140 : "+x_r);
+		console.log("지구별 현재선 반지름 140 : "+y_r);
+
+		ctx.beginPath();
+		ctx.moveTo(300, 300);
+		ctx.lineTo(300+x_r, 300+y_r);
+
+		ctx.lineWidth ="3";//선굵기
+		ctx.strokeStyle = 'rgba(0, 255, 255, 1)';//선색깔과 투명도, 
+		ctx.lineCap = "round"; //선끝모양
+		ctx.stroke();
+
+
+		//지구별 현재선 반지름 140
+		x_r = 140*Math.cos(Math.PI + Math.PI*ratio);
+		y_r = 140*Math.sin(Math.PI + Math.PI*ratio);
 
 		console.log("지구별 현재선 반지름 140 : "+x_r);
 		console.log("지구별 현재선 반지름 140 : "+y_r);
@@ -318,9 +350,11 @@ function drawLineFrmCurrMonthNDate() {
 		ctx.lineCap = "round"; //선끝모양
 		ctx.stroke();
 
+		
+
 		//지구별 현재선 반지름 140
-		x_r = 140*Math.cos(Math.round(Math.PI*1.25 + Math.PI*ratio));
-		y_r = 140*Math.sin(Math.round(Math.PI*1.25 + Math.PI*ratio));
+		x_r = 140*Math.cos(Math.PI*1.25 + Math.PI*ratio);
+		y_r = 140*Math.sin(Math.PI*1.25 + Math.PI*ratio);
 
 		console.log("지구별 현재선 반지름 140 : "+x_r);
 		console.log("지구별 현재선 반지름 140 : "+y_r);
