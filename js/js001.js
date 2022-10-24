@@ -494,7 +494,27 @@ function draw04() {
 	ctx.fill();
 
 	//쌍둥이자리 5월 21일 ~ 6월 21일
+	tell_s = genRtofrmMonthDay(new Date(2022,4,21).toString());
+	tell_e = genRtofrmMonthDay(new Date(2022,5,21).toString());
+
+	ctx.beginPath();
+	ctx.arc(300, 300, 290, Math.PI*tell_s, Math.PI*tell_e, true);
+	ctx.fillStyle = "rgba(0, 255, 255, 0.34)"; 
+	ctx.stroke();
+
+	ctx.fill();
+
 	//게자리 6월 22일 ~ 7월 22일
+	tell_s = genRtofrmMonthDay(new Date(2022,5,22).toString());
+	tell_e = genRtofrmMonthDay(new Date(2022,6,22).toString());
+
+	ctx.beginPath();
+	ctx.arc(300, 300, 290, Math.PI*tell_s, Math.PI*tell_e, true);
+	ctx.fillStyle = "rgba(0, 255, 255, 0.36)"; 
+	ctx.stroke();
+
+	ctx.fill();
+
 	//사자자리 7월 23일 ~ 8월 22일
 	//처녀자리 8월 23일 ~ 9월 22일
 	//천칭자리 9월 23일 ~ 10월 22일
@@ -523,6 +543,8 @@ function draw04() {
   // 예: 3월 21일은 한 해의 몇 퍼센트가 지난 것이다.
 
 	function genRtofrmMonthDay(da_te) {
+
+		console.log("genRtofrmMonthDay: " + da_te);
 
 			let s_date = new Date(new Date(da_te).getFullYear(),0, 1); //올해 첫번째 일자, 월은 0에서 11까지.
 			let e_date = new Date(new Date(da_te).getFullYear(),11, 31); // 올해 마지막 일자
