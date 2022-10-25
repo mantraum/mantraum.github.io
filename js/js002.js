@@ -452,12 +452,28 @@ function makeDailyClock() {
 			y_r2 = 260*Math.sin(Math.PI+Math.PI*ratio*i);
 
 			ctx.lineTo(300+x_r2, 300+y_r2);
-			ctx.lineWidth ="2";//선굵기
+			ctx.lineWidth ="1";//선굵기
 			ctx.strokeStyle = 'rgba(255, 0, 0, 1)';//선색깔과 투명도, 래드
 			ctx.lineCap = "round"; //선끝모양
 		
 			ctx.stroke();
 		}
+
+		// 1월1일 기준선 표시
+		ctx.beginPath();
+		x_r = 90*Math.cos(Math.PI);
+		y_r = 90*Math.sin(Math.PI);
+		ctx.moveTo(300+x_r, 300+y_r);
+
+		x_r2 = 260*Math.cos(Math.PI);
+		y_r2 = 260*Math.sin(Math.PI);
+
+		ctx.lineTo(300+x_r2, 300+y_r2);
+		ctx.lineWidth ="1";//선굵기
+		ctx.strokeStyle = 'rgba(255, 0, 0, 1)';//선색깔과 투명도, 래드
+		ctx.lineCap = "round"; //선끝모양
+	
+		ctx.stroke();
 
 		//지구별 현재선 반지름 140
 		
