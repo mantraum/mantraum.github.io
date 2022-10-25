@@ -446,12 +446,12 @@ function makeDailyClock() {
 			y_r = 250*Math.sin(Math.PI+Math.PI*ratio*i);
 
 			ctx.beginPath();
-			ctx.moveTo(x_r, y_r);
+			ctx.moveTo(300+x_r, 300+y_r);
 
 			x_r2 = 260*Math.cos(Math.PI+Math.PI*ratio*i);
 			y_r2 = 260*Math.sin(Math.PI+Math.PI*ratio*i);
 
-			ctx.lineTo(x_r2, y_r2);
+			ctx.lineTo(300+x_r2, 300+y_r2);
 			ctx.lineWidth ="2";//선굵기
 			ctx.strokeStyle = 'rgba(255, 0, 0, 1)';//선색깔과 투명도, 래드
 			ctx.lineCap = "round"; //선끝모양
@@ -478,7 +478,7 @@ function makeDailyClock() {
 
 
 		//현재 시각 정보
-		document.getElementById("jsmode").innerText = to_date.toString();
+		document.getElementById("da.today").innerText = to_date.toString();
 
 	}
 
