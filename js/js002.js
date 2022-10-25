@@ -195,7 +195,7 @@ function makeDailyClock() {
 		y_r2 = 260*Math.sin(Math.PI);
 
 		ctx.lineTo(300+x_r2, 300+y_r2);
-		ctx.lineWidth ="1";//선굵기
+		ctx.lineWidth ="2";//선굵기
 		ctx.strokeStyle = 'rgba(255, 0, 0, 1)';//선색깔과 투명도, 래드
 		ctx.lineCap = "round"; //선끝모양
 	
