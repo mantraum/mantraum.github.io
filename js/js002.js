@@ -91,287 +91,7 @@ function draw00() {
 	makeDailyClock();
 
 	// 천궁도 영역 표시하기
-
-	var dd = new Date();
-
-	//양자리 3월 21일 ~ 4월 19일
-	dd.setMonth(2);
-	dd.setDate(21);
-	let tell_s = genRtofrmMonthDay(dd.toString());
-
-	dd = new Date();
-	dd.setMonth(3);
-	dd.setDate(19);
-	let tell_e = genRtofrmMonthDay(dd.toString());
-
-	ctx.beginPath();
-	ctx.moveTo(300, 300);
-	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
-	
-	ctx.fillStyle = "rgba(250, 235, 215, 0.5)";
-	ctx.fill();
-	ctx.strokeStyle = "rgba(210, 105, 30, 1)";
-	ctx.stroke();
-	ctx.closePath();
-
-	// 문자표시
-	ctx.font = "20px malgun gothic"; //폰트의 크기, 글꼴체 지정
-	ctx.textBaseline = "middle"; //텍스트 출력 기준선 설정(top, middle, bottom, alphabetic, hanging, ideo graphic)
-	ctx.textAlign = "center"; //텍스트 가로 방향의 정렬 지정(left, right, center, start, end)
-
-	ctx.fillStyle = "rgba(128, 0, 0,1)"; //색상지정
-	// 변수 tell_e 재사용
-	tell_e = (tell_e-tell_s)/2;
-	ctx.fillText("\U+2648", 300+275*Math.cos(Math.PI*2*tell_s+Math.PI*2*tell_e), 300+275*Math.sin(Math.PI*2*tell_s+Math.PI*2*tell_e));// ARIES
-
-
-	//황소자리 4월 20일 ~ 5월 20일
-	dd = new Date();
-	dd.setMonth(3);
-	dd.setDate(20);
-	tell_s = genRtofrmMonthDay(dd.toString());
-
-	dd = new Date();
-	dd.setMonth(4);
-	dd.setDate(20);
-	tell_e = genRtofrmMonthDay(dd.toString());
-
-	ctx.beginPath();
-	ctx.moveTo(300, 300);
-	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
-
-	ctx.fillStyle = "rgba(250, 235, 215, 0.34)";
-	//ctx.fill();
-	ctx.strokeStyle = "rgba(210, 105, 30, 1)";
-	ctx.stroke();
-	ctx.closePath();
-
-	//쌍둥이자리 5월 21일 ~ 6월 21일
-	dd = new Date();
-	dd.setMonth(4);
-	dd.setDate(21);
-	tell_s = genRtofrmMonthDay(dd.toString());
-
-	dd = new Date();
-
-	dd.setMonth(5);
-	dd.setDate(21);
-	tell_e = genRtofrmMonthDay(dd.toString());
-
-	ctx.beginPath();
-	ctx.moveTo(300, 300);
-	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
-
-	ctx.fillStyle = "rgba(250, 235, 215, 0.4)";
-	//ctx.fill();
-	ctx.strokeStyle = "rgba(210, 105, 30, 1)";
-	ctx.stroke();
-	ctx.closePath();
-
-	//게자리 6월 22일 ~ 7월 22일
-	dd = new Date();
-	dd.setMonth(5);
-	dd.setDate(22);
-	tell_s = genRtofrmMonthDay(dd.toString());
-
-	dd = new Date();
-
-	dd.setMonth(6);
-	dd.setDate(22);
-	tell_e = genRtofrmMonthDay(dd.toString());
-
-	ctx.beginPath();
-	ctx.moveTo(300, 300);
-	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
-
-	ctx.fillStyle = "rgba(250, 235, 215, 0.44)";
-	//ctx.fill();
-	ctx.strokeStyle = "rgba(210, 105, 30, 1)";
-	ctx.stroke();
-	ctx.closePath();
-
-	//사자자리 7월 23일 ~ 8월 22일
-	dd = new Date();
-	dd.setMonth(6);
-	dd.setDate(23);
-	tell_s = genRtofrmMonthDay(dd.toString());
-
-	dd = new Date();
-	dd.setMonth(7);
-	dd.setDate(22);
-	tell_e = genRtofrmMonthDay(dd.toString());
-
-	ctx.beginPath();
-	ctx.moveTo(300, 300);
-	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
-
-	ctx.fillStyle = "rgba(250, 235, 215, 0.4)";
-	//ctx.fill();
-	ctx.strokeStyle = "rgba(210, 105, 30, 1)";
-	ctx.stroke();
-	ctx.closePath();
-
-
-	//처녀자리 8월 23일 ~ 9월 22일
-	dd = new Date();
-	dd.setMonth(7);
-	dd.setDate(23);
-	tell_s = genRtofrmMonthDay(dd.toString());
-
-	dd = new Date();
-
-	dd.setMonth(8);
-	dd.setDate(22);
-	tell_e = genRtofrmMonthDay(dd.toString());
-
-	ctx.beginPath();
-	ctx.moveTo(300, 300);
-	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
-
-	ctx.fillStyle = "rgba(250, 235, 215, 0.46)";
-	//ctx.fill();
-	ctx.strokeStyle = "rgba(210, 105, 30, 1)";
-	ctx.stroke();
-	ctx.closePath();
-
-
-	//천칭자리 9월 23일 ~ 10월 22일
-	dd = new Date();
-	dd.setMonth(8);
-	dd.setDate(23);
-	tell_s = genRtofrmMonthDay(dd.toString());
-
-	dd = new Date();
-
-	dd.setMonth(9);
-	dd.setDate(22);
-	tell_e = genRtofrmMonthDay(dd.toString());
-
-	ctx.beginPath();
-	ctx.moveTo(300, 300);
-	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
-
-	ctx.fillStyle = "rgba(250, 235, 215, 0.52)";
-	//ctx.fill();
-	ctx.strokeStyle = "rgba(210, 105, 30, 1)";
-	ctx.stroke();
-	ctx.closePath();
-
-
-	//전갈자리 10월 23일 ~ 11월 22일
-	dd = new Date();
-	dd.setMonth(9);
-	dd.setDate(23);
-	tell_s = genRtofrmMonthDay(dd.toString());
-
-	dd = new Date();
-
-	dd.setMonth(10);
-	dd.setDate(22);
-	tell_e = genRtofrmMonthDay(dd.toString());
-
-	ctx.beginPath();
-	ctx.moveTo(300, 300);
-	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
-
-	ctx.fillStyle = "rgba(250, 235, 215, 0.60)";
-	//ctx.fill();
-	ctx.strokeStyle = "rgba(210, 105, 30, 1)";
-	ctx.stroke();
-	ctx.closePath();
-
-
-	//궁수자리 11월 23일 ~ 12월 24일
-	dd = new Date();
-	dd.setMonth(10);
-	dd.setDate(23);
-	tell_s = genRtofrmMonthDay(dd.toString());
-
-	dd = new Date();
-
-	dd.setMonth(11);
-	dd.setDate(24);
-	tell_e = genRtofrmMonthDay(dd.toString());
-
-	ctx.beginPath();
-	ctx.moveTo(300, 300);
-	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
-
-	ctx.fillStyle = "rgba(250, 235, 215, 0.68)";
-	//ctx.fill();
-	ctx.strokeStyle = "rgba(210, 105, 30, 1)";
-	ctx.stroke();
-	ctx.closePath();
-
-
-	//염소자리 12월 25일 ~ 1월 19일
-	dd = new Date();
-	dd.setMonth(11);
-	dd.setDate(25);
-	tell_s = genRtofrmMonthDay(dd.toString());
-
-	dd = new Date();
-
-	dd.setMonth(0);
-	dd.setDate(19);
-	tell_e = genRtofrmMonthDay(dd.toString());
-
-	ctx.beginPath();
-	ctx.moveTo(300, 300);
-	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
-
-	ctx.fillStyle = "rgba(250, 235, 215, 0.75)";
-	//ctx.fill();
-	ctx.strokeStyle = "rgba(210, 105, 30, 1)";
-	ctx.stroke();
-	ctx.closePath();
-
-
-	//물병자리 1월 20일 ~ 2월 18일
-	dd = new Date();
-	dd.setMonth(0);
-	dd.setDate(20);
-	tell_s = genRtofrmMonthDay(dd.toString());
-
-	dd = new Date();
-
-	dd.setMonth(1);
-	dd.setDate(18);
-	tell_e = genRtofrmMonthDay(dd.toString());
-
-	ctx.beginPath();
-	ctx.moveTo(300, 300);
-	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
-
-	ctx.fillStyle = "rgba(250, 235, 215, 0.83)";
-	//ctx.fill();
-	ctx.strokeStyle = "rgba(210, 105, 30, 1)";
-	ctx.stroke();
-	ctx.closePath();
-
-
-	//물고기자리 2월 19일 ~ 3월 20일
-	dd = new Date();
-	dd.setMonth(1);
-	dd.setDate(19);
-	tell_s = genRtofrmMonthDay(dd.toString());
-
-	dd = new Date();
-
-	dd.setMonth(2);
-	dd.setDate(20);
-	tell_e = genRtofrmMonthDay(dd.toString());
-
-	ctx.beginPath();
-	ctx.moveTo(300, 300);
-	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
-
-	ctx.fillStyle = "rgba(250, 235, 215, 0.9)";
-	//ctx.fill();
-	ctx.strokeStyle = "rgba(210, 105, 30, 1)";
-	ctx.stroke();
-	ctx.closePath();
-
+	makeHoroScope();
 
   }
 }
@@ -500,4 +220,288 @@ function makeDailyClock() {
 
 
 	
+}
+
+// 천궁도 영역 표시하기
+function makeHoroScope(){
+
+	var dd = new Date();
+
+	//양자리 3월 21일 ~ 4월 19일
+	dd.setMonth(2);
+	dd.setDate(21);
+	let tell_s = genRtofrmMonthDay(dd.toString());
+
+	dd = new Date();
+	dd.setMonth(3);
+	dd.setDate(19);
+	let tell_e = genRtofrmMonthDay(dd.toString());
+
+	ctx.beginPath();
+	ctx.moveTo(300, 300);
+	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
+	
+//	ctx.fillStyle = "rgba(250, 235, 215, 0.5)";
+//	ctx.fill();
+	ctx.strokeStyle = "rgba(210, 105, 30, 1)";
+	ctx.stroke();
+	ctx.closePath();
+
+	// 문자표시
+	ctx.font = "20px malgun gothic"; //폰트의 크기, 글꼴체 지정
+	ctx.textBaseline = "middle"; //텍스트 출력 기준선 설정(top, middle, bottom, alphabetic, hanging, ideo graphic)
+	ctx.textAlign = "center"; //텍스트 가로 방향의 정렬 지정(left, right, center, start, end)
+
+	ctx.fillStyle = "rgba(128, 0, 0,1)"; //색상지정
+	// 변수 tell_e 재사용
+	tell_e = (tell_e-tell_s)/2;
+	ctx.fillText("\U+2648", 300+275*Math.cos(Math.PI*2*tell_s+Math.PI*2*tell_e), 300+275*Math.sin(Math.PI*2*tell_s+Math.PI*2*tell_e));// ARIES
+
+
+	//황소자리 4월 20일 ~ 5월 20일
+	dd = new Date();
+	dd.setMonth(3);
+	dd.setDate(20);
+	tell_s = genRtofrmMonthDay(dd.toString());
+
+	dd = new Date();
+	dd.setMonth(4);
+	dd.setDate(20);
+	tell_e = genRtofrmMonthDay(dd.toString());
+
+	ctx.beginPath();
+	ctx.moveTo(300, 300);
+	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
+
+	//ctx.fillStyle = "rgba(250, 235, 215, 0.34)";
+	//ctx.fill();
+	ctx.strokeStyle = "rgba(210, 105, 30, 1)";
+	ctx.stroke();
+	ctx.closePath();
+
+	//쌍둥이자리 5월 21일 ~ 6월 21일
+	dd = new Date();
+	dd.setMonth(4);
+	dd.setDate(21);
+	tell_s = genRtofrmMonthDay(dd.toString());
+
+	dd = new Date();
+
+	dd.setMonth(5);
+	dd.setDate(21);
+	tell_e = genRtofrmMonthDay(dd.toString());
+
+	ctx.beginPath();
+	ctx.moveTo(300, 300);
+	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
+
+	//ctx.fillStyle = "rgba(250, 235, 215, 0.4)";
+	//ctx.fill();
+	ctx.strokeStyle = "rgba(210, 105, 30, 1)";
+	ctx.stroke();
+	ctx.closePath();
+
+	//게자리 6월 22일 ~ 7월 22일
+	dd = new Date();
+	dd.setMonth(5);
+	dd.setDate(22);
+	tell_s = genRtofrmMonthDay(dd.toString());
+
+	dd = new Date();
+
+	dd.setMonth(6);
+	dd.setDate(22);
+	tell_e = genRtofrmMonthDay(dd.toString());
+
+	ctx.beginPath();
+	ctx.moveTo(300, 300);
+	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
+
+	//ctx.fillStyle = "rgba(250, 235, 215, 0.44)";
+	//ctx.fill();
+	ctx.strokeStyle = "rgba(210, 105, 30, 1)";
+	ctx.stroke();
+	ctx.closePath();
+
+	//사자자리 7월 23일 ~ 8월 22일
+	dd = new Date();
+	dd.setMonth(6);
+	dd.setDate(23);
+	tell_s = genRtofrmMonthDay(dd.toString());
+
+	dd = new Date();
+	dd.setMonth(7);
+	dd.setDate(22);
+	tell_e = genRtofrmMonthDay(dd.toString());
+
+	ctx.beginPath();
+	ctx.moveTo(300, 300);
+	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
+
+	//ctx.fillStyle = "rgba(250, 235, 215, 0.4)";
+	//ctx.fill();
+	ctx.strokeStyle = "rgba(210, 105, 30, 1)";
+	ctx.stroke();
+	ctx.closePath();
+
+
+	//처녀자리 8월 23일 ~ 9월 22일
+	dd = new Date();
+	dd.setMonth(7);
+	dd.setDate(23);
+	tell_s = genRtofrmMonthDay(dd.toString());
+
+	dd = new Date();
+
+	dd.setMonth(8);
+	dd.setDate(22);
+	tell_e = genRtofrmMonthDay(dd.toString());
+
+	ctx.beginPath();
+	ctx.moveTo(300, 300);
+	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
+
+	//ctx.fillStyle = "rgba(250, 235, 215, 0.46)";
+	//ctx.fill();
+	ctx.strokeStyle = "rgba(210, 105, 30, 1)";
+	ctx.stroke();
+	ctx.closePath();
+
+
+	//천칭자리 9월 23일 ~ 10월 22일
+	dd = new Date();
+	dd.setMonth(8);
+	dd.setDate(23);
+	tell_s = genRtofrmMonthDay(dd.toString());
+
+	dd = new Date();
+
+	dd.setMonth(9);
+	dd.setDate(22);
+	tell_e = genRtofrmMonthDay(dd.toString());
+
+	ctx.beginPath();
+	ctx.moveTo(300, 300);
+	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
+
+	//ctx.fillStyle = "rgba(250, 235, 215, 0.52)";
+	//ctx.fill();
+	ctx.strokeStyle = "rgba(210, 105, 30, 1)";
+	ctx.stroke();
+	ctx.closePath();
+
+
+	//전갈자리 10월 23일 ~ 11월 22일
+	dd = new Date();
+	dd.setMonth(9);
+	dd.setDate(23);
+	tell_s = genRtofrmMonthDay(dd.toString());
+
+	dd = new Date();
+
+	dd.setMonth(10);
+	dd.setDate(22);
+	tell_e = genRtofrmMonthDay(dd.toString());
+
+	ctx.beginPath();
+	ctx.moveTo(300, 300);
+	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
+
+	//ctx.fillStyle = "rgba(250, 235, 215, 0.60)";
+	//ctx.fill();
+	ctx.strokeStyle = "rgba(210, 105, 30, 1)";
+	ctx.stroke();
+	ctx.closePath();
+
+
+	//궁수자리 11월 23일 ~ 12월 24일
+	dd = new Date();
+	dd.setMonth(10);
+	dd.setDate(23);
+	tell_s = genRtofrmMonthDay(dd.toString());
+
+	dd = new Date();
+
+	dd.setMonth(11);
+	dd.setDate(24);
+	tell_e = genRtofrmMonthDay(dd.toString());
+
+	ctx.beginPath();
+	ctx.moveTo(300, 300);
+	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
+
+	//ctx.fillStyle = "rgba(250, 235, 215, 0.68)";
+	//ctx.fill();
+	ctx.strokeStyle = "rgba(210, 105, 30, 1)";
+	ctx.stroke();
+	ctx.closePath();
+
+
+	//염소자리 12월 25일 ~ 1월 19일
+	dd = new Date();
+	dd.setMonth(11);
+	dd.setDate(25);
+	tell_s = genRtofrmMonthDay(dd.toString());
+
+	dd = new Date();
+
+	dd.setMonth(0);
+	dd.setDate(19);
+	tell_e = genRtofrmMonthDay(dd.toString());
+
+	ctx.beginPath();
+	ctx.moveTo(300, 300);
+	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
+
+	ctx.fillStyle = "rgba(250, 235, 215, 0.75)";
+	//ctx.fill();
+	ctx.strokeStyle = "rgba(210, 105, 30, 1)";
+	ctx.stroke();
+	ctx.closePath();
+
+
+	//물병자리 1월 20일 ~ 2월 18일
+	dd = new Date();
+	dd.setMonth(0);
+	dd.setDate(20);
+	tell_s = genRtofrmMonthDay(dd.toString());
+
+	dd = new Date();
+
+	dd.setMonth(1);
+	dd.setDate(18);
+	tell_e = genRtofrmMonthDay(dd.toString());
+
+	ctx.beginPath();
+	ctx.moveTo(300, 300);
+	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
+
+	ctx.fillStyle = "rgba(250, 235, 215, 0.83)";
+	//ctx.fill();
+	ctx.strokeStyle = "rgba(210, 105, 30, 1)";
+	ctx.stroke();
+	ctx.closePath();
+
+
+	//물고기자리 2월 19일 ~ 3월 20일
+	dd = new Date();
+	dd.setMonth(1);
+	dd.setDate(19);
+	tell_s = genRtofrmMonthDay(dd.toString());
+
+	dd = new Date();
+
+	dd.setMonth(2);
+	dd.setDate(20);
+	tell_e = genRtofrmMonthDay(dd.toString());
+
+	ctx.beginPath();
+	ctx.moveTo(300, 300);
+	ctx.arc(300, 300, 290, Math.PI*2*tell_s, Math.PI*2*tell_e, true);
+
+	ctx.fillStyle = "rgba(250, 235, 215, 0.9)";
+	//ctx.fill();
+	ctx.strokeStyle = "rgba(210, 105, 30, 1)";
+	ctx.stroke();
+	ctx.closePath();
 }
