@@ -476,6 +476,10 @@ function makeDailyClock() {
 //		ctx.lineCap = "round"; //선끝모양
 //		ctx.stroke();
 
+
+		//현재 시각 정보
+		document.getElementById("jsmode").innerText = to_date.toString();
+
 	}
 
 
