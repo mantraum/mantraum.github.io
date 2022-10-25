@@ -1236,6 +1236,11 @@ function draw05() {
 
 	ctx.beginPath();
 	ctx.arc(300, 300, 290, 0, Math.PI*2, true);
+	//ctx.fillStyle = "#E0E4CD";
+	ctx.shadowOffsetX = 10;
+	ctx.shadowOffsetY = 10;
+	ctx.shadowBlur = 4;
+	ctx.shadowColor = "rgba(204,204,204,0.5)";
 	ctx.stroke();
 
 	//외곽선에 맞는 오늘날짜 표시하기 
