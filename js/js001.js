@@ -986,7 +986,7 @@ function draw05() {
 	ctx.fillStyle = "rgba(128, 0, 0,1)"; //색상지정
 	// 변수 tell_e 재사용
 	tell_e = (tell_e-tell_s)/2;
-	ctx.fillText('&#9800;', 300+275*Math.cos(Math.PI*2*tell_s+Math.PI*2*tell_e), 300+275*Math.sin(Math.PI*2*tell_s+Math.PI*2*tell_e));// ARIES
+	ctx.fillText(String.fromCharCode('&#9800;'), 300+275*Math.cos(Math.PI*2*tell_s+Math.PI*2*tell_e), 300+275*Math.sin(Math.PI*2*tell_s+Math.PI*2*tell_e));// ARIES
 
 
 	//황소자리 4월 20일 ~ 5월 20일
