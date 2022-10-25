@@ -93,6 +93,12 @@ function draw00() {
 	// 천궁도 영역 표시하기
 	makeHoroScope();
 
+	// 지구별 오늘날짜 직선으로 표시하기
+	drawEarthLineFrmCurrMonthNDate();
+
+	// 행성별 현재 위치 직선으로 표시하기
+
+
   }
 }
 
@@ -504,4 +510,97 @@ function makeHoroScope(){
 	ctx.strokeStyle = "rgba(210, 105, 30, 1)";
 	ctx.stroke();
 	ctx.closePath();
+}
+
+// 지구별 오늘날짜 직선으로 표시하기 
+// 행성별 현재 위치 직선으로 표시하기
+function drawEarthLineFrmCurrMonthNDate() {
+
+	let to_date = new Date(); // 오늘 일자
+	to_date.setMonth(0); //올해 첫번째 일자, 월은 0에서 11까지.
+	to_date.setDate(1);
+
+	let s_date = to_date.toString();
+
+	to_date = new Date();
+
+	to_date.setMonth(11); // 올해 마지막 일자
+	to_date.setDate(31);
+
+	let e_date = to_date.toString();
+
+	to_date = new Date();
+	
+
+	console.log("to_date: " + to_date);
+	console.log("s_date: " + s_date);
+	console.log("e_date: " + e_date);
+	
+	var milli_to_date = Date.now();//유타코 1970.1.1부터의 오늘까지의 밀리초계산
+	var milli_s_date = Date.parse(s_date);//유타코 1970.1.1부터의 올해첫일까지의 밀리초계산
+	var milli_e_date = Date.parse(e_date);//유타코 1970.1.1부터의 올해막일까지의 밀리초계산
+
+	//오늘이 경과한 일수가 일년에 대해 가지는 비율값
+	var ratio = (milli_to_date-milli_s_date)/(milli_e_date-milli_s_date);
+
+	console.log("milli_to_date: " + milli_to_date);
+	console.log("milli_s_date: " + milli_s_date);
+	console.log("milli_e_date: " + milli_e_date);
+
+	console.log("ratio: " + ratio);
+	console.log("Math.PI*ratio: " + Math.PI*ratio);
+
+
+
+	//코사인값, x좌표값 보정치
+	var x_r = Math.cos(Math.PI*2*ratio+Math.PI/2);
+	//사인값, y좌표값 보정치
+	var y_r = Math.sin(Math.PI*2*ratio+Math.PI/2);
+
+	// 직선그리기, 중심좌표(300,300), 외곽선 반지름 290, 지구 반지름 140 가정
+	var canvas = document.getElementById('canvas01');
+
+	if (canvas.getContext) {
+		var ctx = canvas.getContext('2d');
+
+		
+
+		//기준선 외곽선 반지름 290
+		x_r = 290*Math.cos(Math.PI);
+		y_r = 290*Math.sin(Math.PI);
+
+		console.log("x_r : "+x_r);
+		console.log("y_r : "+y_r);
+
+		ctx.beginPath();
+		ctx.moveTo(300, 300);
+		ctx.lineTo(300+x_r, 300+y_r);
+
+		ctx.lineWidth ="3";//선굵기
+		ctx.strokeStyle = 'rgba(255, 0, 0, 1)';//선색깔과 투명도, 래드
+		ctx.lineCap = "round"; //선끝모양
+		
+		ctx.stroke();
+
+		//지구별 현재선 반지름 140
+		
+		x_r = 140*Math.cos(Math.PI*0.5 + Math.PI*ratio);
+		y_r = 140*Math.sin(Math.PI*0.5 + Math.PI*ratio);
+
+		console.log("x_r : "+x_r);
+		console.log("y_r : "+y_r);
+
+		ctx.beginPath();
+		ctx.moveTo(300, 300);
+		ctx.lineTo(300+x_r, 300+y_r);
+
+		ctx.lineWidth ="3";//선굵기
+		ctx.strokeStyle = 'rgba(0, 255, 255, 1)';//선색깔과 투명도, 하늘
+		ctx.lineCap = "round"; //선끝모양
+		ctx.stroke();
+
+	}
+
+
+	
 }
