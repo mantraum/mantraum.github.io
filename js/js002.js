@@ -74,7 +74,6 @@ function draw00() {
 	ctx.arc(300, 300, 250, 0, Math.PI*2, true);
 	ctx.stroke();
 
-	// ¿Ü°û¼±¿ë ±Ëµµ 2°³ ±×¸®±â
 	ctx.beginPath();
 	ctx.arc(300, 300, 260, 0, Math.PI*2, true);
 	ctx.stroke();
@@ -372,23 +371,6 @@ function draw00() {
 	ctx.strokeStyle = "rgba(210, 105, 30, 1)";
 	ctx.stroke();
 	ctx.closePath();
-
-
-	 
-
-	// ¿Ü°û¼±¿ë ±Ëµµ 2°³ ±×¸®±â
-	ctx.beginPath();
-	ctx.arc(300, 300, 260, 0, Math.PI*2, true);
-	ctx.stroke();
-
-	ctx.beginPath();
-	ctx.arc(300, 300, 290, 0, Math.PI*2, true);
-	//ctx.fillStyle = "#E0E4CD";
-//	ctx.shadowOffsetX = 10;
-//	ctx.shadowOffsetY = 10;
-//	ctx.shadowBlur = 4;
-//	ctx.shadowColor = "rgba(255,20,20,0.9)";
-	ctx.stroke();
 
 
   }
