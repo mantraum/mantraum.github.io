@@ -402,7 +402,7 @@ function draw00() {
 // 현재 설정한 중심점(300,300)에서, 설정한 반지름290으로 나오는 시작점(300-290, 300)까지 직선을 가정한다. 라.
 // 라에서 가정한 직선을 다에서 구한 각도만큼 반시계 방향으로 돌렸을 때 부채꼴이 만들어 내는 최외곽점을 계산해 낸다. 마.
 // 중심점(300, 300)으로 이동해서, 마까지 직선을 그린다.
-function drawLineFrmCurrMonthNDate2() {
+function makeDailyClock() {
 
 	let to_date = new Date(); // 오늘 일자
 	to_date.setMonth(0); //올해 첫번째 일자, 월은 0에서 11까지.
