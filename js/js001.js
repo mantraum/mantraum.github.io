@@ -910,39 +910,39 @@ function draw05() {
 
 	// 보조궤도선
 	ctx.beginPath();
-	ctx.arc(300, 300, 30, 0, Math.PI*2, true);
+	ctx.arc(300, 300, 90, 0, Math.PI*2, true);
 	ctx.stroke();
 
 	
 
 	// 머큐리
 	ctx.beginPath();
-	ctx.arc(300, 300, 100, 0, Math.PI*2, true);
+	ctx.arc(300, 300, 120, 0, Math.PI*2, true);
 	ctx.stroke();
 
 	// 비너스
 	ctx.beginPath();
-	ctx.arc(300, 300, 110, 0, Math.PI*2, true);
+	ctx.arc(300, 300, 130, 0, Math.PI*2, true);
 	ctx.stroke();
 
 	// 어쓰
 	ctx.beginPath();
-	ctx.arc(300, 300, 120, 0, Math.PI*2, true);
+	ctx.arc(300, 300, 150, 0, Math.PI*2, true);
 	ctx.stroke();
 
 	// 마르스
 	ctx.beginPath();
-	ctx.arc(300, 300, 130, 0, Math.PI*2, true);
+	ctx.arc(300, 300, 160, 0, Math.PI*2, true);
 	ctx.stroke();
 
 	// 쥬피터
 	ctx.beginPath();
-	ctx.arc(300, 300, 160, 0, Math.PI*2, true);
+	ctx.arc(300, 300, 180, 0, Math.PI*2, true);
 	ctx.stroke();
 	
 	// 새턴
 	ctx.beginPath();
-	ctx.arc(300, 300, 170, 0, Math.PI*2, true);
+	ctx.arc(300, 300, 190, 0, Math.PI*2, true);
 	ctx.stroke();
 
 	// 우라누스
