@@ -441,14 +441,15 @@ function makeDailyClock() {
 
 		//직선그리기, 중심좌표(300,300)기준시작점 외곽선 반지름 250
 		for(var i=0; i<isLeapYr; i++){
-			x_r = 250*Math.cos(Math.PI+Math.PI*ratio);
-			y_r = 250*Math.sin(Math.PI+Math.PI*ratio);
+
+			x_r = 250*Math.cos(Math.PI+Math.PI*ratio*i);
+			y_r = 250*Math.sin(Math.PI+Math.PI*ratio*i);
 
 			ctx.beginPath();
 			ctx.moveTo(x_r, y_r);
 
-			x_r2 = 260*Math.cos(Math.PI+Math.PI*ratio);
-			y_r2 = 260*Math.sin(Math.PI+Math.PI*ratio);
+			x_r2 = 260*Math.cos(Math.PI+Math.PI*ratio*i);
+			y_r2 = 260*Math.sin(Math.PI+Math.PI*ratio*i);
 
 			ctx.lineTo(x_r2, y_r2);
 			ctx.lineWidth ="2";//선굵기
