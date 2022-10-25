@@ -902,21 +902,27 @@ function draw05() {
     var ctx = canvas.getContext('2d');
 
 
+	// 행성별 원궤도 그리기
 	// 원점
 	ctx.beginPath();
 	ctx.arc(300, 300, 3, 0, Math.PI*2, true);
 	ctx.stroke();
 
-	// 행성별 원궤도 그리기
+	// 보조궤도선
+	ctx.beginPath();
+	ctx.arc(300, 300, 30, 0, Math.PI*2, true);
+	ctx.stroke();
+
+	
 
 	// 머큐리
 	ctx.beginPath();
-	ctx.arc(300, 300, 80, 0, Math.PI*2, true);
+	ctx.arc(300, 300, 100, 0, Math.PI*2, true);
 	ctx.stroke();
 
 	// 비너스
 	ctx.beginPath();
-	ctx.arc(300, 300, 90, 0, Math.PI*2, true);
+	ctx.arc(300, 300, 110, 0, Math.PI*2, true);
 	ctx.stroke();
 
 	// 어쓰
@@ -952,6 +958,25 @@ function draw05() {
 	// 플루토
 	ctx.beginPath();
 	ctx.arc(300, 300, 230, 0, Math.PI*2, true);
+	ctx.stroke();
+
+	// 외곽선용 궤도 그리기
+	ctx.beginPath();
+	ctx.arc(300, 300, 250, 0, Math.PI*2, true);
+	ctx.stroke();
+
+	// 외곽선용 궤도 2개 그리기
+	ctx.beginPath();
+	ctx.arc(300, 300, 260, 0, Math.PI*2, true);
+	ctx.stroke();
+
+	ctx.beginPath();
+	ctx.arc(300, 300, 290, 0, Math.PI*2, true);
+	//ctx.fillStyle = "#E0E4CD";
+//	ctx.shadowOffsetX = 10;
+//	ctx.shadowOffsetY = 10;
+//	ctx.shadowBlur = 4;
+//	ctx.shadowColor = "rgba(255,20,20,0.9)";
 	ctx.stroke();
 
 	// 천궁도 영역 표시하기
@@ -1239,19 +1264,7 @@ function draw05() {
 
 	 
 
-	// 외곽선용 궤도 2개 그리기
-	ctx.beginPath();
-	ctx.arc(300, 300, 260, 0, Math.PI*2, true);
-	ctx.stroke();
 
-	ctx.beginPath();
-	ctx.arc(300, 300, 290, 0, Math.PI*2, true);
-	//ctx.fillStyle = "#E0E4CD";
-//	ctx.shadowOffsetX = 10;
-//	ctx.shadowOffsetY = 10;
-//	ctx.shadowBlur = 4;
-//	ctx.shadowColor = "rgba(255,20,20,0.9)";
-	ctx.stroke();
 
 	//지구별 오늘날짜 직선으로 표시하기 
 	drawLineFrmCurrMonthNDate2();
