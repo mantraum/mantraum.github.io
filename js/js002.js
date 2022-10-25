@@ -231,13 +231,14 @@ function makeDailyClock() {
 // 천궁도 영역 표시하기
 function makeHoroScope(){
 
-	var dd, qq = new Date();
+	var dd = new Date();
+	var qq = new Date();
 
 	//양자리 3월 21일 ~ 4월 19일
 	dd.setMonth(2);
 	dd.setDate(21);
-	qq.setMonth(2);
-	qq.setDate(21);
+	qq.setMonth(3);
+	qq.setDate(19);
 
 	drawHoroScope(dd.toString(), qq.toString());
 
