@@ -233,21 +233,21 @@ function makeHoroScope(){
 
 	var dd = new Date();
 
-	//양자리 3월 21일 ~ 4월 19일
-	dd.setMonth(2);
-	dd.setDate(21);
-	let tell_s = genRtofrmMonthDay(dd.toString());
-
-	dd = new Date();
-	dd.setMonth(3);
-	dd.setDate(19);
-	let tell_e = genRtofrmMonthDay(dd.toString());
-
 	var canvas = document.getElementById('canvas01');
 
 	if (canvas.getContext) {
 
 		var ctx = canvas.getContext('2d');
+
+		//양자리 3월 21일 ~ 4월 19일
+		dd.setMonth(2);
+		dd.setDate(21);
+		let tell_s = genRtofrmMonthDay(dd.toString());
+
+		dd = new Date();
+		dd.setMonth(3);
+		dd.setDate(19);
+		let tell_e = genRtofrmMonthDay(dd.toString());
 
 		ctx.beginPath();
 		ctx.moveTo(300, 300);
