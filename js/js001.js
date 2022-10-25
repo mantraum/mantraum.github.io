@@ -978,6 +978,16 @@ function draw05() {
 	ctx.stroke();
 	ctx.closePath();
 
+	// 문자표시
+	ctx.font = "20px malgun gothic"; //폰트의 크기, 글꼴체 지정
+	ctx.textBaseline = "middle"; //텍스트 출력 기준선 설정(top, middle, bottom, alphabetic, hanging, ideo graphic)
+	ctx.textAlign = "center"; //텍스트 가로 방향의 정렬 지정(left, right, center, start, end)
+
+	ctx.fillStyle = "rgba(255,0,255,1)"; //색상지정
+	// 변수 tell_e 재사용
+	tell_e = (tell_e-tell_s)/2;
+	ctx.fillText("&#9800;", Math.cos(Math.PI*2*tell_s+Math.PI*2*tell_e), Math.sin(Math.PI*2*tell_s+Math.PI*2*tell_e));// ARIES
+
 
 	//황소자리 4월 20일 ~ 5월 20일
 	dd = new Date();
