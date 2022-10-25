@@ -1231,7 +1231,7 @@ function draw05() {
 
 	// ¿Ü°û¼±
 	ctx.beginPath();
-	ctx.arc(300, 300, 280, 0, Math.PI*2, true);
+	ctx.arc(300, 300, 260, 0, Math.PI*2, true);
 	ctx.stroke();
 
 	ctx.beginPath();
