@@ -384,6 +384,8 @@ function draw00() {
 // 현재 설정한 중심점(300,300)에서, 설정한 반지름290으로 나오는 시작점(300-290, 300)까지 직선을 가정한다. 라.
 // 라에서 가정한 직선을 다에서 구한 각도만큼 반시계 방향으로 돌렸을 때 부채꼴이 만들어 내는 최외곽점을 계산해 낸다. 마.
 // 중심점(300, 300)으로 이동해서, 마까지 직선을 그린다.
+
+// 한해를 일자별로 눈금시계 만들기
 function makeDailyClock() {
 
 	let to_date = new Date(); // 오늘 일자
@@ -401,7 +403,6 @@ function makeDailyClock() {
 
 	to_date = new Date();
 	
-
 	console.log("to_date: " + to_date);
 	console.log("s_date: " + s_date);
 	console.log("e_date: " + e_date);
@@ -410,64 +411,69 @@ function makeDailyClock() {
 	var milli_s_date = Date.parse(s_date);//유타코 1970.1.1부터의 올해첫일까지의 밀리초계산
 	var milli_e_date = Date.parse(e_date);//유타코 1970.1.1부터의 올해막일까지의 밀리초계산
 
-	//오늘이 경과한 일수가 일년에 대해 가지는 비율값
-	var ratio = (milli_to_date-milli_s_date)/(milli_e_date-milli_s_date);
-
 	console.log("milli_to_date: " + milli_to_date);
 	console.log("milli_s_date: " + milli_s_date);
 	console.log("milli_e_date: " + milli_e_date);
 
-	console.log("ratio: " + ratio);
-	console.log("Math.PI*ratio: " + Math.PI*ratio);
+		
+	//윤년이면 366일처리
+	var isLeapYr = 365;
+	if(new Date(to_date.getFullYear(), 1, 29).getDate() == 29){
+		isLeapYr = 366;
+	}
+	//올해 마지막 밀리새컨드와 첫 밀리새컨드의 차이를 365로 나눠 하루에 해당하는 비율을 구한다
+	var ratio = 2*Math.PI*((milli_e_date-milli_s_date)/isLeapYr);
 
+	console.log("isLeapYr: " + isLeapYr);
+	console.log("ratio: " + ratio);
 
 
 	//코사인값, x좌표값 보정치
-	var x_r = Math.cos(Math.PI*2*ratio+Math.PI/2);
+	var x_r, x_r2 = 0;
 	//사인값, y좌표값 보정치
-	var y_r = Math.sin(Math.PI*2*ratio+Math.PI/2);
+	var y_r, y_r2 = 0;
 
-	// 직선그리기, 중심좌표(300,300), 외곽선 반지름 290, 지구 반지름 140 가정
 	var canvas = document.getElementById('canvas01');
 
 	if (canvas.getContext) {
+
 		var ctx = canvas.getContext('2d');
 
+		//직선그리기, 중심좌표(300,300)기준시작점 외곽선 반지름 250
+		for(var i=0; i<isLeapYr; i++){
+			x_r = 250*Math.cos(Math.PI+Math.PI*ratio);
+			y_r = 250*Math.sin(Math.PI+Math.PI*ratio);
+
+			ctx.beginPath();
+			ctx.moveTo(x_r, y_r);
+
+			x_r2 = 260*Math.cos(Math.PI+Math.PI*ratio);
+			y_r2 = 260*Math.sin(Math.PI+Math.PI*ratio);
+
+			ctx.lineTo(x_r2, y_r2);
+			ctx.lineWidth ="2";//선굵기
+			ctx.strokeStyle = 'rgba(255, 0, 0, 1)';//선색깔과 투명도, 래드
+			ctx.lineCap = "round"; //선끝모양
 		
-
-		//기준선 외곽선 반지름 290
-		x_r = 290*Math.cos(Math.PI);
-		y_r = 290*Math.sin(Math.PI);
-
-		console.log("x_r : "+x_r);
-		console.log("y_r : "+y_r);
-
-		ctx.beginPath();
-		ctx.moveTo(300, 300);
-		ctx.lineTo(300+x_r, 300+y_r);
-
-		ctx.lineWidth ="3";//선굵기
-		ctx.strokeStyle = 'rgba(255, 0, 0, 1)';//선색깔과 투명도, 래드
-		ctx.lineCap = "round"; //선끝모양
-		
-		ctx.stroke();
+			ctx.stroke();
+		}
 
 		//지구별 현재선 반지름 140
 		
-		x_r = 140*Math.cos(Math.PI*0.5 + Math.PI*ratio);
-		y_r = 140*Math.sin(Math.PI*0.5 + Math.PI*ratio);
-
-		console.log("x_r : "+x_r);
-		console.log("y_r : "+y_r);
-
-		ctx.beginPath();
-		ctx.moveTo(300, 300);
-		ctx.lineTo(300+x_r, 300+y_r);
-
-		ctx.lineWidth ="3";//선굵기
-		ctx.strokeStyle = 'rgba(0, 255, 255, 1)';//선색깔과 투명도, 하늘
-		ctx.lineCap = "round"; //선끝모양
-		ctx.stroke();
+//		x_r = 140*Math.cos(Math.PI*0.5 + Math.PI*ratio);
+//		y_r = 140*Math.sin(Math.PI*0.5 + Math.PI*ratio);
+//
+//		console.log("x_r : "+x_r);
+//		console.log("y_r : "+y_r);
+//
+//		ctx.beginPath();
+//		ctx.moveTo(300, 300);
+//		ctx.lineTo(300+x_r, 300+y_r);
+//
+//		ctx.lineWidth ="3";//선굵기
+//		ctx.strokeStyle = 'rgba(0, 255, 255, 1)';//선색깔과 투명도, 하늘
+//		ctx.lineCap = "round"; //선끝모양
+//		ctx.stroke();
 
 	}
 
