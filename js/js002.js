@@ -187,9 +187,10 @@ function makeDailyClock() {
 
 		// 1월1일 기준선 표시
 		ctx.beginPath();
-		x_r = 90*Math.cos(Math.PI);
-		y_r = 90*Math.sin(Math.PI);
-		ctx.moveTo(300+x_r, 300+y_r);
+		//x_r = 90*Math.cos(Math.PI);
+		//y_r = 90*Math.sin(Math.PI);
+
+		ctx.moveTo(300, 300);
 
 		x_r2 = 260*Math.cos(Math.PI);
 		y_r2 = 260*Math.sin(Math.PI);
@@ -468,21 +469,29 @@ function drawEarthLineFrmCurrMonthNDate() {
 
 
 	//코사인값, x좌표값 보정치
-	var x_r = Math.cos(Math.PI*2*ratio+Math.PI/2);
+	var x_r = 0;
 	//사인값, y좌표값 보정치
-	var y_r = Math.sin(Math.PI*2*ratio+Math.PI/2);
+	var y_r = 0;
 
-	// 직선그리기, 중심좌표(300,300), 외곽선 반지름 290, 지구 반지름 140 가정
+	// 직선그리기, 중심좌표(300,300), 지구 반지름 150 가정
 	var canvas = document.getElementById('canvas01');
 
 	if (canvas.getContext) {
 		var ctx = canvas.getContext('2d');
 
 
-		//지구별 현재선 반지름 140
+		//지구별 현재선 반지름 150, 오늘 날짜 비율반영
+
+		//동쪽기준선에서 X만큼 시계방향으로 각운동을 시킨 건,
+		//반시계방향으로는 2*PI-X만큼 각운동을 시킨 것이고,
+		//기준선이 서쪽이 된다는 것은,
+		//시계방향이나 반시계방향이나 어느방향으로는,
+		//PI만큼 더 돌리게 되는 샘이다.
 		
-		x_r = 140*Math.cos(Math.PI*0.5 + Math.PI*ratio);
-		y_r = 140*Math.sin(Math.PI*0.5 + Math.PI*ratio);
+		x_r = 150*Math.cos(2*Math.PI-2*Math.PI*ratio+Math.PI);
+		y_r = 150*Math.sin(2*Math.PI-2*Math.PI*ratio+Math.PI);
+
+
 
 		console.log("x_r : "+x_r);
 		console.log("y_r : "+y_r);
@@ -491,7 +500,7 @@ function drawEarthLineFrmCurrMonthNDate() {
 		ctx.moveTo(300, 300);
 		ctx.lineTo(300+x_r, 300+y_r);
 
-		ctx.lineWidth ="2";//선굵기
+		ctx.lineWidth ="3";//선굵기
 		ctx.strokeStyle = 'rgba(0, 255, 255, 1)';//선색깔과 투명도, 하늘
 		ctx.lineCap = "round"; //선끝모양
 		ctx.stroke();
