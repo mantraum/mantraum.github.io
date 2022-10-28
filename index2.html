@@ -16,9 +16,10 @@
 	var earth = new Image();
 
 	function init(){
-	  sun.src = './img/sun.jpg';
-	  moon.src = './img/moon.jpg';
-	  earth.src = './img/earth.jpg';
+	  sun.src = './img/sun-159392.svg';
+	  moon.src = './img/moon-307307.svg';
+	  earth.src = './img/world-154527.svg';
+
 	  setInterval(draw,100);
 	}
 
@@ -26,7 +27,7 @@
 	  var ctx = document.getElementById('canvas').getContext('2d');
 
 	  ctx.globalCompositeOperation = 'destination-over';
-	  ctx.clearRect(0,0,600,600); // 캔버스를 비운다
+	  ctx.clearRect(0,0,300,300); // 캔버스를 비운다
 
 	  ctx.fillStyle = 'rgba(0,0,0,0.4)';
 	  ctx.strokeStyle = 'rgba(0,153,255,0.4)';
@@ -41,11 +42,11 @@
 	  ctx.drawImage(earth,-12,-12);
 
 	  // 달
-	  ctx.save();
-	  ctx.rotate( ((2*Math.PI)/6)*time.getSeconds() + ((2*Math.PI)/6000)*time.getMilliseconds() );
-	  ctx.translate(0,28.5);
-	  ctx.drawImage(moon,-3.5,-3.5);
-	  ctx.restore();
+//	  ctx.save();
+//	  ctx.rotate( ((2*Math.PI)/6)*time.getSeconds() + ((2*Math.PI)/6000)*time.getMilliseconds() );
+//	  ctx.translate(0,28.5);
+//	  ctx.drawImage(moon,-3.5,-3.5);
+//	  ctx.restore();
 
 	  ctx.restore();
 
@@ -53,7 +54,7 @@
 	  ctx.arc(150,150,105,0,Math.PI*2,false); // 지구 궤도
 	  ctx.stroke();
 
-	  ctx.drawImage(sun,0,0,600,600);
+	  ctx.drawImage(sun,0,0,300,300);
 	}
 
   //-->
