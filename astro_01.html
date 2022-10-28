@@ -16,27 +16,33 @@
 
   function init(){
 	  clock();
-	  window.setInterval(clock,300);
+	  window.setInterval(clock,1000);
 	}
 
 	function clock(){
 
-		cc++;
+	cc++;//카운팅
 
 	  var now = new Date(); //접속날짜
 	  if(cc>0){
 		  now = new Date(now.setDate(now.getDate()+cc));
 	  }
 	  console.log("cc :"+cc);
+
 	  var s_date = new Date(); // 올해 1월 1일
 	  s_date.setMonth(0);
 	  s_date.setDate(1);
+
+		// 매월 1일 점찍기 표시용
+	  var lay_month = [31,28,31,30,31,30,31,31,30,31,30,31];
 
 
 	  var isLeapYr = 365;
 	  //윤년이면 366일처리
 		if(new Date(now.getFullYear(), 1, 29).getDate() == 29){
 			isLeapYr = 366;
+			//윤년용 배열
+			lay_month[1] = 29;
 		}
 
 
@@ -62,32 +68,45 @@
 		ctx.lineTo(-250,0);
 		ctx.stroke();
 	  }
-	  ctx.restore(); // 리스토어 안하면 점점 작아진다
+	  ctx.restore();
 
 
 	  // 매월 1일은 눈금 한번 더 표시
+	  var ccl =1;
 	  ctx.save();
 	  ctx.lineWidth = 3;
-	  for (i=0;i<isLeapYr;i++){
-		if (i%5!=0) {
-		  ctx.beginPath();
-		  ctx.moveTo(-250,0);
-		  ctx.lineTo(-240,0);
-		  ctx.stroke();
-		}
-		ctx.rotate(-2*Math.PI/isLeapYr);
+	  
+	  for(var i=0; i<lay_month.length; i++){		  
+
+		  for (var j=0;j<isLeapYr;j++){
+		  
+			if(ccl==j){
+			  
+			  ctx.beginPath();
+			  
+			  ctx.moveTo(-250,0);
+			  ctx.lineTo(-240,0);
+			  ctx.stroke();
+			
+			 }
+			 ctx.rotate(-2*Math.PI/isLeapYr);
+		  }
+		  
+		  ccl= ccl+ lay_month[i];
+
+		  	
 	  }
-	  ctx.restore(); // 리스토어 안하면 점점 작아진다
+	  ctx.restore();
 
 
 	  ctx.fillStyle = "black";
 
 	  // 궤도상 행성위치 표시, 지구
 	  var hday=Math.ceil((now.getTime()-s_date.getTime())/24/60/60/1000);
-	  console.log("hday -> "+hday);
+	  //console.log("hday -> "+hday);
 	  ctx.save();
 	  ctx.rotate((-1)*(hday/isLeapYr)*(Math.PI));
-	  console.log("(-1)*(hday/isLeapYr)*(Math.PI) -> "+(-1)*(hday/isLeapYr)*(Math.PI));
+	  //console.log("(-1)*(hday/isLeapYr)*(Math.PI) -> "+(-1)*(hday/isLeapYr)*(Math.PI));
 	  ctx.lineWidth = 3;
 	  ctx.beginPath();
 	  ctx.moveTo(-150,0);
