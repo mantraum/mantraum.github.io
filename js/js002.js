@@ -427,6 +427,16 @@ function displayHoroName(elem_a, elem_b){
 	}
 }
 
+// 시계바늘 움직임 만들어 보기
+var qr_no=0;
+
+function makeClockWise(){
+
+	qr_no++;
+	
+	drawEarthLineFrmCurrMonthNDate();
+}
+
 
 // 지구별 오늘날짜 직선으로 표시하기 
 // 행성별 현재 위치 직선으로 표시하기
@@ -458,6 +468,7 @@ function drawEarthLineFrmCurrMonthNDate() {
 
 	//오늘이 경과한 일수가 일년에 대해 가지는 비율값
 	var ratio = (milli_to_date-milli_s_date)/(milli_e_date-milli_s_date);
+	if(qr_no>0) ratio = ratio+((24*60*60*1000)/(milli_e_date-milli_s_date))*qr_no;
 
 	console.log("milli_to_date: " + milli_to_date);
 	console.log("milli_s_date: " + milli_s_date);
@@ -500,7 +511,7 @@ function drawEarthLineFrmCurrMonthNDate() {
 		ctx.moveTo(300, 300);
 		ctx.lineTo(300+x_r, 300+y_r);
 
-		ctx.lineWidth ="3";//선굵기
+		ctx.lineWidth ="1";//선굵기
 		ctx.strokeStyle = 'rgba(0, 255, 255, 1)';//선색깔과 투명도, 하늘
 		ctx.lineCap = "round"; //선끝모양
 		ctx.stroke();
