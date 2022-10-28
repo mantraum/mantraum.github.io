@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>현재 시각을 보여주는 움직이는 시계를 만듭니다</title>
+
+  <script type="text/javascript">
+  <!--
+
+	var cc = 0;
+
+
+  function init(){
+	  clock();
+	  window.setInterval(clock,300);
+	}
+
+	function clock(){
+
+		cc++;
+
+	  var now = new Date(); //접속날짜
+	  if(cc>0){
+		  now = new Date(now.setDate(now.getDate()+cc));
+	  }
+	  console.log("cc :"+cc);
+	  var s_date = new Date(); // 올해 1월 1일
+	  s_date.setMonth(0);
+	  s_date.setDate(1);
+
+
+	  var isLeapYr = 365;
+	  //윤년이면 366일처리
+		if(new Date(now.getFullYear(), 1, 29).getDate() == 29){
+			isLeapYr = 366;
+		}
+
+
+	  var ctx = document.getElementById('canvas').getContext('2d');
+
+	  ctx.save();
+	  ctx.clearRect(0,0,600,600);//캔버스 사이즈
+	  ctx.translate(300,300);
+	  //ctx.scale(0.4,0.4);
+
+	  ctx.rotate(-Math.PI);//서쪽라인이 기준선
+	  ctx.strokeStyle = "black";
+	  ctx.fillStyle = "white";
+	  ctx.lineWidth = 2;
+	  ctx.lineCap = "round";
+
+	  // -260선에서 -250선까지 일자별 눈금
+	  ctx.save();
+	  for (var i=0;i<isLeapYr;i++){
+		ctx.beginPath();
+		ctx.rotate(-2*Math.PI/isLeapYr);
+		ctx.moveTo(-260,0);
+		ctx.lineTo(-250,0);
+		ctx.stroke();
+	  }
+	  ctx.restore(); // 리스토어 안하면 점점 작아진다
+
+
+	  // 매월 1일은 눈금 한번 더 표시
+	  ctx.save();
+	  ctx.lineWidth = 3;
+	  for (i=0;i<isLeapYr;i++){
+		if (i%5!=0) {
+		  ctx.beginPath();
+		  ctx.moveTo(-250,0);
+		  ctx.lineTo(-240,0);
+		  ctx.stroke();
+		}
+		ctx.rotate(-2*Math.PI/isLeapYr);
+	  }
+	  ctx.restore(); // 리스토어 안하면 점점 작아진다
+
+
+	  ctx.fillStyle = "black";
+
+	  // 궤도상 행성위치 표시, 지구
+	  var hday=Math.ceil((now.getTime()-s_date.getTime())/24/60/60/1000);
+	  console.log("hday -> "+hday);
+	  ctx.save();
+	  ctx.rotate((-1)*(hday/isLeapYr)*(Math.PI));
+	  console.log("(-1)*(hday/isLeapYr)*(Math.PI) -> "+(-1)*(hday/isLeapYr)*(Math.PI));
+	  ctx.lineWidth = 3;
+	  ctx.beginPath();
+	  ctx.moveTo(-150,0);
+	  ctx.lineTo(0,0);
+	  ctx.stroke();
+	  //끝에 둥글게
+	  ctx.beginPath();
+	  ctx.arc(-150,0,3,0,Math.PI*2,true);
+	  ctx.stroke();
+	  ctx.restore();
+
+	  
+
+	// 행성궤도 그리기
+	  ctx.beginPath();
+	  ctx.lineWidth = 1;
+	  ctx.strokeStyle = '#325FA2';//태두리선RGB(50,95,162)
+	  ctx.arc(0,0,290,0,Math.PI*2,true);//최외곽선 반지름 290
+	  ctx.arc(0,0,260,0,Math.PI*2,true);//외곽선 반지름 260
+	  ctx.arc(0,0,250,0,Math.PI*2,true);//외곽선 반지름 250
+	  
+	  ctx.arc(0,0,230,0,Math.PI*2,true);//플루토 반지름 230
+	  ctx.arc(0,0,220,0,Math.PI*2,true);//냅튠 반지름 220
+	  ctx.arc(0,0,210,0,Math.PI*2,true);//우라누스 반지름 210
+
+	  ctx.arc(0,0,190,0,Math.PI*2,true);//토성 반지름 190
+	  ctx.arc(0,0,180,0,Math.PI*2,true);//목성 반지름 180
+
+	  ctx.arc(0,0,160,0,Math.PI*2,true);//마르스 반지름 160
+	  ctx.arc(0,0,150,0,Math.PI*2,true);//어쓰 반지름 150
+
+	  ctx.arc(0,0,130,0,Math.PI*2,true);//비너스 반지름 130
+	  ctx.arc(0,0,120,0,Math.PI*2,true);//머큐리 반지름 120
+
+	  ctx.arc(0,0,90,0,Math.PI*2,true);//보조궤도선 반지름 90
+	  ctx.arc(0,0,3,0,Math.PI*2,true);//원점 3
+
+	  ctx.stroke();
+	  ctx.restore();
+
+	}
+
+  //-->
+  </script>
+ </head>
+
+ <body onload="javascript:init();">
+ <div id="" class="">
+	<div id="" class="" style="align:center;">
+	<span class="">아스트롤로지&nbsp;</span><a id="da.today" href="#"></a>
+		
+	</div>
+	<div id="" class="" style="align:center;">
+		<div id="" class="">
+			 <canvas id="canvas" height="600" width="600"></canvas>
+		</div>
+		<div id="" class="">
+			<table>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			</table>
+		</div>
+	</div>
+	<div id="" class="" style="align:center;">
+		<input type="button" value="짹각짹각" onclick="makeClockWise();">
+		<input type="button" value="멈춤" onclick="window.clearInterval();">
+	</div>
+	<div id="" class="" style="align:right;">
+		아스트롤로지
+	</div>
+</div>
+
+
+
+
+  
+ </body>
+</html>
