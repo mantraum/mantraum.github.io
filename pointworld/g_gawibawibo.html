@@ -11,7 +11,7 @@
 	// 보유포인트, 배팅포인트, 개이머가 선택한 가위바위보, 컴퓨터가 생성한 가위바위보용 랜덤수, 개임분위기용화면표시회수
 	var current=0;
 	var betting=0;
-	var yourSelect;
+	var yourSelect="gawi.gif";
 	var rndom=0;
 	var ll=0;
 
@@ -92,9 +92,11 @@
 			ll++;
 		}else{
 			ll=0;
-			doPlay();
+			return doPlay();
 
 		}
+		document.getElementsByName("result")[0].value=10-ll;
+		
 
 		
 	}
@@ -132,23 +134,34 @@
 		// 판정결과 비겼으면, 배팅포인트를 보유포인트에 더해준다.
 
 		if(result>1){//이겼으면
-			alert("이겼내요");
+			
 			current=current + 2*betting;
 			document.getElementsByName("current")[0].value=current;
 			document.getElementsByName("betting")[0].value=0;
+			//alert("이겼내요");
+			document.getElementsByName("result")[0].value="이겼내요";
+			ll=0;
 			
 		}else{
 			if(result<1){//졌으면
-				alert("졌내요");
+				
 				//document.getElementsByName("current")[0].value=current;
 				document.getElementsByName("betting")[0].value=0;
+
+				//alert("졌내요");
+				document.getElementsByName("result")[0].value="졌내요";
+				ll=0;
 				
 
 			}else{ //비겼으면
-				alert("비겼내요");
+				
 				current=current + betting;
 				document.getElementsByName("current")[0].value=current;
 				document.getElementsByName("betting")[0].value=0;
+
+				//alert("비겼내요");
+				document.getElementsByName("result")[0].value="비겼내요";
+				ll=0;
 				
 			}
 		}
@@ -185,19 +198,13 @@
 
 	<!--가위바위보판 시작-->
 	<div id="gawibawibo" class="">
-	<IMG SRC="./img/gawi.gif" name="yourSelect" WIDTH="80" HEIGHT="80" BORDER="0" ALT="" onclick="select()">
-	
+	<IMG SRC="./img/gawi.gif" name="yourSelect" WIDTH="80" HEIGHT="80" BORDER="0" ALT="" onclick="select()">	
 	<IMG SRC="./img/gawi.gif" name="comterSelect" WIDTH="80" HEIGHT="80" BORDER="0" ALT="게임실행아이콘" onclick="doGame()">
+	<INPUT TYPE="text" NAME="result" value="" size="" readonly>
 
 		
 	</div>
 	<!--가위바위보판 끝-->
-
-	<!--결과저장용 숨은판 시작-->
-	<div id="" class="backPnl">
-		<INPUT TYPE="hidden" NAME="iter" value="1" size="2" maxlength="2">
-	</div>
-	<!--결과저장용 숨은판 끝-->
 			
 	</div>
 
