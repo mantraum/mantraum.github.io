@@ -89,13 +89,16 @@
 		if(ll<10) {
 			//setInterval('doGame()',328);
 			setTimeout('doGame()',528);
+			document.getElementsByName("result")[0].value=10-ll;
 			ll++;
 		}else{
 			ll=0;
-			return doPlay();
+			//return doPlay();
+			//setInterval('doPlay()',1200);
+			doPlay();
 
 		}
-		document.getElementsByName("result")[0].value=10-ll;
+		
 		
 
 		
