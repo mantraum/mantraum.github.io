@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+ <head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<link rel="stylesheet" type="text/css" href="./css/pointworld.css">
+	<script type="text/javascript">
+	<!--
+
+	// 보유포인트, 배팅포인트, 개이머가 선택한 가위바위보, 컴퓨터가 생성한 가위바위보용 랜덤수, 개임분위기용화면표시회수
+	var current=0;
+	var betting=0;
+	var yourSelect;
+	var rndom=0;
+	var ll=0;
+
+
+	// 개이머의 가위바위보 선택, 가위였을 때 누르면 바위, 바위는 보로, 보는 가위로 변경해 줌
+	function select(){
+
+		yourSelect=document.getElementsByName("yourSelect")[0].src;
+		//console.log("selection : "+selection);
+
+		if(yourSelect.includes("gawi")) yourSelect="gawi.gif";
+		if(yourSelect.includes("bawi")) yourSelect="bawi.gif";
+		if(yourSelect.includes("bo")) yourSelect="bo.gif";
+
+		switch(yourSelect){
+			case "gawi.gif":
+				document.getElementsByName("yourSelect")[0].src="./img/bawi.gif";
+				break;
+			case "bawi.gif":
+				document.getElementsByName("yourSelect")[0].src="./img/bo.gif";
+				break;
+			case "bo.gif":
+				document.getElementsByName("yourSelect")[0].src="./img/gawi.gif";
+				break;
+			default:
+				return;
+			}
+	}
+
+// 배팅포인트 1000단위로 줄이기
+	function downPP(){
+		current=parseInt(document.getElementsByName("current")[0].value);
+		betting=parseInt(document.getElementsByName("betting")[0].value);
+		if(betting<1000){
+			alert("배팅포인트가 없습니다.");
+			return;
+		}else{
+			betting=betting-1000;
+			current=current+1000;
+			document.getElementsByName("betting")[0].value=betting;
+			document.getElementsByName("current")[0].value=current;
+		}
+	}
+
+// 배팅포인트 1000단위로 올리기
+	function upPP(){
+		current=parseInt(document.getElementsByName("current")[0].value);
+		betting=parseInt(document.getElementsByName("betting")[0].value);
+		if(current<1000){
+			alert("현재포인트가 부족합니다.");
+			return;
+		}else{
+			betting=betting+1000;
+			current=current-1000;
+			document.getElementsByName("betting")[0].value=betting;
+			document.getElementsByName("current")[0].value=current;
+		}
+	}
+
+		
+// 가위바위보 실행해서 포인트 계산하기
+	function doGame(){
+
+		// 1에서 3까지의 임의의 정수를 생성해서, 1은 가위, 2는 바위, 3은 보로 간주한다
+		rndom = Math.floor(3*Math.random()) + Math.ceil(1);
+		console.log("rndom : "+rndom);
+
+		if(rndom==1) document.getElementsByName("comterSelect")[0].src="./img/gawi.gif";
+		if(rndom==2) document.getElementsByName("comterSelect")[0].src="./img/bawi.gif";
+		if(rndom==3) document.getElementsByName("comterSelect")[0].src="./img/bo.gif";
+
+
+		// 그냥 컴퓨터의 가위바위보를 여러번 바꿔주는 화면플래이를 한다
+
+		if(ll<10) {
+			//setInterval('doGame()',328);
+			setTimeout('doGame()',428);
+			ll++;
+		}else{
+			ll=0;
+			doPlay();
+
+		}
+
+		
+	}
+
+	// 가위바위보생성하기
+	function doPlay(){
+
+		var result=0;
+
+		// 가위는 보에 이기고, 바위는 가위에 이기고, 보는 바위에 이기는 판정을 한다
+		switch(rndom){
+			case 1:
+				if(yourSelect.includes("gawi")) result=1;//가위 가위
+				if(yourSelect.includes("bawi")) result=0;//가위 바위
+				if(yourSelect.includes("bo")) result=2;//가위 보
+				break;
+			case 2:
+				if(yourSelect.includes("gawi")) result=2; //바위 가위
+				if(yourSelect.includes("bawi")) result=1; //바위 바위
+				if(yourSelect.includes("bo")) result=0; //바위 보
+				break;
+			case 3:
+				if(yourSelect.includes("gawi")) result=0; //보 가위
+				if(yourSelect.includes("bawi")) result=2; //보 바위
+				if(yourSelect.includes("bo")) result=1; //보 보
+				break;
+			default:
+				alert("playError!!");
+				break;
+		}
+
+
+		// 판정결과 개이머에 이기면 배팅포인트를 2배해서 보유포인트에 더해주고,
+		// 판정결과 컴퓨터가 이기면 보유포인트를 0으로 설정한다
+		// 판정결과 비겼으면, 배팅포인트를 보유포인트에 더해준다.
+
+		if(result>1){//이겼으면
+			alert("이겼내요");
+			current=current + 2*betting;
+			document.getElementsByName("current")[0].value=current;
+			document.getElementsByName("betting")[0].value=0;
+			
+		}else{
+			if(result<1){//졌으면
+				alert("졌내요");
+				//document.getElementsByName("current")[0].value=current;
+				document.getElementsByName("betting")[0].value=0;
+				
+
+			}else{ //비겼으면
+				alert("비겼내요");
+				current=current + betting;
+				document.getElementsByName("current")[0].value=current;
+				document.getElementsByName("betting")[0].value=0;
+				
+			}
+		}
+
+
+	}
+		
+	//-->
+	</script>
+  <title>포인트월드 가위바위보</title>
+ </head>
+ <body>
+  <div id="" class="top">
+	<div id="" class="header">
+		<a href="./index.html"><img src="./img/mainTitle.jpg" alt="포인트월드"></a>
+	</div>
+	<div id="" class="menu">
+		<span class="gawibawibo"><a href="./g_gawibawibo.html"><img src="./img/gawibawiboL2.jpg" alt="가위바위보"></a></span>
+		<span class="lottos"><a href="./g_lotto.html"><img src="./img/lottoWorldL2.jpg" alt="로또50"></a></span>
+		<span class="12monki"><a href="./g_12monki.html"><img src="./img/monkeyRouletL2.jpg" alt="멍키룰랫"></a></span>
+
+		
+	</div>
+	<div id="" class="game">
+	<!--점수판 시작-->
+	<div class="pointPnl">
+	<small><b>보유포인트&nbsp;<INPUT TYPE="text" NAME="current" size="8" maxlength="12" readonly value="10000">
+	&nbsp;배팅포인트&nbsp;<INPUT TYPE="text" NAME="betting" size="6" maxlength="8" readonly value="0">&nbsp;</b></small>
+		<IMG SRC="./img/toLeft.gif" Name="downScore" WIDTH="30" HEIGHT="30" BORDER="0" ALT="배팅줄이기" onclick="downPP()">&nbsp;&nbsp;
+	<IMG SRC="./img/toRight.gif" Name="upScore" WIDTH="30" HEIGHT="30" BORDER="0" ALT="배팅늘이기" onclick="upPP()">
+
+	</div>
+	<!--점수판 끝-->
+
+	<!--가위바위보판 시작-->
+	<div id="gawibawibo" class="">
+	<IMG SRC="./img/gawi.gif" name="yourSelect" WIDTH="80" HEIGHT="80" BORDER="0" ALT="" onclick="select()">
+	
+	<IMG SRC="./img/gawi.gif" name="comterSelect" WIDTH="80" HEIGHT="80" BORDER="0" ALT="게임실행아이콘" onclick="doGame()">
+
+		
+	</div>
+	<!--가위바위보판 끝-->
+
+	<!--결과저장용 숨은판 시작-->
+	<div id="" class="backPnl">
+		<INPUT TYPE="hidden" NAME="iter" value="1" size="2" maxlength="2">
+	</div>
+	<!--결과저장용 숨은판 끝-->
+			
+	</div>
+
+	<div id="" class="footer">
+		<img src="./img/copyLeft.jpg" alt="">
+	</div>
+  </div>
+ </body>
+</html>
