@@ -8,13 +8,18 @@
 	<script type="text/javascript">
 	<!--
 
-	// 보유포인트, 배팅포인트, 컴퓨터포인트, 개이머가 선택한 가위바위보, 컴퓨터가 생성한 가위바위보용 랜덤수, 개임분위기용화면표시회수
+	// 보유포인트, 배팅포인트, 컴퓨터포인트, 개이머가 선택한 가위바위보, 컴퓨터가 생성한 가위바위보, 컴퓨터가 생성한 가위바위보용 랜덤수, 개임분위기용화면표시회수
 	var current=10000;
 	var betting=0;
 	var comPnt=10000;
 	var yourSelect="gawi.gif";
+	var comterSelect="gawi.gif";
 	var rndom=0;
 	var ll=0;
+
+	// 개임시간, 개임결과기록판
+	var time_stmp = "";
+	var pnl_result = "";
 
 
 	// 개이머의 가위바위보 선택, 가위였을 때 누르면 바위, 바위는 보로, 보는 가위로 변경해 줌
@@ -83,6 +88,9 @@
 		
 // 가위바위보 실행해서 포인트 계산하기
 	function doGame(){
+		// 타임스탬핑
+		time_stmp = new Date().toLocaleString();
+		document.getElementsByName('datum')[0].value=time_stmp;
 
 		// 1에서 3까지의 임의의 정수를 생성해서, 1은 가위, 2는 바위, 3은 보로 간주한다
 		rndom = Math.floor(3*Math.random()) + Math.ceil(1);
@@ -116,10 +124,15 @@
 	// 가위바위보생성하기
 	function doPlay(){
 
+		//
+		
+		pnl_result = document.getElementsByName("res_Pnl")[0].value;
+
 		// 가위는 보에 이기고, 바위는 가위에 이기고, 보는 바위에 이기는 판정을 한다
-		var comterSelect=document.getElementsByName("comterSelect")[0].src;
+		comterSelect=document.getElementsByName("comterSelect")[0].src;
 
 		if(comterSelect.includes("bo")){
+			comterSelect = "bo.gif";
 			if(yourSelect.includes("gawi")) {// 가위, 보, 이김
 				//alert("이겼내요");
 				document.getElementsByName("result")[0].value="이겼내요";
@@ -128,7 +141,11 @@
 				document.getElementsByName("betting")[0].value=0;
 				comPnt = comPnt - betting;
 				document.getElementsByName("comPnt")[0].value=comPnt;
-				
+				//기록업대이트
+				pnl_result = pnl_result+"\n"+document.getElementsByName('datum')[0].value+" :"+
+				document.getElementsByName("result")[0].value+" , 개이머 : "+yourSelect+", 컴퓨터 : "+ comterSelect+ ", 배팅포인트 :"+ betting;
+				document.getElementsByName("res_Pnl")[0].value=pnl_result;
+
 				ll=0;
 				return;
 			}
@@ -138,6 +155,11 @@
 				current=current + betting;
 				document.getElementsByName("current")[0].value=current;
 				document.getElementsByName("betting")[0].value=0;
+
+				//기록업대이트
+				pnl_result = pnl_result+"\n"+document.getElementsByName('datum')[0].value+" :"+
+				document.getElementsByName("result")[0].value+" , 개이머 : "+yourSelect+", 컴퓨터 : "+ comterSelect+ ", 배팅포인트 :"+ betting;
+				document.getElementsByName("res_Pnl")[0].value=pnl_result;
 
 				
 				ll=0;
@@ -152,6 +174,11 @@
 				comPnt = comPnt + betting;
 				document.getElementsByName("comPnt")[0].value=comPnt;
 
+				//기록업대이트
+				pnl_result = pnl_result+"\n"+document.getElementsByName('datum')[0].value+" :"+
+				document.getElementsByName("result")[0].value+" , 개이머 : "+yourSelect+", 컴퓨터 : "+ comterSelect+ ", 배팅포인트 :"+ betting;
+				document.getElementsByName("res_Pnl")[0].value=pnl_result;
+
 				
 				ll=0;
 				return;
@@ -160,6 +187,7 @@
 		}
 //
 	if(comterSelect.includes("gawi")){
+		comterSelect = "gawi.gif";
 			if(yourSelect.includes("bawi")) {// 가위, 보, 이김
 				//alert("이겼내요");
 				document.getElementsByName("result")[0].value="이겼내요";
@@ -168,6 +196,11 @@
 				document.getElementsByName("betting")[0].value=0;
 				comPnt = comPnt - betting;
 				document.getElementsByName("comPnt")[0].value=comPnt;
+
+				//기록업대이트
+				pnl_result = pnl_result+"\n"+document.getElementsByName('datum')[0].value+" :"+
+				document.getElementsByName("result")[0].value+" , 개이머 : "+yourSelect+", 컴퓨터 : "+ comterSelect+ ", 배팅포인트 :"+ betting;
+				document.getElementsByName("res_Pnl")[0].value=pnl_result;
 				
 				ll=0;
 				return;
@@ -178,6 +211,11 @@
 				current=current + betting;
 				document.getElementsByName("current")[0].value=current;
 				document.getElementsByName("betting")[0].value=0;
+
+				//기록업대이트
+				pnl_result = pnl_result+"\n"+document.getElementsByName('datum')[0].value+" :"+
+				document.getElementsByName("result")[0].value+" , 개이머 : "+yourSelect+", 컴퓨터 : "+ comterSelect+ ", 배팅포인트 :"+ betting;
+				document.getElementsByName("res_Pnl")[0].value=pnl_result;
 
 				ll=0;
 				return;
@@ -192,6 +230,10 @@
 				comPnt = comPnt + betting;
 				document.getElementsByName("comPnt")[0].value=comPnt;
 
+				//기록업대이트
+				pnl_result = pnl_result+"\n"+document.getElementsByName('datum')[0].value+" :"+
+				document.getElementsByName("result")[0].value+" , 개이머 : "+yourSelect+", 컴퓨터 : "+ comterSelect+ ", 배팅포인트 :"+ betting;
+
 				ll=0;
 				return;
 
@@ -199,6 +241,7 @@
 		}
 
 		if(comterSelect.includes("bawi")){
+			comterSelect = "bawi.gif";
 			if(yourSelect.includes("bo")) {// 가위, 보, 이김
 				//alert("이겼내요");
 				document.getElementsByName("result")[0].value="이겼내요";
@@ -207,6 +250,11 @@
 				document.getElementsByName("betting")[0].value=0;
 				comPnt = comPnt - betting;
 				document.getElementsByName("comPnt")[0].value=comPnt;
+
+				//기록업대이트
+				pnl_result = pnl_result+"\n"+document.getElementsByName('datum')[0].value+" :"+
+				document.getElementsByName("result")[0].value+" , 개이머 : "+yourSelect+", 컴퓨터 : "+ comterSelect+ ", 배팅포인트 :"+ betting;
+				document.getElementsByName("res_Pnl")[0].value=pnl_result;
 				
 				ll=0;
 				return;
@@ -217,6 +265,11 @@
 				current=current + betting;
 				document.getElementsByName("current")[0].value=current;
 				document.getElementsByName("betting")[0].value=0;
+
+				//기록업대이트
+				pnl_result = pnl_result+"\n"+document.getElementsByName('datum')[0].value+" :"+
+				document.getElementsByName("result")[0].value+" , 개이머 : "+yourSelect+", 컴퓨터 : "+ comterSelect+ ", 배팅포인트 :"+ betting;
+				document.getElementsByName("res_Pnl")[0].value=pnl_result;
 
 				ll=0;
 				return;
@@ -230,6 +283,11 @@
 				document.getElementsByName("betting")[0].value=0;
 				comPnt = comPnt + betting;
 				document.getElementsByName("comPnt")[0].value=comPnt;
+
+				//기록업대이트
+				pnl_result = pnl_result+"\n"+document.getElementsByName('datum')[0].value+" :"+
+				document.getElementsByName("result")[0].value+" , 개이머 : "+yourSelect+", 컴퓨터 : "+ comterSelect+ ", 배팅포인트 :"+ betting;
+				document.getElementsByName("res_Pnl")[0].value=pnl_result;
 
 				ll=0;
 				return;
@@ -246,18 +304,22 @@
 	</script>
   <title>포인트월드 가위바위보</title>
  </head>
- <body>
+ <body onload="document.getElementsByName('datum')[0].value=new Date().toLocaleString();">
   <div id="" class="top">
 	<div id="" class="header">
 		<a href="./index.html"><img src="./img/mainTitle.jpg" alt="포인트월드"></a>
 	</div>
+
+	<div id="" class="datium">
+		<INPUT TYPE="text" NAME="datum" size="24" maxlength="24" readonly value="">
+	</div>
+
 	<div id="" class="menu">
 		<span class="gawibawibo"><a href="./g_gawibawibo.html"><img src="./img/gawibawiboL2.jpg" alt="가위바위보"></a></span>
 		<span class="lottos"><a href="./g_lotto.html"><img src="./img/lottoWorldL2.jpg" alt="로또50"></a></span>
 		<span class="12monki"><a href="./g_12monki.html"><img src="./img/monkeyRouletL2.jpg" alt="멍키룰랫"></a></span>
-
-		
 	</div>
+
 	<div id="" class="game">
 	<!--점수판 시작-->
 	<div class="pointPnl">
@@ -272,9 +334,15 @@
 
 	<!--가위바위보판 시작-->
 	<div id="gawibawibo" class="">
-	<IMG SRC="./img/gawi.gif" name="yourSelect" WIDTH="180" HEIGHT="180" BORDER="0" ALT="" onclick="select()">	
-	<IMG SRC="./img/gawi.gif" name="comterSelect" WIDTH="180" HEIGHT="180" BORDER="0" ALT="게임실행아이콘" onclick="doGame()">
-	<INPUT TYPE="text" NAME="result" value="" size="" readonly>
+
+	<span class="">
+	<IMG SRC="./img/gawi.gif" name="yourSelect" WIDTH="80" HEIGHT="80" BORDER="0" ALT="" onclick="select()">	
+	<IMG SRC="./img/gawi.gif" name="comterSelect" WIDTH="80" HEIGHT="80" BORDER="0" ALT="게임실행아이콘" onclick="doGame()">
+	<INPUT TYPE="text" NAME="result" value="" size="" readonly></span>
+	
+	<span class="result_Pnl">
+	
+	<TEXTAREA name="res_Pnl" cols="40" rows="12" readonly></TEXTAREA></span>
 
 		
 	</div>
