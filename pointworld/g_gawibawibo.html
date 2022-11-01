@@ -22,23 +22,23 @@
 		yourSelect=document.getElementsByName("yourSelect")[0].src;
 		//console.log("selection : "+selection);
 
-		if(yourSelect.includes("gawi")) yourSelect="gawi.gif";
-		if(yourSelect.includes("bawi")) yourSelect="bawi.gif";
-		if(yourSelect.includes("bo")) yourSelect="bo.gif";
+		if(yourSelect.includes("gawi")) {
+			yourSelect="bawi.gif";
+			document.getElementsByName("yourSelect")[0].src="./img/bawi.gif";
+			return;
+		}
+		if(yourSelect.includes("bawi")) {
+			yourSelect="bo.gif";
+			document.getElementsByName("yourSelect")[0].src="./img/bo.gif";
+			return;
+		}
 
-		switch(yourSelect){
-			case "gawi.gif":
-				document.getElementsByName("yourSelect")[0].src="./img/bawi.gif";
-				break;
-			case "bawi.gif":
-				document.getElementsByName("yourSelect")[0].src="./img/bo.gif";
-				break;
-			case "bo.gif":
-				document.getElementsByName("yourSelect")[0].src="./img/gawi.gif";
-				break;
-			default:
-				return;
-			}
+		if(yourSelect.includes("bo")) {
+			yourSelect="gawi.gif";
+			document.getElementsByName("yourSelect")[0].src="./img/gawi.gif";
+			return;
+		}
+
 	}
 
 // 배팅포인트 1000단위로 줄이기
@@ -46,7 +46,7 @@
 		current=parseInt(document.getElementsByName("current")[0].value);
 		betting=parseInt(document.getElementsByName("betting")[0].value);
 		if(betting<1000){
-			alert("배팅포인트가 없습니다.");
+			alert("배팅한 포인트가 없내요");
 			return;
 		}else{
 			betting=betting-1000;
@@ -61,7 +61,7 @@
 		current=parseInt(document.getElementsByName("current")[0].value);
 		betting=parseInt(document.getElementsByName("betting")[0].value);
 		if(current<1000){
-			alert("현재포인트가 부족합니다.");
+			alert("포인트가 부족하내요");
 			return;
 		}else{
 			betting=betting+1000;
@@ -88,7 +88,7 @@
 
 		if(ll<10) {
 			//setInterval('doGame()',328);
-			setTimeout('doGame()',428);
+			setTimeout('doGame()',528);
 			ll++;
 		}else{
 			ll=0;
@@ -107,54 +107,19 @@
 		var result=0;
 
 		// 가위는 보에 이기고, 바위는 가위에 이기고, 보는 바위에 이기는 판정을 한다
-		switch(rndom){
-			case 1:
-				if(yourSelect.includes("gawi")) result=1;//가위 가위
-				if(yourSelect.includes("bawi")) result=0;//가위 바위
-				if(yourSelect.includes("bo")) result=2;//가위 보
-				break;
-			case 2:
-				if(yourSelect.includes("gawi")) result=2; //바위 가위
-				if(yourSelect.includes("bawi")) result=1; //바위 바위
-				if(yourSelect.includes("bo")) result=0; //바위 보
-				break;
-			case 3:
-				if(yourSelect.includes("gawi")) result=0; //보 가위
-				if(yourSelect.includes("bawi")) result=2; //보 바위
-				if(yourSelect.includes("bo")) result=1; //보 보
-				break;
-			default:
-				alert("playError!!");
-				break;
-		}
+		var comterSelect=document.getElementsByName("comterSelect")[0].src;
 
-
-		// 판정결과 개이머에 이기면 배팅포인트를 2배해서 보유포인트에 더해주고,
-		// 판정결과 컴퓨터가 이기면 보유포인트를 0으로 설정한다
-		// 판정결과 비겼으면, 배팅포인트를 보유포인트에 더해준다.
-
-		if(result>1){//이겼으면
-			
-			current=current + 2*betting;
-			document.getElementsByName("current")[0].value=current;
-			document.getElementsByName("betting")[0].value=0;
-			//alert("이겼내요");
-			document.getElementsByName("result")[0].value="이겼내요";
-			ll=0;
-			
-		}else{
-			if(result<1){//졌으면
-				
-				//document.getElementsByName("current")[0].value=current;
+		if(comterSelect.includes("bo")){
+			if(yourSelect.includes("gawi")) {// 가위, 보, 이김
+				current=current + 2*betting;
+				document.getElementsByName("current")[0].value=current;
 				document.getElementsByName("betting")[0].value=0;
-
-				//alert("졌내요");
-				document.getElementsByName("result")[0].value="졌내요";
+				//alert("이겼내요");
+				document.getElementsByName("result")[0].value="이겼내요";
 				ll=0;
-				
-
-			}else{ //비겼으면
-				
+				return;
+			}
+			if(yourSelect.includes("bo")){// 보, 보, 비김
 				current=current + betting;
 				document.getElementsByName("current")[0].value=current;
 				document.getElementsByName("betting")[0].value=0;
@@ -162,9 +127,91 @@
 				//alert("비겼내요");
 				document.getElementsByName("result")[0].value="비겼내요";
 				ll=0;
-				
+				return;
+
+			}
+			if(yourSelect.includes("bawi")){// 바위, 보, 짐
+
+				//document.getElementsByName("current")[0].value=current;
+				document.getElementsByName("betting")[0].value=0;
+
+				//alert("졌내요");
+				document.getElementsByName("result")[0].value="졌내요";
+				ll=0;
+				return;
+
 			}
 		}
+//
+	if(comterSelect.includes("gawi")){
+			if(yourSelect.includes("bawi")) {// 가위, 보, 이김
+				current=current + 2*betting;
+				document.getElementsByName("current")[0].value=current;
+				document.getElementsByName("betting")[0].value=0;
+				//alert("이겼내요");
+				document.getElementsByName("result")[0].value="이겼내요";
+				ll=0;
+				return;
+			}
+			if(yourSelect.includes("gawi")){// 보, 보, 비김
+				current=current + betting;
+				document.getElementsByName("current")[0].value=current;
+				document.getElementsByName("betting")[0].value=0;
+
+				//alert("비겼내요");
+				document.getElementsByName("result")[0].value="비겼내요";
+				ll=0;
+				return;
+
+			}
+			if(yourSelect.includes("bo")){// 바위, 보, 짐
+
+				//document.getElementsByName("current")[0].value=current;
+				document.getElementsByName("betting")[0].value=0;
+
+				//alert("졌내요");
+				document.getElementsByName("result")[0].value="졌내요";
+				ll=0;
+				return;
+
+			}
+		}
+
+		if(comterSelect.includes("bawi")){
+			if(yourSelect.includes("bo")) {// 가위, 보, 이김
+				current=current + 2*betting;
+				document.getElementsByName("current")[0].value=current;
+				document.getElementsByName("betting")[0].value=0;
+				//alert("이겼내요");
+				document.getElementsByName("result")[0].value="이겼내요";
+				ll=0;
+				return;
+			}
+			if(yourSelect.includes("bawi")){// 보, 보, 비김
+				current=current + betting;
+				document.getElementsByName("current")[0].value=current;
+				document.getElementsByName("betting")[0].value=0;
+
+				//alert("비겼내요");
+				document.getElementsByName("result")[0].value="비겼내요";
+				ll=0;
+				return;
+
+			}
+			if(yourSelect.includes("gawi")){// 바위, 보, 짐
+
+				//document.getElementsByName("current")[0].value=current;
+				document.getElementsByName("betting")[0].value=0;
+
+				//alert("졌내요");
+				document.getElementsByName("result")[0].value="졌내요";
+				ll=0;
+				return;
+
+			}
+		}
+		
+
 
 
 	}
@@ -198,8 +245,8 @@
 
 	<!--가위바위보판 시작-->
 	<div id="gawibawibo" class="">
-	<IMG SRC="./img/gawi.gif" name="yourSelect" WIDTH="80" HEIGHT="80" BORDER="0" ALT="" onclick="select()">	
-	<IMG SRC="./img/gawi.gif" name="comterSelect" WIDTH="80" HEIGHT="80" BORDER="0" ALT="게임실행아이콘" onclick="doGame()">
+	<IMG SRC="./img/gawi.gif" name="yourSelect" WIDTH="180" HEIGHT="180" BORDER="0" ALT="" onclick="select()">	
+	<IMG SRC="./img/gawi.gif" name="comterSelect" WIDTH="180" HEIGHT="180" BORDER="0" ALT="게임실행아이콘" onclick="doGame()">
 	<INPUT TYPE="text" NAME="result" value="" size="" readonly>
 
 		
