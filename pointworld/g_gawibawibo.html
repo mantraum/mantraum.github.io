@@ -8,9 +8,10 @@
 	<script type="text/javascript">
 	<!--
 
-	// 보유포인트, 배팅포인트, 개이머가 선택한 가위바위보, 컴퓨터가 생성한 가위바위보용 랜덤수, 개임분위기용화면표시회수
-	var current=0;
+	// 보유포인트, 배팅포인트, 컴퓨터포인트, 개이머가 선택한 가위바위보, 컴퓨터가 생성한 가위바위보용 랜덤수, 개임분위기용화면표시회수
+	var current=10000;
 	var betting=0;
+	var comPnt=10000;
 	var yourSelect="gawi.gif";
 	var rndom=0;
 	var ll=0;
@@ -60,12 +61,20 @@
 	function upPP(){
 		current=parseInt(document.getElementsByName("current")[0].value);
 		betting=parseInt(document.getElementsByName("betting")[0].value);
+		comPnt=parseInt(document.getElementsByName("comPnt")[0].value);
+
+
 		if(current<1000){
 			alert("포인트가 부족하내요");
 			return;
 		}else{
 			betting=betting+1000;
+			if(comPnt<betting){
+				alert("컴퓨터포인트가 부족하내요");
+				return;
+			}
 			current=current-1000;
+						
 			document.getElementsByName("betting")[0].value=betting;
 			document.getElementsByName("current")[0].value=current;
 		}
@@ -107,39 +116,43 @@
 	// 가위바위보생성하기
 	function doPlay(){
 
-		var result=0;
-
 		// 가위는 보에 이기고, 바위는 가위에 이기고, 보는 바위에 이기는 판정을 한다
 		var comterSelect=document.getElementsByName("comterSelect")[0].src;
 
 		if(comterSelect.includes("bo")){
 			if(yourSelect.includes("gawi")) {// 가위, 보, 이김
+				//alert("이겼내요");
+				document.getElementsByName("result")[0].value="이겼내요";
 				current=current + 2*betting;
 				document.getElementsByName("current")[0].value=current;
 				document.getElementsByName("betting")[0].value=0;
-				//alert("이겼내요");
-				document.getElementsByName("result")[0].value="이겼내요";
+				comPnt = comPnt - betting;
+				document.getElementsByName("comPnt")[0].value=comPnt;
+				
 				ll=0;
 				return;
 			}
 			if(yourSelect.includes("bo")){// 보, 보, 비김
+				//alert("비겼내요");
+				document.getElementsByName("result")[0].value="비겼내요";
 				current=current + betting;
 				document.getElementsByName("current")[0].value=current;
 				document.getElementsByName("betting")[0].value=0;
 
-				//alert("비겼내요");
-				document.getElementsByName("result")[0].value="비겼내요";
+				
 				ll=0;
 				return;
 
 			}
 			if(yourSelect.includes("bawi")){// 바위, 보, 짐
-
-				//document.getElementsByName("current")[0].value=current;
-				document.getElementsByName("betting")[0].value=0;
-
 				//alert("졌내요");
 				document.getElementsByName("result")[0].value="졌내요";
+				//document.getElementsByName("current")[0].value=current;
+				document.getElementsByName("betting")[0].value=0;
+				comPnt = comPnt + betting;
+				document.getElementsByName("comPnt")[0].value=comPnt;
+
+				
 				ll=0;
 				return;
 
@@ -148,32 +161,37 @@
 //
 	if(comterSelect.includes("gawi")){
 			if(yourSelect.includes("bawi")) {// 가위, 보, 이김
+				//alert("이겼내요");
+				document.getElementsByName("result")[0].value="이겼내요";
 				current=current + 2*betting;
 				document.getElementsByName("current")[0].value=current;
 				document.getElementsByName("betting")[0].value=0;
-				//alert("이겼내요");
-				document.getElementsByName("result")[0].value="이겼내요";
+				comPnt = comPnt - betting;
+				document.getElementsByName("comPnt")[0].value=comPnt;
+				
 				ll=0;
 				return;
 			}
 			if(yourSelect.includes("gawi")){// 보, 보, 비김
+				//alert("비겼내요");
+				document.getElementsByName("result")[0].value="비겼내요";
 				current=current + betting;
 				document.getElementsByName("current")[0].value=current;
 				document.getElementsByName("betting")[0].value=0;
 
-				//alert("비겼내요");
-				document.getElementsByName("result")[0].value="비겼내요";
 				ll=0;
 				return;
 
 			}
 			if(yourSelect.includes("bo")){// 바위, 보, 짐
 
-				//document.getElementsByName("current")[0].value=current;
-				document.getElementsByName("betting")[0].value=0;
-
 				//alert("졌내요");
 				document.getElementsByName("result")[0].value="졌내요";
+				//document.getElementsByName("current")[0].value=current;
+				document.getElementsByName("betting")[0].value=0;
+				comPnt = comPnt + betting;
+				document.getElementsByName("comPnt")[0].value=comPnt;
+
 				ll=0;
 				return;
 
@@ -182,32 +200,37 @@
 
 		if(comterSelect.includes("bawi")){
 			if(yourSelect.includes("bo")) {// 가위, 보, 이김
+				//alert("이겼내요");
+				document.getElementsByName("result")[0].value="이겼내요";
 				current=current + 2*betting;
 				document.getElementsByName("current")[0].value=current;
 				document.getElementsByName("betting")[0].value=0;
-				//alert("이겼내요");
-				document.getElementsByName("result")[0].value="이겼내요";
+				comPnt = comPnt - betting;
+				document.getElementsByName("comPnt")[0].value=comPnt;
+				
 				ll=0;
 				return;
 			}
 			if(yourSelect.includes("bawi")){// 보, 보, 비김
+				//alert("비겼내요");
+				document.getElementsByName("result")[0].value="비겼내요";
 				current=current + betting;
 				document.getElementsByName("current")[0].value=current;
 				document.getElementsByName("betting")[0].value=0;
 
-				//alert("비겼내요");
-				document.getElementsByName("result")[0].value="비겼내요";
 				ll=0;
 				return;
 
 			}
 			if(yourSelect.includes("gawi")){// 바위, 보, 짐
 
-				//document.getElementsByName("current")[0].value=current;
-				document.getElementsByName("betting")[0].value=0;
-
 				//alert("졌내요");
 				document.getElementsByName("result")[0].value="졌내요";
+				//document.getElementsByName("current")[0].value=current;
+				document.getElementsByName("betting")[0].value=0;
+				comPnt = comPnt + betting;
+				document.getElementsByName("comPnt")[0].value=comPnt;
+
 				ll=0;
 				return;
 
@@ -239,9 +262,10 @@
 	<!--점수판 시작-->
 	<div class="pointPnl">
 	<small><b>보유포인트&nbsp;<INPUT TYPE="text" NAME="current" size="8" maxlength="12" readonly value="10000">
-	&nbsp;배팅포인트&nbsp;<INPUT TYPE="text" NAME="betting" size="6" maxlength="8" readonly value="0">&nbsp;</b></small>
-		<IMG SRC="./img/toLeft.gif" Name="downScore" WIDTH="30" HEIGHT="30" BORDER="0" ALT="배팅줄이기" onclick="downPP()">&nbsp;&nbsp;
-	<IMG SRC="./img/toRight.gif" Name="upScore" WIDTH="30" HEIGHT="30" BORDER="0" ALT="배팅늘이기" onclick="upPP()">
+	배팅포인트&nbsp;<INPUT TYPE="text" NAME="betting" size="6" maxlength="8" readonly value="0">&nbsp;</b></small>
+		<IMG SRC="./img/toLeft.gif" Name="downScore" WIDTH="30" HEIGHT="30" BORDER="0" ALT="배팅줄이기" onclick="downPP()">&nbsp;
+	<IMG SRC="./img/toRight.gif" Name="upScore" WIDTH="30" HEIGHT="30" BORDER="0" ALT="배팅늘이기" onclick="upPP()">&nbsp;
+<small><b>컴퓨터포인트&nbsp;<INPUT TYPE="text" NAME="comPnt" size="8" maxlength="12" readonly value="10000">&nbsp;</b></small>
 
 	</div>
 	<!--점수판 끝-->
