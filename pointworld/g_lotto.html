@@ -5,13 +5,509 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 	<link rel="stylesheet" type="text/css" href="./css/pointworld.css">
-  <title>포인트월드 로또50</title>
+
+	<script type="text/javascript">
+	<!--
+	
+	//로또 실행전 준비사항 채크하기
+	function goLotto(){
+
+		var betting=parseInt(document.getElementsByName("betting").value);
+		if(betting<2000){
+			alert("먼저 화살표를 이용해 배팅을 하세요!!!");
+			return;
+		}
+		var select1=document.getElementsByName("select1").value;
+		var select2=document.getElementsByName("select2").value;
+		var select3=document.getElementsByName("select3").value;
+		var select4=document.getElementsByName("select4").value;
+		var select5=document.getElementsByName("select5").value;
+		var select6=document.getElementsByName("select6").value;
+		if(select1=="0"||select2=="0"||select3=="0"||select4=="0"||select5=="0"||select6=="0"){
+			alert("번호 여섯개가 모두 지정되지 않았습니다.");
+			return;
+		}
+		//frm.submit();
+	}
+	
+	function downPP(){
+		var current=parseInt(document.getElementsByName("current").value);
+		var betting=parseInt(document.getElementsByName("betting").value);
+		if(betting<2000){
+			alert("배팅포인트가 없습니다.");
+			return;
+		}else{
+			betting=betting-2000;
+			current=current+2000;
+			document.getElementsByName("betting").value=betting;
+			document.getElementsByName("current").value=current;
+		}
+	}
+	function upPP(){
+		var current=parseInt(document.getElementsByName("current").value);
+		var betting=parseInt(document.getElementsByName("betting").value);
+		if(current<2000){
+			alert("현재포인트가 부족합니다.");
+			return;
+		}else{
+			betting=betting+2000;
+			current=current-2000;
+			document.getElementsByName("betting").value=betting;
+			document.getElementsByName("current").value=current;
+		}
+	}
+
+	function reSelect(){
+	document.getElementsByName("select1").value=0;
+	document.getElementsByName("select2").value=0;
+	document.getElementsByName("select3").value=0;
+	document.getElementsByName("select4").value=0;
+	document.getElementsByName("select5").value=0;
+	document.getElementsByName("select6").value=0;
+}
+function select(num){
+	var current=parseInt(document.getElementsByName("current").value);
+	if(current<100){
+		alert("로또는 한게임에 2000포인트가 필요합니다.");
+		return;
+	}
+	var suffix=num.substring(6,num.length);
+	var tNum=new Array()
+	var next=0
+	tNum[0]=document.getElementsByName("select1").value 
+	tNum[1]=document.getElementsByName("select2").value 
+	tNum[2]=document.getElementsByName("select3").value 
+	tNum[3]=document.getElementsByName("select4").value 
+	tNum[4]=document.getElementsByName("select5").value 
+	tNum[5]=document.getElementsByName("select6").value 
+	for(i=5;i>=0;i--){
+		if(tNum[i]=="0"){
+			next=i
+		}else{
+		}
+	}
+	switch(next){
+		case 0:
+			document.getElementsByName("select1").value=suffix;
+			break;
+		case 1:
+			if(suffix==tNum[0]){
+				alert("이미선택한 숫자입니다.");
+			}else{
+				document.getElementsByName("select2").value=suffix
+			};			
+			break;
+		case 2:
+			if(suffix==tNum[0]||suffix==tNum[1]){
+				alert("이미선택한 숫자입니다.");
+			}else{
+				document.getElementsByName("select3").value=suffix
+			};
+			break;
+		case 3:
+			if(suffix==tNum[0]||suffix==tNum[1]||suffix==tNum[2]){
+				alert("이미선택한 숫자입니다.");
+			}else{
+				document.getElementsByName("select4").value=suffix
+			};
+			break;
+		case 4:
+			if(suffix==tNum[0]||suffix==tNum[1]||suffix==tNum[2]||suffix==tNum[3]){
+				alert("이미선택한 숫자입니다.");
+			}else{
+				document.getElementsByName("select5").value=suffix
+			};
+			break;
+		case 5:
+			if(suffix==tNum[0]||suffix==tNum[1]||suffix==tNum[2]||suffix==tNum[3]||suffix==tNum[4]){
+				alert("이미선택한 숫자입니다.");
+			}else{
+				document.getElementsByName("select6").value=suffix
+			};
+			break;
+		default: 
+			alert("This is default part!!");
+	}
+}
+function autoSelect(){
+	if(parseInt(document.getElementsByName("current").value)<2000){
+		alert("로또 한게임에는 2000포인트가 필요합니다.");
+		return;
+	}
+	var lotto=new Array();
+	for(j=0;j<=6;j++){
+		lotto[j]=parseInt(Math.random()*45)+1;
+	}
+	for(i=0;i<=6;i++){
+		for(j=0;j<=6;j++){
+			var isEqual=i-j
+			if(isEqual==0){
+			}else{
+				if(lotto[j]==lotto[i]){
+					lotto[j]=parseInt(Math.random()*45)+1
+				}else{
+				}
+			}
+		}
+	}
+	document.getElementsByName("select1").value=lotto[0]
+	document.getElementsByName("select2").value=lotto[1]
+	document.getElementsByName("select3").value=lotto[2]
+	document.getElementsByName("select4").value=lotto[3]
+	document.getElementsByName("select5").value=lotto[4]
+	document.getElementsByName("select6").value=lotto[5]
+}
+
+function doLotto(){
+	var current=parseInt(document.getElementsByName("current").value)
+	if(current<2000){
+		alert("로또는 한게임에 2000포인트가 필요합니다.!!");
+		return;
+	}
+	current=current-2000;
+	document.getElementsByName("current").value=2000;
+	document.getElementsByName("betting").value=2000;
+	var origin=parseInt(document.getElementsByName("original").value);
+	var bingo=0;
+	var record=0;
+	var lotto=new Array()
+	for(j=0;j<=6;j++){
+		lotto[j]=parseInt(Math.random()*45)+1;
+	}
+	for(i=0;i<=6;i++){
+		for(j=0;j<=6;j++){
+			var isEqual=i-j
+			if(isEqual==0){
+			}else{
+				if(lotto[j]==lotto[i]){
+					lotto[j]=parseInt(Math.random()*45)+1
+				}else{
+				}
+			}
+		}
+		lotto[i]=lotto[i].toString();
+	}
+	for(i=0;i<=5;i++){
+		switch(lotto[i]){
+			case "1":
+				document.getElementsByName("number1").style.filter="invert()";
+			break;
+			case "2":
+				document.getElementsByName("number2").src="image/num02i.jpg";
+			break;
+			case "3":
+				document.getElementsByName("number3").src="image/num03i.jpg";
+			break;
+			case "4":
+				document.getElementsByName("number4").src="image/num04i.jpg";
+			break;
+			case "5":
+				document.getElementsByName("number5").src="image/num05i.jpg";
+			break;
+			case "6":
+				document.getElementsByName("number6").src="image/num06i.jpg";
+			break;
+			case "7":
+				document.getElementsByName("number7").src="image/num07i.jpg";
+			break;
+			case "8":
+				document.getElementsByName("number8").src="image/num08i.jpg";
+			break;
+			case "9":
+				document.getElementsByName("number9").src="image/num09i.jpg";
+			break;
+			case "10":
+				document.getElementsByName("number10").src="image/num10i.jpg";
+			break;
+			case "11":
+				document.getElementsByName("number11").src="image/num11i.jpg";
+			break;
+			case "12":
+				document.getElementsByName("number12").src="image/num12i.jpg";
+			break;
+			case "13":
+				document.getElementsByName("number13").src="image/num13i.jpg";
+			break;
+			case "14":
+				document.getElementsByName("number14").src="image/num14i.jpg";
+			break;
+			case "15":
+				document.getElementsByName("number15").src="image/num15i.jpg";
+			break;
+			case "16":
+				document.getElementsByName("number16").src="image/num16i.jpg";
+			break;
+			case "17":
+				document.getElementsByName("number17").src="image/num17i.jpg";
+			break;
+			case "18":
+				document.getElementsByName("number18").src="image/num18i.jpg";
+			break;
+			case "19":
+				document.getElementsByName("number19").src="image/num19i.jpg";
+			break;
+			case "20":
+				document.getElementsByName("number20").src="image/num20i.jpg";
+			break;
+			case "21":
+				document.getElementsByName("number21").src="image/num21i.jpg";
+			break;
+			case "22":
+				document.getElementsByName("number22").src="image/num22i.jpg";
+			break;
+			case "23":
+				document.getElementsByName("number23").src="image/num23i.jpg";
+			break;
+			case "24":
+				document.getElementsByName("number24").src="image/num24i.jpg";
+			break;
+			case "25":
+				document.getElementsByName("number25").src="image/num25i.jpg";
+			break;
+			case "26":
+				document.getElementsByName("number26").src="image/num26i.jpg";
+			break;
+			case "27":
+				document.getElementsByName("number27").src="image/num27i.jpg";
+			break;
+			case "28":
+				document.getElementsByName("number28").src="image/num28i.jpg";
+			break;
+			case "29":
+				document.getElementsByName("number29").src="image/num29i.jpg";
+			break;
+			case "30":
+				document.getElementsByName("number30").src="image/num30i.jpg";
+			break;
+			case "31":
+				document.getElementsByName("number31").src="image/num31i.jpg";
+			break;
+			case "32":
+				document.getElementsByName("number32").src="image/num32i.jpg";
+			break;
+			case "33":
+				document.getElementsByName("number33").src="image/num33i.jpg";
+			break;
+			case "34":
+				document.getElementsByName("number34").src="image/num34i.jpg";
+			break;
+			case "35":
+				document.getElementsByName("number35").src="image/num35i.jpg";
+			break;
+			case "36":
+				document.getElementsByName("number36").src="image/num36i.jpg";
+			break;
+			case "37":
+				document.getElementsByName("number37").src="image/num37i.jpg";
+			break;
+			case "38":
+				document.getElementsByName("number38").src="image/num38i.jpg";
+			break;
+			case "39":
+				document.getElementsByName("number39").src="image/num39i.jpg";
+			break;
+			case "40":
+				document.getElementsByName("number40").src="image/num40i.jpg";
+			break;
+			case "41":
+				document.getElementsByName("number41").src="image/num41i.jpg";
+			break;
+			case "42":
+				document.getElementsByName("number42").src="image/num42i.jpg";
+			break;
+			case "43":
+				document.getElementsByName("number43").src="image/num43i.jpg";
+			break;
+			case "44":
+				document.getElementsByName("number44").src="image/num44i.jpg";
+			break;
+			case "45":
+				document.getElementsByName("number45").src="image/num45i.jpg";
+			break;
+			default:
+				break;
+		}
+	}
+	document.getElementsByName("selected1").value=lotto[0];
+	document.getElementsByName("selected2")value=lotto[1];
+	document.getElementsByName("selected3").value=lotto[2];
+	document.getElementsByName("selected4").value=lotto[3];
+	document.getElementsByName("selected5").value=lotto[4];
+	document.getElementsByName("selected6").value=lotto[5];
+	document.getElementsByName("selected7").value=lotto[6];
+
+	var selectList=new Array();
+	selectList[0]=document.getElementsByName("select1").value;
+	selectList[1]=document.getElementsByName("select2").value;
+	selectList[2]=document.getElementsByName("select3").value;
+	selectList[3]=document.getElementsByName("select4").value;
+	selectList[4]=document.getElementsByName("select5").value;
+	selectList[5]=document.getElementsByName("select6").value;
+
+	var j=0;
+	var k=0;
+	for(j=0;j<=5;j++){
+		for(k=0;k<=5;k++){
+			if(selectList[j]==lotto[k]){
+				bingo++
+			}
+		}
+	}
+	switch(bingo){
+		case 0:
+			setTimeout('alert("꽝입니다.")',1800);
+			document.getElementsByName("current").value=current;
+			document.getElementsByName("betting").value=0;
+			record=current-origin;
+			document.getElementsByName("record").value=record;			
+		break;
+		case 1:
+			setTimeout('alert("하나!!! 천원준다!!!!")',1800);
+			current=current+1000;
+			document.getElementsByName("current").value=current;
+			document.getElementsByName("betting").value=0;
+			record=current-origin;
+			document.getElementsByName("record").value=record;
+		break;
+		case 2:
+			setTimeout('alert("두개는 본전치기!!!! 이천원!!!")',1800);
+			current=current+2000;
+			document.getElementsByName("current").value=current;
+			document.getElementsByName("betting").value=0;
+			record=current-origin;
+			document.getElementsByName("record").value=record;
+		break;
+		case 3:
+			setTimeout('alert("3개! 만원!!!!")',1800);
+			current=current+10000;
+			document.getElementsByName("current").value=current;
+			document.getElementsByName("betting").value=0;
+			record=current-origin;
+			document.getElementsByName("record").value=record;
+		break;
+		case 4:
+			setTimeout('alert("4개!!!! 팔십만원!!!!")',1800);
+			current=current+800000;
+			document.getElementsByName("current").value=current;
+			document.getElementsByName("betting").value=0;
+			record=current-origin;
+			document.getElementsByName("record").value=record;
+		break;
+		case 5:
+			var isOk="N";
+			for(i=0;i<6;i++){
+				if(lotto[6]==selectList[i]){
+					isOk="Y";
+				}
+			}
+			if(isOk=="Y"){
+				setTimeout('alert("보너스가 들어간 5개!!!! 일억이천만원!!!!")',1800);
+				current=current+120000000;
+				document.getElementsByName("current").value=current;
+				document.getElementsByName("betting").value=0;
+				record=current-origin;
+				document.getElementsByName("record").value=record;
+			}else{
+				setTimeout('alert("5개!!!!! 보너스가 안돼서 이백만원!!!!")',1800);
+				current=current+200000000;
+				document.getElementsByName("current").value=current;
+				document.getElementsByName("betting").value=0;
+				record=current-origin;
+				document.getElementsByName("record").value=record;
+			}
+		break;
+		case 6:
+			setTimeout('alert("6개!!! 모두 십억이 지급되겠습니다.!!!!")',1800);
+			current=current+1000000000;
+			document.getElementsByName("current").value=current;
+			document.getElementsByName("betting").value=0;
+			record=current-origin;
+			document.getElementsByName("record").value=record;
+		break;
+		default:
+		 alert("로또게임중");
+		}
+		setTimeout('setting()',2000);
+}
+function setting(){
+	
+	document.getElementsByName("select1").value=0
+	document.getElementsByName("select2").value=0
+	document.getElementsByName("select3").value=0
+	document.getElementsByName("select4").value=0
+	document.getElementsByName("select5").value=0
+	document.getElementsByName("select6").value=0
+
+	document.getElementsByName("selected1").value=0
+	document.getElementsByName("selected2").value=0
+	document.getElementsByName("selected3").value=0
+	document.getElementsByName("selected4").value=0
+	document.getElementsByName("selected5").value=0
+	document.getElementsByName("selected6").value=0
+	document.getElementsByName("selected7").value=0
+
+	document.getElementsByName("number1").src="image/num01.jpg";
+	document.getElementsByName("number2").src="image/num02.jpg";
+	document.getElementsByName("number3").src="image/num03.jpg";
+	document.getElementsByName("number4").src="image/num04.jpg";
+	document.getElementsByName("number5").src="image/num05.jpg";
+	document.getElementsByName("number6").src="image/num06.jpg";
+	document.getElementsByName("number7").src="image/num07.jpg";
+	document.getElementsByName("number8").src="image/num08.jpg";
+	document.getElementsByName("number9").src="image/num09.jpg";
+	document.getElementsByName("number10").src="image/num10.jpg";
+	document.getElementsByName("number11").src="image/num11.jpg";
+	document.getElementsByName("number12").src="image/num12.jpg";
+	document.getElementsByName("number13").src="image/num13.jpg";
+	document.getElementsByName("number14").src="image/num14.jpg";
+	document.getElementsByName("number15").src="image/num15.jpg";
+	document.getElementsByName("number16").src="image/num16.jpg";
+	document.getElementsByName("number17").src="image/num17.jpg";
+	document.getElementsByName("number18").src="image/num18.jpg";
+	document.getElementsByName("number19").src="image/num19.jpg";
+	document.getElementsByName("number20").src="image/num20.jpg";
+	document.getElementsByName("number21").src="image/num21.jpg";
+	document.getElementsByName("number22").src="image/num22.jpg";
+	document.getElementsByName("number23").src="image/num23.jpg";
+	document.getElementsByName("number24").src="image/num24.jpg";
+	document.getElementsByName("number25").src="image/num25.jpg";
+	document.getElementsByName("number26").src="image/num26.jpg";
+	document.getElementsByName("number27").src="image/num27.jpg";
+	document.getElementsByName("number28").src="image/num28.jpg";
+	document.getElementsByName("number29").src="image/num29.jpg";
+	document.getElementsByName("number30").src="image/num30.jpg";
+	document.getElementsByName("number31").src="image/num31.jpg";
+	document.getElementsByName("number32").src="image/num32.jpg";
+	document.getElementsByName("number33").src="image/num33.jpg";
+	document.getElementsByName("number34").src="image/num34.jpg";
+	document.getElementsByName("number35").src="image/num35.jpg";
+	document.getElementsByName("number36").src="image/num36.jpg";
+	document.getElementsByName("number37").src="image/num37.jpg";
+	document.getElementsByName("number38").src="image/num38.jpg";
+	document.getElementsByName("number39").src="image/num39.jpg";
+	document.getElementsByName("number40").src="image/num40.jpg";
+	document.getElementsByName("number41").src="image/num41.jpg";
+	document.getElementsByName("number42").src="image/num42.jpg";
+	document.getElementsByName("number43").src="image/num43.jpg";
+	document.getElementsByName("number44").src="image/num44.jpg";
+	document.getElementsByName("number45").src="image/num45.jpg";
+}
+	//-->
+	</script>
+
+  <title>포인트월드 로또</title>
  </head>
- <body>
+ <body onload="document.getElementsByName('datum')[0].value=new Date().toLocaleString();">
   <div id="" class="top">
 	<div id="" class="header">
 		<a href="./index.html"><img src="./img/mainTitle.jpg" alt="포인트월드"></a>
 	</div>
+
+<div id="" class="datium">
+		<INPUT TYPE="text" NAME="datum" size="24" maxlength="24" readonly value="">
+	</div>
+
+
 	<div id="" class="menu">
 		<span class="gawibawibo"><a href="./g_gawibawibo.html"><img src="./img/gawibawiboL2.jpg" alt="가위바위보"></a></span>
 		<span class="lottos"><a href="./g_lotto.html"><img src="./img/lottoWorldL2.jpg" alt="로또50"></a></span>
@@ -20,85 +516,91 @@
 		
 	</div>
 	<div id="" class="game">
+
+	<!--점수판 시작-->
+	<div class="pointPnl">
+	<small><b>현재포인트<INPUT TYPE="text" NAME="current" size="8" maxlength="12" readonly value="10000">&nbsp;배팅포인트
+		<INPUT TYPE="text" NAME="betting" size="6" maxlength="8" readonly value="0">&nbsp;</b><IMG SRC="./img/toLeft.gif" Name="downScore" WIDTH="16" HEIGHT="16" BORDER="0" ALT="배팅줄이기" onclick="downPP()">&nbsp;&nbsp;<IMG SRC="./img/toRight.gif" Name="upScore" WIDTH="16" HEIGHT="16" BORDER="0" ALT="배팅늘이기" onclick="upPP()"></small></small>
+
+	</div>
+	<!--점수판 끝-->
+
 	<!--로또시작-->
-<TABLE border="0" width="560" bgcolor="#DBDBDB" cellspacing="0" cellpadding="0">
-<!--게임현황판 시작-->
-<TR>
-		<TD colspan="5" align="center"><small><b>현재포인트<INPUT TYPE="text" NAME="current" size="8" maxlength="12" readonly value="">&nbsp;배팅포인트
-		<INPUT TYPE="text" NAME="betting" size="6" maxlength="8" readonly value="0">&nbsp;</b><IMG SRC="./img/toLeft.gif" Name="downScore" WIDTH="16" HEIGHT="16" BORDER="0" ALT="배팅줄이기" onclick="downPP()">&nbsp;&nbsp;<IMG SRC="./img/toRight.gif" Name="upScore" WIDTH="16" HEIGHT="16" BORDER="0" ALT="배팅늘이기" onclick="upPP()"></small></TD>
-	</TR>
-<!-- 게임현황판 끝-->
-<TR>
-	<TD align="center"><TABLE border="0">
-	<TR>
-		<TD><IMG SRC="./img/num01.jpg" name="number1" WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)"></TD>
-		<TD><IMG SRC="./img/num02.jpg" name="number2"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)"></TD>
-		<TD><IMG SRC="./img/num03.jpg" name="number3"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)"></TD>
-		<TD><IMG SRC="./img/num04.jpg" name="number4"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)"></TD>
-		<TD><IMG SRC="./img/num05.jpg" name="number5"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)"></TD>
-		<TD><IMG SRC="./img/num06.jpg" name="number6"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)"></TD>
-		<TD><IMG SRC="./img/num07.jpg" name="number7"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)"></TD>
-		<TD><IMG SRC="./img/num08.jpg" name="number8"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)"></TD>
-		<TD><IMG SRC="./img/num09.jpg" name="number9"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)"></TD>
-	</TR>
-	<TR>
-		<TD><IMG SRC="./img/num10.jpg" name="number10"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)"></TD>
-		<TD><IMG SRC="./img/num11.jpg" name="number11"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)"></TD>
-		<TD><IMG SRC="./img/num12.jpg" name="number12"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)"></TD>
-		<TD><IMG SRC="./img/num13.jpg" name="number13"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)"></TD>
-		<TD><IMG SRC="./img/num14.jpg" name="number14"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)"></TD>
-		<TD><IMG SRC="./img/num15.jpg" name="number15"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)"></TD>
-		<TD><IMG SRC="./img/num16.jpg" name="number16"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)"></TD>
-		<TD><IMG SRC="./img/num17.jpg" name="number17"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)"></TD>
-		<TD><IMG SRC="./img/num18.jpg" name="number18"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)"></TD>
-	</TR>
-	<TR>
-		<TD><IMG SRC="./img/num19.jpg" name="number19"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)"></TD>
-		<TD><IMG SRC="./img/num20.jpg" name="number20"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)"></TD>
-		<TD><IMG SRC="./img/num21.jpg" name="number21"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)"></TD>
-		<TD><IMG SRC="./img/num22.jpg" name="number22"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)"></TD>
-		<TD><IMG SRC="./img/num23.jpg" name="number23"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)"></TD>
-		<TD><IMG SRC="./img/num24.jpg" name="number24"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)"></TD>
-		<TD><IMG SRC="./img/num25.jpg" name="number25"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)"></TD>
-		<TD><IMG SRC="./img/num26.jpg" name="number26"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)"></TD>
-		<TD><IMG SRC="./img/num27.jpg" name="number27"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)"></TD>
-	</TR>
-	<TR>
-		<TD><IMG SRC="./img/num28.jpg" name="number28"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)"></TD>
-		<TD><IMG SRC="./img/num29.jpg" name="number29"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)"></TD>
-		<TD><IMG SRC="./img/num30.jpg" name="number30"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)"></TD>
-		<TD><IMG SRC="./img/num31.jpg" name="number31"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)"></TD>
-		<TD><IMG SRC="./img/num32.jpg" name="number32"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)"></TD>
-		<TD><IMG SRC="./img/num33.jpg" name="number33"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)"></TD>
-		<TD><IMG SRC="./img/num34.jpg" name="number34"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)"></TD>
-		<TD><IMG SRC="./img/num35.jpg" name="number35"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)"></TD>
-		<TD><IMG SRC="./img/num36.jpg" name="number36"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)"></TD>
-	</TR>
-	<TR>
-		<TD><IMG SRC="./img/num37.jpg" name="number37"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)"></TD>
-		<TD><IMG SRC="./img/num38.jpg" name="number38"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)"></TD>
-		<TD><IMG SRC="./img/num39.jpg" name="number39"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)"></TD>
-		<TD><IMG SRC="./img/num40.jpg" name="number40" WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)"></TD>
-		<TD><IMG SRC="./img/num41.jpg" name="number41"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)"></TD>
-		<TD><IMG SRC="./img/num42.jpg" name="number42"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)"></TD>
-		<TD><IMG SRC="./img/num43.jpg" name="number43"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)"></TD>
-		<TD><IMG SRC="./img/num44.jpg" name="number44"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)"></TD>
-		<TD><IMG SRC="./img/num45.jpg" name="number45"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)"></TD>
-	</TR>
-	</TABLE>
+	<!--로또판 시작-->
+<div id="" class="">
+	<IMG SRC="./img/num01.jpg" name="number1" WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
+	<IMG SRC="./img/num02.jpg" name="number2"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
+	<IMG SRC="./img/num03.jpg" name="number3"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
+	<IMG SRC="./img/num04.jpg" name="number4"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
+	<IMG SRC="./img/num05.jpg" name="number5"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
+	<IMG SRC="./img/num06.jpg" name="number6"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
+	<IMG SRC="./img/num07.jpg" name="number7"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
+	<IMG SRC="./img/num08.jpg" name="number8"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
+	<IMG SRC="./img/num09.jpg" name="number9"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
+</div>
+<div id="" class="">
+	<IMG SRC="./img/num10.jpg" name="number10"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
+	<IMG SRC="./img/num11.jpg" name="number11"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
+	<IMG SRC="./img/num12.jpg" name="number12"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
+	<IMG SRC="./img/num13.jpg" name="number13"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
+	<IMG SRC="./img/num14.jpg" name="number14"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
+	<IMG SRC="./img/num15.jpg" name="number15"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
+	<IMG SRC="./img/num16.jpg" name="number16"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
+	<IMG SRC="./img/num17.jpg" name="number17"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
+	<IMG SRC="./img/num18.jpg" name="number18"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
+</div>
+<div id="" class="">
+	<IMG SRC="./img/num19.jpg" name="number19"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
+		<IMG SRC="./img/num20.jpg" name="number20"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
+		<IMG SRC="./img/num21.jpg" name="number21"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
+		<IMG SRC="./img/num22.jpg" name="number22"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
+		<IMG SRC="./img/num23.jpg" name="number23"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
+		<IMG SRC="./img/num24.jpg" name="number24"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
+		<IMG SRC="./img/num25.jpg" name="number25"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
+		<IMG SRC="./img/num26.jpg" name="number26"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
+		<IMG SRC="./img/num27.jpg" name="number27"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
+</div>
+<div id="" class="">
+	<IMG SRC="./img/num28.jpg" name="number28"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
+		<IMG SRC="./img/num29.jpg" name="number29"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
+		<IMG SRC="./img/num30.jpg" name="number30"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
+		<IMG SRC="./img/num31.jpg" name="number31"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
+		<IMG SRC="./img/num32.jpg" name="number32"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
+		<IMG SRC="./img/num33.jpg" name="number33"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
+		<IMG SRC="./img/num34.jpg" name="number34"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
+		<IMG SRC="./img/num35.jpg" name="number35"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
+		<IMG SRC="./img/num36.jpg" name="number36"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
+</div>
+<div id="" class="">
+	<IMG SRC="./img/num37.jpg" name="number37"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
+		<IMG SRC="./img/num38.jpg" name="number38"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
+		<IMG SRC="./img/num39.jpg" name="number39"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
+		<IMG SRC="./img/num40.jpg" name="number40" WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
+		<IMG SRC="./img/num41.jpg" name="number41"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
+		<IMG SRC="./img/num42.jpg" name="number42"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
+		<IMG SRC="./img/num43.jpg" name="number43"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
+		<IMG SRC="./img/num44.jpg" name="number44"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
+		<IMG SRC="./img/num45.jpg" name="number45"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
+</div>
+<!-- 로또판 끝-->
 
-	<table><tr>
-	<TD width="120" align="center"><B><small>선택한숫자</small></B></TD>
-	<TD width="40" align="center"><INPUT TYPE="text" NAME="select1" size="2" maxlength="2" value="0"></TD>
-	<TD width="40" align="center"><INPUT TYPE="text" NAME="select2" size="2" maxlength="2" value="0"></TD>
-	<TD width="40" align="center"><INPUT TYPE="text" NAME="select3" size="2" maxlength="2" value="0"></TD>
-	<TD width="40" align="center"><INPUT TYPE="text" NAME="select4" size="2" maxlength="2" value="0"></TD>
-	<TD width="40" align="center"><INPUT TYPE="text" NAME="select5" size="2" maxlength="2" value="0"></TD>
-	<TD width="40" align="center"><INPUT TYPE="text" NAME="select6" size="2" maxlength="2" value="0"></TD>
-</TR>
-</TABLE>
+<!-- 선택한숫자판 시작-->
+<div id="" class="">
+	<B><small>선택한숫자</small></B>
+	<INPUT TYPE="text" NAME="select1" size="2" maxlength="2" value="0">
+	<INPUT TYPE="text" NAME="select2" size="2" maxlength="2" value="0">
+	<INPUT TYPE="text" NAME="select3" size="2" maxlength="2" value="0">
+	<INPUT TYPE="text" NAME="select4" size="2" maxlength="2" value="0">
+	<INPUT TYPE="text" NAME="select5" size="2" maxlength="2" value="0">
+	<INPUT TYPE="text" NAME="select6" size="2" maxlength="2" value="0">
+</div>
+<!-- 선택한숫자판 끝-->
 
-<INPUT TYPE="reset" NAME="" value="다시선택" onclick="reSelect()">&nbsp;&nbsp;&nbsp;&nbsp;<INPUT TYPE="button" NAME="" value="자동선택" onclick="autoSelect()">&nbsp;&nbsp;&nbsp;&nbsp;<INPUT TYPE="button" NAME="" value="로또고고!" onclick="goLotto()">
+<!-- 로또실행판 시작-->
+<div id="" class="">
+	<INPUT TYPE="reset" NAME="" value="다시선택" onclick="reSelect()">&nbsp;&nbsp;&nbsp;&nbsp;<INPUT TYPE="button" NAME="" value="자동선택" onclick="autoSelect()">&nbsp;&nbsp;&nbsp;&nbsp;<INPUT TYPE="button" NAME="" value="로또고고!" onclick="goLotto()">
+</div>
+<!-- 로또실행판 끝-->
 		
 	</div>
 
