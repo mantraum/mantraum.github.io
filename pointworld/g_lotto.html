@@ -29,6 +29,8 @@
 			return;
 		}
 		//frm.submit();
+		doLotto();
+
 	}
 	
 	// 로또배팅금액 낮추기
@@ -538,7 +540,7 @@ function setting(){
 	<!--점수판 시작-->
 	<div class="pointPnl">
 	<small><b>현재포인트<INPUT TYPE="text" NAME="current" size="8" maxlength="12" readonly value="10000">&nbsp;배팅포인트
-		<INPUT TYPE="text" NAME="betting" size="6" maxlength="8" readonly value="0">&nbsp;</b><IMG SRC="./img/toLeft.gif" Name="downScore" WIDTH="16" HEIGHT="16" BORDER="0" ALT="배팅줄이기" onclick="downPP()">&nbsp;&nbsp;<IMG SRC="./img/toRight.gif" Name="upScore" WIDTH="16" HEIGHT="16" BORDER="0" ALT="배팅늘이기" onclick="upPP()"></small></small>
+		<INPUT TYPE="text" NAME="betting" size="6" maxlength="8" readonly value="0">&nbsp;</b><IMG SRC="./img/toLeft.gif" Name="downScore" WIDTH="16" HEIGHT="16" BORDER="0" ALT="배팅줄이기" onclick="downPP();">&nbsp;&nbsp;<IMG SRC="./img/toRight.gif" Name="upScore" WIDTH="16" HEIGHT="16" BORDER="0" ALT="배팅늘이기" onclick="upPP();"></small></small>
 
 	</div>
 	<!--점수판 끝-->
@@ -546,59 +548,59 @@ function setting(){
 	<!--로또시작-->
 	<!--로또판 시작-->
 <div id="" class="">
-	<IMG SRC="./img/num01.jpg" name="number1" WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
-	<IMG SRC="./img/num02.jpg" name="number2"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
-	<IMG SRC="./img/num03.jpg" name="number3"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
-	<IMG SRC="./img/num04.jpg" name="number4"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
-	<IMG SRC="./img/num05.jpg" name="number5"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
-	<IMG SRC="./img/num06.jpg" name="number6"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
-	<IMG SRC="./img/num07.jpg" name="number7"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
-	<IMG SRC="./img/num08.jpg" name="number8"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
-	<IMG SRC="./img/num09.jpg" name="number9"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
+	<IMG SRC="./img/num01.jpg" name="number1" WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name);">
+	<IMG SRC="./img/num02.jpg" name="number2"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name);">
+	<IMG SRC="./img/num03.jpg" name="number3"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name);">
+	<IMG SRC="./img/num04.jpg" name="number4"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name);">
+	<IMG SRC="./img/num05.jpg" name="number5"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name);">
+	<IMG SRC="./img/num06.jpg" name="number6"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name);">
+	<IMG SRC="./img/num07.jpg" name="number7"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name);">
+	<IMG SRC="./img/num08.jpg" name="number8"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name);">
+	<IMG SRC="./img/num09.jpg" name="number9"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name);">
 </div>
 <div id="" class="">
-	<IMG SRC="./img/num10.jpg" name="number10"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
-	<IMG SRC="./img/num11.jpg" name="number11"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
-	<IMG SRC="./img/num12.jpg" name="number12"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
-	<IMG SRC="./img/num13.jpg" name="number13"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
-	<IMG SRC="./img/num14.jpg" name="number14"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
-	<IMG SRC="./img/num15.jpg" name="number15"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
-	<IMG SRC="./img/num16.jpg" name="number16"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
-	<IMG SRC="./img/num17.jpg" name="number17"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
-	<IMG SRC="./img/num18.jpg" name="number18"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
+	<IMG SRC="./img/num10.jpg" name="number10"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name);">
+	<IMG SRC="./img/num11.jpg" name="number11"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name);">
+	<IMG SRC="./img/num12.jpg" name="number12"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name);">
+	<IMG SRC="./img/num13.jpg" name="number13"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name);">
+	<IMG SRC="./img/num14.jpg" name="number14"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name);">
+	<IMG SRC="./img/num15.jpg" name="number15"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name);">
+	<IMG SRC="./img/num16.jpg" name="number16"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name);">
+	<IMG SRC="./img/num17.jpg" name="number17"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name);">
+	<IMG SRC="./img/num18.jpg" name="number18"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name);">
 </div>
 <div id="" class="">
-	<IMG SRC="./img/num19.jpg" name="number19"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
-		<IMG SRC="./img/num20.jpg" name="number20"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
-		<IMG SRC="./img/num21.jpg" name="number21"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
-		<IMG SRC="./img/num22.jpg" name="number22"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
-		<IMG SRC="./img/num23.jpg" name="number23"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
-		<IMG SRC="./img/num24.jpg" name="number24"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
-		<IMG SRC="./img/num25.jpg" name="number25"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
-		<IMG SRC="./img/num26.jpg" name="number26"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
-		<IMG SRC="./img/num27.jpg" name="number27"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
+	<IMG SRC="./img/num19.jpg" name="number19"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name);">
+		<IMG SRC="./img/num20.jpg" name="number20"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name);">
+		<IMG SRC="./img/num21.jpg" name="number21"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name);">
+		<IMG SRC="./img/num22.jpg" name="number22"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name);">
+		<IMG SRC="./img/num23.jpg" name="number23"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name);">
+		<IMG SRC="./img/num24.jpg" name="number24"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name);">
+		<IMG SRC="./img/num25.jpg" name="number25"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name);">
+		<IMG SRC="./img/num26.jpg" name="number26"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name);">
+		<IMG SRC="./img/num27.jpg" name="number27"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name);">
 </div>
 <div id="" class="">
-	<IMG SRC="./img/num28.jpg" name="number28"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
-		<IMG SRC="./img/num29.jpg" name="number29"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
-		<IMG SRC="./img/num30.jpg" name="number30"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
-		<IMG SRC="./img/num31.jpg" name="number31"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
-		<IMG SRC="./img/num32.jpg" name="number32"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
-		<IMG SRC="./img/num33.jpg" name="number33"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
-		<IMG SRC="./img/num34.jpg" name="number34"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
-		<IMG SRC="./img/num35.jpg" name="number35"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
-		<IMG SRC="./img/num36.jpg" name="number36"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
+	<IMG SRC="./img/num28.jpg" name="number28"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name);">
+		<IMG SRC="./img/num29.jpg" name="number29"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name);">
+		<IMG SRC="./img/num30.jpg" name="number30"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name);">
+		<IMG SRC="./img/num31.jpg" name="number31"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name);">
+		<IMG SRC="./img/num32.jpg" name="number32"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name);">
+		<IMG SRC="./img/num33.jpg" name="number33"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name);">
+		<IMG SRC="./img/num34.jpg" name="number34"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name);">
+		<IMG SRC="./img/num35.jpg" name="number35"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name);">
+		<IMG SRC="./img/num36.jpg" name="number36"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name);">
 </div>
 <div id="" class="">
-	<IMG SRC="./img/num37.jpg" name="number37"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
-		<IMG SRC="./img/num38.jpg" name="number38"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
-		<IMG SRC="./img/num39.jpg" name="number39"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
-		<IMG SRC="./img/num40.jpg" name="number40" WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
-		<IMG SRC="./img/num41.jpg" name="number41"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
-		<IMG SRC="./img/num42.jpg" name="number42"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
-		<IMG SRC="./img/num43.jpg" name="number43"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
-		<IMG SRC="./img/num44.jpg" name="number44"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
-		<IMG SRC="./img/num45.jpg" name="number45"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name)">
+	<IMG SRC="./img/num37.jpg" name="number37"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name);">
+		<IMG SRC="./img/num38.jpg" name="number38"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name);">
+		<IMG SRC="./img/num39.jpg" name="number39"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name);">
+		<IMG SRC="./img/num40.jpg" name="number40" WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name);">
+		<IMG SRC="./img/num41.jpg" name="number41"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name);">
+		<IMG SRC="./img/num42.jpg" name="number42"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name);">
+		<IMG SRC="./img/num43.jpg" name="number43"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name);">
+		<IMG SRC="./img/num44.jpg" name="number44"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name);">
+		<IMG SRC="./img/num45.jpg" name="number45"  WIDTH="30" HEIGHT="30" BORDER="0" ALT="" onclick="select(this.name);">
 </div>
 <!-- 로또판 끝-->
 
@@ -616,7 +618,7 @@ function setting(){
 
 <!-- 로또실행판 시작-->
 <div id="" class="">
-	<INPUT TYPE="reset" NAME="" value="다시선택" onclick="reSelect()">&nbsp;&nbsp;&nbsp;&nbsp;<INPUT TYPE="button" NAME="" value="자동선택" onclick="autoSelect()">&nbsp;&nbsp;&nbsp;&nbsp;<INPUT TYPE="button" NAME="" value="로또고고!" onclick="goLotto()">
+	<INPUT TYPE="reset" NAME="" value="다시선택" onclick="reSelect();">&nbsp;&nbsp;&nbsp;&nbsp;<INPUT TYPE="button" NAME="" value="자동선택" onclick="autoSelect();">&nbsp;&nbsp;&nbsp;&nbsp;<INPUT TYPE="button" NAME="" value="로또고고!" onclick="goLotto();">
 </div>
 <!-- 로또실행판 끝-->
 		
