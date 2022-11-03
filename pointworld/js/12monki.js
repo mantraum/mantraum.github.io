@@ -1,14 +1,14 @@
-	// º¸À¯Æ÷ÀÎÆ®, ¹èÆÃÆ÷ÀÎÆ®, °³ÀÓ°á°úÆ÷ÀÎÆ®
+	// ë³´ìœ í¬ì¸íŠ¸, ë°°íŒ…í¬ì¸íŠ¸, ê°œìž„ê²°ê³¼í¬ì¸íŠ¸
 	var current=10000;
 	var betting=0;
 	var pointQ=0;
 
-	// °³ÀÌ¸Ó°¡ ¼±ÅÃÇÑ µ¿¹°
+	// ê°œì´ë¨¸ê°€ ì„ íƒí•œ ë™ë¬¼
 	var yourSelect="";
-	// ÄÄÅÍ°¡ ¼±ÅÃÇÑ µ¿¹°
+	// ì»´í„°ê°€ ì„ íƒí•œ ë™ë¬¼
 	var comterSelect="";
 
-	// °¢ 12Áö½Å»ó¿¡ °É¸° Æ÷ÀÎÆ®
+	// ê° 12ì§€ì‹ ìƒì— ê±¸ë¦° í¬ì¸íŠ¸
 	var point01=0;
 	var point02=0;
 	var point03=0;
@@ -22,14 +22,14 @@
 	var point11=0;
 	var point12=0;
 
-	// °³ÀÌ¸Ó°¡ °¢ ½Å»ó¿¡ ¹èÆÃÇÑ Æ÷ÀÎÆ® ¹è¿­
+	// ê°œì´ë¨¸ê°€ ê° ì‹ ìƒì— ë°°íŒ…í•œ í¬ì¸íŠ¸ ë°°ì—´
 	var yourMonki=new Array();
 
-	// ÄÄÇ»ÅÍ°¡ ¼±ÅÃÇÑ ½Å»ó 3°¡Áö
+	// ì»´í“¨í„°ê°€ ì„ íƒí•œ ì‹ ìƒ 3ê°€ì§€
 	var monki=new Array();
 
 
-// °³ÀÌ¸Ó°¡ ¼±ÅÃÇÑ µ¿¹°¿¡°Ô ¹èÆÃÆ÷ÀÎÆ®¸¦ ´õÇØÁØ´Ù
+// ê°œì´ë¨¸ê°€ ì„ íƒí•œ ë™ë¬¼ì—ê²Œ ë°°íŒ…í¬ì¸íŠ¸ë¥¼ ë”í•´ì¤€ë‹¤
 function select(selection){
 
 
@@ -39,7 +39,7 @@ function select(selection){
 
 
 	if(current<500){
-		alert("ÇÑ¹ø ÁöÁ¤¿¡ 500Æ÷ÀÎÆ®°¡ ÇÊ¿äÇÕ´Ï´Ù.");
+		alert("í•œë²ˆ ì§€ì •ì— 500í¬ì¸íŠ¸ê°€ í•„ìš”í•©ë‹ˆë‹¤.");
 		return;
 	}
 
@@ -56,7 +56,7 @@ function select(selection){
 		point01=point01+500;
 		document.getElementsByName("points01")[0].value=point01;
 		return;
-	}//ÀÚ
+	}//ìž
 
 	if(selection.src.includes("cow.jpg")){
 		current=current-500;
@@ -66,7 +66,7 @@ function select(selection){
 		point02=point02+500;
 		document.getElementsByName("points02")[0].value=point02;
 		return;
-	}//Ãà
+	}//ì¶•
 
 	if(selection.src.includes("tiger.jpg")){
 		current=current-500;
@@ -76,7 +76,7 @@ function select(selection){
 		point03=point03+500;
 		document.getElementsByName("points03")[0].value=point03;
 		return;
-	}//ÀÎ
+	}//ì¸
 
 	if(selection.src.includes("rabbit.jpg")){
 		current=current-500;
@@ -86,7 +86,7 @@ function select(selection){
 		point04=point04+500;
 		document.getElementsByName("points04")[0].value=point04;
 		return;
-	}//¹¦
+	}//ë¬˜
 
 	if(selection.src.includes("dragon.jpg")){
 		current=current-500;
@@ -96,7 +96,7 @@ function select(selection){
 		point05=point05+500;
 		document.getElementsByName("points05")[0].value=point05;
 		return;
-	}//Áø
+	}//ì§„
 
 	if(selection.src.includes("snake.jpg")){
 		current=current-500;
@@ -106,7 +106,7 @@ function select(selection){
 		point06=point06+500;
 		document.getElementsByName("points06")[0].value=point06;
 		return;
-	}//»ç
+	}//ì‚¬
 
 	if(selection.src.includes("horse.jpg")){
 		current=current-500;
@@ -116,7 +116,7 @@ function select(selection){
 		point07=point07+500;
 		document.getElementsByName("points07")[0].value=point07;
 		return;
-	}//¿À
+	}//ì˜¤
 
 	if(selection.src.includes("sheep.jpg")){
 		current=current-500;
@@ -126,7 +126,7 @@ function select(selection){
 		point08=point08+500;
 		document.getElementsByName("points08")[0].value=point08;
 		return;
-	}//¹Ì
+	}//ë¯¸
 
 	if(selection.src.includes("monkey.jpg")){
 		current=current-500;
@@ -136,7 +136,7 @@ function select(selection){
 		point09=point09+500;
 		document.getElementsByName("points09")[0].value=point09;
 		return;
-	}//½Å
+	}//ì‹ 
 
 	if(selection.src.includes("chicken.jpg")){
 		current=current-500;
@@ -146,7 +146,7 @@ function select(selection){
 		point10=point10+500;
 		document.getElementsByName("points10")[0].value=point10;
 		return;
-	}//À¯
+	}//ìœ 
 
 	if(selection.src.includes("dog.jpg")){
 		current=current-500;
@@ -156,7 +156,7 @@ function select(selection){
 		point11=point11+500;
 		document.getElementsByName("points11")[0].value=point11;
 		return;
-	}//¼ú
+	}//ìˆ 
 
 	if(selection.src.includes("pig.jpg")){
 		current=current-500;
@@ -166,14 +166,14 @@ function select(selection){
 		point12=point12+500;
 		document.getElementsByName("points12")[0].value=point12;
 		return;
-	}//ÇØ
+	}//í•´
 
 }
 
-//´Ù½Ã ¼±ÅÃÇÏ±â
+//ë‹¤ì‹œ ì„ íƒí•˜ê¸°
 function reSelect(){
 
-		//°³ÀÌ¸Ó°¡ ¹èÆÃÇØ ³õÀº Æ÷ÀÎÆ® ÃÊ±âÈ­
+		//ê°œì´ë¨¸ê°€ ë°°íŒ…í•´ ë†“ì€ í¬ì¸íŠ¸ ì´ˆê¸°í™”
 		point01=0;
 		point02=0;
 		point03=0;
@@ -188,7 +188,7 @@ function reSelect(){
 		point12=0;
 
 
-		//È­¸é»ó¿¡ ¼³Á¤µÈ Æ÷ÀÎÆ® ¾ø¾Ö±â
+		//í™”ë©´ìƒì— ì„¤ì •ëœ í¬ì¸íŠ¸ ì—†ì• ê¸°
 		document.getElementsByName("points01")[0].value=0;
 		document.getElementsByName("points02")[0].value=0;
 		document.getElementsByName("points03")[0].value=0;
@@ -202,7 +202,7 @@ function reSelect(){
 		document.getElementsByName("points11")[0].value=0;
 		document.getElementsByName("points12")[0].value=0;
 
-		//°³ÀÌ¸Ó°¡ ¼³Á¤ÇÑ Æ÷ÀÎÆ® µÇµ¹·Á ³õ±â
+		//ê°œì´ë¨¸ê°€ ì„¤ì •í•œ í¬ì¸íŠ¸ ë˜ëŒë ¤ ë†“ê¸°
 		current = current + betting;
 		document.getElementsByName("current")[0].value=current;
 		betting = 0;
@@ -211,25 +211,25 @@ function reSelect(){
 
 }
 
-// 12Áö½Å»ó Áß 3°³°¡ ¼±ÅÃµÊ. ¼±ÅÃµÈ ½Å»ó¿¡ °É¸° Æ÷ÀÎÆ®´Â 3¹è°¡ µÊ.
+// 12ì§€ì‹ ìƒ ì¤‘ 3ê°œê°€ ì„ íƒë¨. ì„ íƒëœ ì‹ ìƒì— ê±¸ë¦° í¬ì¸íŠ¸ëŠ” 3ë°°ê°€ ë¨.
 function doMonkey(){
 	
 	if(betting<500){
-		alert("¸ÕÀú µ¿¹°µéÀ» Å¬¸¯ÇÏ¿© ¹èÆÃÀ» ÇÏ¼¼¿ä!!!");
+		alert("ë¨¼ì € ë™ë¬¼ë“¤ì„ í´ë¦­í•˜ì—¬ ë°°íŒ…ì„ í•˜ì„¸ìš”!!!");
 		return;
 	}
 
-	// ÄÄÇ»ÅÍ°¡ ¼³Á¤ÇÑ 12½Å»ó, 3°³À» º¸°üÇÒ ¹è¿­
+	// ì»´í“¨í„°ê°€ ì„¤ì •í•œ 12ì‹ ìƒ, 3ê°œì„ ë³´ê´€í•  ë°°ì—´
 	monki = new Array(3);
 
-	// 1¿¡¼­ 12Áß¿¡¼­ ÀÓÀÇ·Î 3°³¸¦ »ý¼ºÇØ¼­ 1ºÎÅÍ 12±îÁö ÀÚ,Ãà,ÀÎ,..,¼ú,ÇØ·Î °£ÁÖÇÔ
+	// 1ì—ì„œ 12ì¤‘ì—ì„œ ìž„ì˜ë¡œ 3ê°œë¥¼ ìƒì„±í•´ì„œ 1ë¶€í„° 12ê¹Œì§€ ìž,ì¶•,ì¸,..,ìˆ ,í•´ë¡œ ê°„ì£¼í•¨
 	for(var j=0;j<3;j++){
 		//lotto[j]=parseInt(Math.random()*45)+1;
 
 		monki[j] = Math.floor(12*Math.random()) + Math.ceil(1);
 	}
 
-	// °³ÀÌ¸Ó°¡ °¢ ½Å»ó¿¡ ¹èÆÃÇÑ Æ÷ÀÎÆ®¸¦ ¹è¿­·Î »ý¼º
+	// ê°œì´ë¨¸ê°€ ê° ì‹ ìƒì— ë°°íŒ…í•œ í¬ì¸íŠ¸ë¥¼ ë°°ì—´ë¡œ ìƒì„±
 	yourMonki = [point01,point02,point03,point04,point05,point06,point07,point08,point09,point10,point11,point12];
 
 	for(var ll=0; ll<3;ll++){
@@ -242,7 +242,7 @@ function doMonkey(){
 		}
 	}
 
-	//°³ÀÓ°á°ú ½ºÅ©¸°¿¡ Ç¥½ÃÇÏ±â
+	//ê°œìž„ê²°ê³¼ ìŠ¤í¬ë¦°ì— í‘œì‹œí•˜ê¸°
 	var res_Monki = "";
 	for(var cl=0; cl<monki.length;cl++){
 		res_Monki = res_Monki+" ."+cl+1;
@@ -254,14 +254,14 @@ function doMonkey(){
 
 	
 
-	// °³ÀÓ°á°úÆ÷ÀÎÆ®¸¦ º¸À¯Æ÷ÀÎÆ®¿¡ ´õÇØÁÖ°í, ¹èÆÃÆ÷ÀÎÆ®´Â 0À¸·Î ¼³Á¤
+	// ê°œìž„ê²°ê³¼í¬ì¸íŠ¸ë¥¼ ë³´ìœ í¬ì¸íŠ¸ì— ë”í•´ì£¼ê³ , ë°°íŒ…í¬ì¸íŠ¸ëŠ” 0ìœ¼ë¡œ ì„¤ì •
 	current = current + pointQ;
 	document.getElementsByName("current")[0].value=current;
 	betting = 0;
 	document.getElementsByName("betting")[0].value=betting;
 
 
-	//°³ÀÌ¸Ó°¡ ¹èÆÃÇØ ³õÀº Æ÷ÀÎÆ® ÃÊ±âÈ­
+	//ê°œì´ë¨¸ê°€ ë°°íŒ…í•´ ë†“ì€ í¬ì¸íŠ¸ ì´ˆê¸°í™”
 	point01=0;
 	point02=0;
 	point03=0;
@@ -276,7 +276,7 @@ function doMonkey(){
 	point12=0;
 
 
-	//È­¸é»ó¿¡ ¼³Á¤µÈ Æ÷ÀÎÆ® ¾ø¾Ö±â
+	//í™”ë©´ìƒì— ì„¤ì •ëœ í¬ì¸íŠ¸ ì—†ì• ê¸°
 	document.getElementsByName("points01")[0].value=0;
 	document.getElementsByName("points02")[0].value=0;
 	document.getElementsByName("points03")[0].value=0;

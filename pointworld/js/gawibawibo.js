@@ -1,5 +1,5 @@
 
-	// º¸À¯Æ÷ÀÎÆ®, ¹èÆÃÆ÷ÀÎÆ®, ÄÄÇ»ÅÍÆ÷ÀÎÆ®, °³ÀÌ¸Ó°¡ ¼±ÅÃÇÑ °¡À§¹ÙÀ§º¸, ÄÄÇ»ÅÍ°¡ »ý¼ºÇÑ °¡À§¹ÙÀ§º¸, ÄÄÇ»ÅÍ°¡ »ý¼ºÇÑ °¡À§¹ÙÀ§º¸¿ë ·£´ý¼ö, °³ÀÓºÐÀ§±â¿ëÈ­¸éÇ¥½ÃÈ¸¼ö
+	// ë³´ìœ í¬ì¸íŠ¸, ë°°íŒ…í¬ì¸íŠ¸, ì»´í“¨í„°í¬ì¸íŠ¸, ê°œì´ë¨¸ê°€ ì„ íƒí•œ ê°€ìœ„ë°”ìœ„ë³´, ì»´í“¨í„°ê°€ ìƒì„±í•œ ê°€ìœ„ë°”ìœ„ë³´, ì»´í“¨í„°ê°€ ìƒì„±í•œ ê°€ìœ„ë°”ìœ„ë³´ìš© ëžœë¤ìˆ˜, ê°œìž„ë¶„ìœ„ê¸°ìš©í™”ë©´í‘œì‹œíšŒìˆ˜
 	var current=10000;
 	var betting=0;
 	var comPnt=10000;
@@ -8,12 +8,12 @@
 	var rndom=0;
 	var ll=0;
 
-	// °³ÀÓ½Ã°£, °³ÀÓ°á°ú±â·ÏÆÇ
+	// ê°œìž„ì‹œê°„, ê°œìž„ê²°ê³¼ê¸°ë¡íŒ
 	var time_stmp = "";
 	var pnl_result = "";
 
 
-	// °³ÀÌ¸ÓÀÇ °¡À§¹ÙÀ§º¸ ¼±ÅÃ, °¡À§¿´À» ¶§ ´©¸£¸é ¹ÙÀ§, ¹ÙÀ§´Â º¸·Î, º¸´Â °¡À§·Î º¯°æÇØ ÁÜ
+	// ê°œì´ë¨¸ì˜ ê°€ìœ„ë°”ìœ„ë³´ ì„ íƒ, ê°€ìœ„ì˜€ì„ ë•Œ ëˆ„ë¥´ë©´ ë°”ìœ„, ë°”ìœ„ëŠ” ë³´ë¡œ, ë³´ëŠ” ê°€ìœ„ë¡œ ë³€ê²½í•´ ì¤Œ
 	function select(){
 
 		yourSelect=document.getElementsByName("yourSelect")[0].src;
@@ -38,12 +38,12 @@
 
 	}
 
-// ¹èÆÃÆ÷ÀÎÆ® 1000´ÜÀ§·Î ÁÙÀÌ±â
+// ë°°íŒ…í¬ì¸íŠ¸ 1000ë‹¨ìœ„ë¡œ ì¤„ì´ê¸°
 	function downPP(){
 		current=parseInt(document.getElementsByName("current")[0].value);
 		betting=parseInt(document.getElementsByName("betting")[0].value);
 		if(betting<1000){
-			alert("¹èÆÃÇÑ Æ÷ÀÎÆ®°¡ ¾ø³»¿ä");
+			alert("ë°°íŒ…í•œ í¬ì¸íŠ¸ê°€ ì—†ë‚´ìš”");
 			return;
 		}else{
 			betting=betting-1000;
@@ -53,7 +53,7 @@
 		}
 	}
 
-// ¹èÆÃÆ÷ÀÎÆ® 1000´ÜÀ§·Î ¿Ã¸®±â
+// ë°°íŒ…í¬ì¸íŠ¸ 1000ë‹¨ìœ„ë¡œ ì˜¬ë¦¬ê¸°
 	function upPP(){
 		current=parseInt(document.getElementsByName("current")[0].value);
 		betting=parseInt(document.getElementsByName("betting")[0].value);
@@ -61,12 +61,12 @@
 
 
 		if(current<1000){
-			alert("Æ÷ÀÎÆ®°¡ ºÎÁ·ÇÏ³»¿ä");
+			alert("í¬ì¸íŠ¸ê°€ ë¶€ì¡±í•˜ë‚´ìš”");
 			return;
 		}else{
 			betting=betting+1000;
 			if(comPnt<betting){
-				alert("ÄÄÇ»ÅÍÆ÷ÀÎÆ®°¡ ºÎÁ·ÇÏ³»¿ä");
+				alert("ì»´í“¨í„°í¬ì¸íŠ¸ê°€ ë¶€ì¡±í•˜ë‚´ìš”");
 				return;
 			}
 			current=current-1000;
@@ -77,13 +77,13 @@
 	}
 
 		
-// °¡À§¹ÙÀ§º¸ ½ÇÇàÇØ¼­ Æ÷ÀÎÆ® °è»êÇÏ±â
+// ê°€ìœ„ë°”ìœ„ë³´ ì‹¤í–‰í•´ì„œ í¬ì¸íŠ¸ ê³„ì‚°í•˜ê¸°
 	function doGame(){
-		// Å¸ÀÓ½ºÅÆÇÎ
+		// íƒ€ìž„ìŠ¤íƒ¬í•‘
 		time_stmp = new Date().toLocaleString();
 		document.getElementsByName('datum')[0].value=time_stmp;
 
-		// 1¿¡¼­ 3±îÁöÀÇ ÀÓÀÇÀÇ Á¤¼ö¸¦ »ý¼ºÇØ¼­, 1Àº °¡À§, 2´Â ¹ÙÀ§, 3Àº º¸·Î °£ÁÖÇÑ´Ù
+		// 1ì—ì„œ 3ê¹Œì§€ì˜ ìž„ì˜ì˜ ì •ìˆ˜ë¥¼ ìƒì„±í•´ì„œ, 1ì€ ê°€ìœ„, 2ëŠ” ë°”ìœ„, 3ì€ ë³´ë¡œ ê°„ì£¼í•œë‹¤
 		rndom = Math.floor(3*Math.random()) + Math.ceil(1);
 		console.log("rndom : "+rndom);
 
@@ -92,7 +92,7 @@
 		if(rndom==3) document.getElementsByName("comterSelect")[0].src="./img/bo.gif";
 
 
-		// ±×³É ÄÄÇ»ÅÍÀÇ °¡À§¹ÙÀ§º¸¸¦ ¿©·¯¹ø ¹Ù²ãÁÖ´Â È­¸éÇÃ·¡ÀÌ¸¦ ÇÑ´Ù
+		// ê·¸ëƒ¥ ì»´í“¨í„°ì˜ ê°€ìœ„ë°”ìœ„ë³´ë¥¼ ì—¬ëŸ¬ë²ˆ ë°”ê¿”ì£¼ëŠ” í™”ë©´í”Œëž˜ì´ë¥¼ í•œë‹¤
 
 		if(ll<10) {
 			//setInterval('doGame()',328);
@@ -112,44 +112,44 @@
 		
 	}
 
-	// °¡À§¹ÙÀ§º¸»ý¼ºÇÏ±â
+	// ê°€ìœ„ë°”ìœ„ë³´ìƒì„±í•˜ê¸°
 	function doPlay(){
 
 		//
 		
 		pnl_result = document.getElementsByName("res_Pnl")[0].value;
 
-		// °¡À§´Â º¸¿¡ ÀÌ±â°í, ¹ÙÀ§´Â °¡À§¿¡ ÀÌ±â°í, º¸´Â ¹ÙÀ§¿¡ ÀÌ±â´Â ÆÇÁ¤À» ÇÑ´Ù
+		// ê°€ìœ„ëŠ” ë³´ì— ì´ê¸°ê³ , ë°”ìœ„ëŠ” ê°€ìœ„ì— ì´ê¸°ê³ , ë³´ëŠ” ë°”ìœ„ì— ì´ê¸°ëŠ” íŒì •ì„ í•œë‹¤
 		comterSelect=document.getElementsByName("comterSelect")[0].src;
 
 		if(comterSelect.includes("bo")){
 			comterSelect = "bo.gif";
-			if(yourSelect.includes("gawi")) {// °¡À§, º¸, ÀÌ±è
-				//alert("ÀÌ°å³»¿ä");
-				document.getElementsByName("result")[0].value="ÀÌ°å³»¿ä";
+			if(yourSelect.includes("gawi")) {// ê°€ìœ„, ë³´, ì´ê¹€
+				//alert("ì´ê²¼ë‚´ìš”");
+				document.getElementsByName("result")[0].value="ì´ê²¼ë‚´ìš”";
 				current=current + 2*betting;
 				document.getElementsByName("current")[0].value=current;
 				document.getElementsByName("betting")[0].value=0;
 				comPnt = comPnt - betting;
 				document.getElementsByName("comPnt")[0].value=comPnt;
-				//±â·Ï¾÷´ëÀÌÆ®
+				//ê¸°ë¡ì—…ëŒ€ì´íŠ¸
 				pnl_result = pnl_result+"\n"+document.getElementsByName('datum')[0].value+" :"+
-				document.getElementsByName("result")[0].value+" , °³ÀÌ¸Ó : "+yourSelect+", ÄÄÇ»ÅÍ : "+ comterSelect+ ", ¹èÆÃÆ÷ÀÎÆ® :"+ betting;
+				document.getElementsByName("result")[0].value+" , ê°œì´ë¨¸ : "+yourSelect+", ì»´í“¨í„° : "+ comterSelect+ ", ë°°íŒ…í¬ì¸íŠ¸ :"+ betting;
 				document.getElementsByName("res_Pnl")[0].value=pnl_result;
 
 				ll=0;
 				return;
 			}
-			if(yourSelect.includes("bo")){// º¸, º¸, ºñ±è
-				//alert("ºñ°å³»¿ä");
-				document.getElementsByName("result")[0].value="ºñ°å³»¿ä";
+			if(yourSelect.includes("bo")){// ë³´, ë³´, ë¹„ê¹€
+				//alert("ë¹„ê²¼ë‚´ìš”");
+				document.getElementsByName("result")[0].value="ë¹„ê²¼ë‚´ìš”";
 				current=current + betting;
 				document.getElementsByName("current")[0].value=current;
 				document.getElementsByName("betting")[0].value=0;
 
-				//±â·Ï¾÷´ëÀÌÆ®
+				//ê¸°ë¡ì—…ëŒ€ì´íŠ¸
 				pnl_result = pnl_result+"\n"+document.getElementsByName('datum')[0].value+" :"+
-				document.getElementsByName("result")[0].value+" , °³ÀÌ¸Ó : "+yourSelect+", ÄÄÇ»ÅÍ : "+ comterSelect+ ", ¹èÆÃÆ÷ÀÎÆ® :"+ betting;
+				document.getElementsByName("result")[0].value+" , ê°œì´ë¨¸ : "+yourSelect+", ì»´í“¨í„° : "+ comterSelect+ ", ë°°íŒ…í¬ì¸íŠ¸ :"+ betting;
 				document.getElementsByName("res_Pnl")[0].value=pnl_result;
 
 				
@@ -157,17 +157,17 @@
 				return;
 
 			}
-			if(yourSelect.includes("bawi")){// ¹ÙÀ§, º¸, Áü
-				//alert("Á³³»¿ä");
-				document.getElementsByName("result")[0].value="Á³³»¿ä";
+			if(yourSelect.includes("bawi")){// ë°”ìœ„, ë³´, ì§
+				//alert("ì¡Œë‚´ìš”");
+				document.getElementsByName("result")[0].value="ì¡Œë‚´ìš”";
 				//document.getElementsByName("current")[0].value=current;
 				document.getElementsByName("betting")[0].value=0;
 				comPnt = comPnt + betting;
 				document.getElementsByName("comPnt")[0].value=comPnt;
 
-				//±â·Ï¾÷´ëÀÌÆ®
+				//ê¸°ë¡ì—…ëŒ€ì´íŠ¸
 				pnl_result = pnl_result+"\n"+document.getElementsByName('datum')[0].value+" :"+
-				document.getElementsByName("result")[0].value+" , °³ÀÌ¸Ó : "+yourSelect+", ÄÄÇ»ÅÍ : "+ comterSelect+ ", ¹èÆÃÆ÷ÀÎÆ® :"+ betting;
+				document.getElementsByName("result")[0].value+" , ê°œì´ë¨¸ : "+yourSelect+", ì»´í“¨í„° : "+ comterSelect+ ", ë°°íŒ…í¬ì¸íŠ¸ :"+ betting;
 				document.getElementsByName("res_Pnl")[0].value=pnl_result;
 
 				
@@ -179,51 +179,51 @@
 //
 	if(comterSelect.includes("gawi")){
 		comterSelect = "gawi.gif";
-			if(yourSelect.includes("bawi")) {// °¡À§, º¸, ÀÌ±è
-				//alert("ÀÌ°å³»¿ä");
-				document.getElementsByName("result")[0].value="ÀÌ°å³»¿ä";
+			if(yourSelect.includes("bawi")) {// ê°€ìœ„, ë³´, ì´ê¹€
+				//alert("ì´ê²¼ë‚´ìš”");
+				document.getElementsByName("result")[0].value="ì´ê²¼ë‚´ìš”";
 				current=current + 2*betting;
 				document.getElementsByName("current")[0].value=current;
 				document.getElementsByName("betting")[0].value=0;
 				comPnt = comPnt - betting;
 				document.getElementsByName("comPnt")[0].value=comPnt;
 
-				//±â·Ï¾÷´ëÀÌÆ®
+				//ê¸°ë¡ì—…ëŒ€ì´íŠ¸
 				pnl_result = pnl_result+"\n"+document.getElementsByName('datum')[0].value+" :"+
-				document.getElementsByName("result")[0].value+" , °³ÀÌ¸Ó : "+yourSelect+", ÄÄÇ»ÅÍ : "+ comterSelect+ ", ¹èÆÃÆ÷ÀÎÆ® :"+ betting;
+				document.getElementsByName("result")[0].value+" , ê°œì´ë¨¸ : "+yourSelect+", ì»´í“¨í„° : "+ comterSelect+ ", ë°°íŒ…í¬ì¸íŠ¸ :"+ betting;
 				document.getElementsByName("res_Pnl")[0].value=pnl_result;
 				
 				ll=0;
 				return;
 			}
-			if(yourSelect.includes("gawi")){// º¸, º¸, ºñ±è
-				//alert("ºñ°å³»¿ä");
-				document.getElementsByName("result")[0].value="ºñ°å³»¿ä";
+			if(yourSelect.includes("gawi")){// ë³´, ë³´, ë¹„ê¹€
+				//alert("ë¹„ê²¼ë‚´ìš”");
+				document.getElementsByName("result")[0].value="ë¹„ê²¼ë‚´ìš”";
 				current=current + betting;
 				document.getElementsByName("current")[0].value=current;
 				document.getElementsByName("betting")[0].value=0;
 
-				//±â·Ï¾÷´ëÀÌÆ®
+				//ê¸°ë¡ì—…ëŒ€ì´íŠ¸
 				pnl_result = pnl_result+"\n"+document.getElementsByName('datum')[0].value+" :"+
-				document.getElementsByName("result")[0].value+" , °³ÀÌ¸Ó : "+yourSelect+", ÄÄÇ»ÅÍ : "+ comterSelect+ ", ¹èÆÃÆ÷ÀÎÆ® :"+ betting;
+				document.getElementsByName("result")[0].value+" , ê°œì´ë¨¸ : "+yourSelect+", ì»´í“¨í„° : "+ comterSelect+ ", ë°°íŒ…í¬ì¸íŠ¸ :"+ betting;
 				document.getElementsByName("res_Pnl")[0].value=pnl_result;
 
 				ll=0;
 				return;
 
 			}
-			if(yourSelect.includes("bo")){// ¹ÙÀ§, º¸, Áü
+			if(yourSelect.includes("bo")){// ë°”ìœ„, ë³´, ì§
 
-				//alert("Á³³»¿ä");
-				document.getElementsByName("result")[0].value="Á³³»¿ä";
+				//alert("ì¡Œë‚´ìš”");
+				document.getElementsByName("result")[0].value="ì¡Œë‚´ìš”";
 				//document.getElementsByName("current")[0].value=current;
 				document.getElementsByName("betting")[0].value=0;
 				comPnt = comPnt + betting;
 				document.getElementsByName("comPnt")[0].value=comPnt;
 
-				//±â·Ï¾÷´ëÀÌÆ®
+				//ê¸°ë¡ì—…ëŒ€ì´íŠ¸
 				pnl_result = pnl_result+"\n"+document.getElementsByName('datum')[0].value+" :"+
-				document.getElementsByName("result")[0].value+" , °³ÀÌ¸Ó : "+yourSelect+", ÄÄÇ»ÅÍ : "+ comterSelect+ ", ¹èÆÃÆ÷ÀÎÆ® :"+ betting;
+				document.getElementsByName("result")[0].value+" , ê°œì´ë¨¸ : "+yourSelect+", ì»´í“¨í„° : "+ comterSelect+ ", ë°°íŒ…í¬ì¸íŠ¸ :"+ betting;
 
 				ll=0;
 				return;
@@ -233,51 +233,51 @@
 
 		if(comterSelect.includes("bawi")){
 			comterSelect = "bawi.gif";
-			if(yourSelect.includes("bo")) {// °¡À§, º¸, ÀÌ±è
-				//alert("ÀÌ°å³»¿ä");
-				document.getElementsByName("result")[0].value="ÀÌ°å³»¿ä";
+			if(yourSelect.includes("bo")) {// ê°€ìœ„, ë³´, ì´ê¹€
+				//alert("ì´ê²¼ë‚´ìš”");
+				document.getElementsByName("result")[0].value="ì´ê²¼ë‚´ìš”";
 				current=current + 2*betting;
 				document.getElementsByName("current")[0].value=current;
 				document.getElementsByName("betting")[0].value=0;
 				comPnt = comPnt - betting;
 				document.getElementsByName("comPnt")[0].value=comPnt;
 
-				//±â·Ï¾÷´ëÀÌÆ®
+				//ê¸°ë¡ì—…ëŒ€ì´íŠ¸
 				pnl_result = pnl_result+"\n"+document.getElementsByName('datum')[0].value+" :"+
-				document.getElementsByName("result")[0].value+" , °³ÀÌ¸Ó : "+yourSelect+", ÄÄÇ»ÅÍ : "+ comterSelect+ ", ¹èÆÃÆ÷ÀÎÆ® :"+ betting;
+				document.getElementsByName("result")[0].value+" , ê°œì´ë¨¸ : "+yourSelect+", ì»´í“¨í„° : "+ comterSelect+ ", ë°°íŒ…í¬ì¸íŠ¸ :"+ betting;
 				document.getElementsByName("res_Pnl")[0].value=pnl_result;
 				
 				ll=0;
 				return;
 			}
-			if(yourSelect.includes("bawi")){// º¸, º¸, ºñ±è
-				//alert("ºñ°å³»¿ä");
-				document.getElementsByName("result")[0].value="ºñ°å³»¿ä";
+			if(yourSelect.includes("bawi")){// ë³´, ë³´, ë¹„ê¹€
+				//alert("ë¹„ê²¼ë‚´ìš”");
+				document.getElementsByName("result")[0].value="ë¹„ê²¼ë‚´ìš”";
 				current=current + betting;
 				document.getElementsByName("current")[0].value=current;
 				document.getElementsByName("betting")[0].value=0;
 
-				//±â·Ï¾÷´ëÀÌÆ®
+				//ê¸°ë¡ì—…ëŒ€ì´íŠ¸
 				pnl_result = pnl_result+"\n"+document.getElementsByName('datum')[0].value+" :"+
-				document.getElementsByName("result")[0].value+" , °³ÀÌ¸Ó : "+yourSelect+", ÄÄÇ»ÅÍ : "+ comterSelect+ ", ¹èÆÃÆ÷ÀÎÆ® :"+ betting;
+				document.getElementsByName("result")[0].value+" , ê°œì´ë¨¸ : "+yourSelect+", ì»´í“¨í„° : "+ comterSelect+ ", ë°°íŒ…í¬ì¸íŠ¸ :"+ betting;
 				document.getElementsByName("res_Pnl")[0].value=pnl_result;
 
 				ll=0;
 				return;
 
 			}
-			if(yourSelect.includes("gawi")){// ¹ÙÀ§, º¸, Áü
+			if(yourSelect.includes("gawi")){// ë°”ìœ„, ë³´, ì§
 
-				//alert("Á³³»¿ä");
-				document.getElementsByName("result")[0].value="Á³³»¿ä";
+				//alert("ì¡Œë‚´ìš”");
+				document.getElementsByName("result")[0].value="ì¡Œë‚´ìš”";
 				//document.getElementsByName("current")[0].value=current;
 				document.getElementsByName("betting")[0].value=0;
 				comPnt = comPnt + betting;
 				document.getElementsByName("comPnt")[0].value=comPnt;
 
-				//±â·Ï¾÷´ëÀÌÆ®
+				//ê¸°ë¡ì—…ëŒ€ì´íŠ¸
 				pnl_result = pnl_result+"\n"+document.getElementsByName('datum')[0].value+" :"+
-				document.getElementsByName("result")[0].value+" , °³ÀÌ¸Ó : "+yourSelect+", ÄÄÇ»ÅÍ : "+ comterSelect+ ", ¹èÆÃÆ÷ÀÎÆ® :"+ betting;
+				document.getElementsByName("result")[0].value+" , ê°œì´ë¨¸ : "+yourSelect+", ì»´í“¨í„° : "+ comterSelect+ ", ë°°íŒ…í¬ì¸íŠ¸ :"+ betting;
 				document.getElementsByName("res_Pnl")[0].value=pnl_result;
 
 				ll=0;
